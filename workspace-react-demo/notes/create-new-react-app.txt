@@ -1,0 +1,14 @@
+// define application runtime dependencies and dev dependencies
+1. create package.json
+
+// Define runtime deployment environemnt to run applcation in wepack-dev-server in memory
+2. create web.config.dev.ts
+
+// Define creation of build.js/index.html distribution of application for container
+3. create web-config.prod.ts
+
+// define typescript compiler options, used in webpack configurations of transpiler
+4. create tsconfig.json
+
+// define behavior of eslint eror checking to enforce consistent best practices
+5. create .eslintrc.json

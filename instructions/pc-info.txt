@@ -1,0 +1,18 @@
+Device name	DESKTOP-QDU68N9
+Processor	Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz   2.59 GHz
+Installed RAM	16.0 GB (15.8 GB usable)
+Device ID	87BA1899-0108-457B-B0DA-06124A1CED4F
+Product ID	00325-82112-76293-AAOEM
+System type	64-bit operating system, x64-based processor
+Pen and touch	Touch support with 10 touch points
+
+Edition	Windows 10 Home
+Version	20H2
+Installed on	‎4/‎24/‎2021
+OS build	19042.964
+Experience	Windows Feature Experience Pack 120.2212.2020.0
+
+
+C:\Windows\system32>wmic path softwarelicensingservice get OA3xOriginalProductKey
+OA3xOriginalProductKey
+BHH2C-JNB44-JYMPV-3GQ8M-MY47D

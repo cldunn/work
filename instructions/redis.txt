@@ -1,0 +1,18 @@
+Install Redis on Ubuntu
+To install Redis on Ubuntu, go to the terminal and type the following commands −
+
+$sudo apt-get update 
+$sudo apt-get install redis-server
+=====================================================================================
+Start Redis
+$redis-server
+=====================================================================================
+Check If Redis is Working
+$redis-cli 
+This will open a redis prompt.
+
+redis 127.0.0.1:6379>
+In the above prompt, 127.0.0.1 is your machine's IP address and 6379 is the port on which Redis server is running. Now type the following PING command.
+
+redis 127.0.0.1:6379> ping 
+PONG
