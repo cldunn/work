@@ -1,0 +1,15 @@
+{
+    "include": ["./src/", "./types/"],
+    "exclude": ["./node_modules/", "./dist/"],
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "target": "esnext",
+        "sourceMap": true,
+        "jsx": "react",
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "typeRoots": ["./node_modules/@types", "./types"]
+    }
+}

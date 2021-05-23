@@ -1,6 +1,71 @@
 // define application runtime dependencies and dev dependencies
 1. create package.json
 
+react, react-dom, router, redux, axios, toastify
+
+npm install --save react
+npm install --save react-dom
+npm imstall --save react-bootstrap-v5
+npm install --save-dev webpack webpack-cli @types/webpack
+npm install --save-dev webpack-dev-server @types/webpack-dev-server
+npm install --save-dev html-webpack-plugin
+npm install --save-dev typescript ts-loader ts-node
+npm install --save-dev css-loader style-loader sass-loader sass
+npm install --save-dev fork-ts-checker-webpack-plugin
+
+npm install --save-dev eslint
+npm install --save-dev eslint-plugin-import
+npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
+
+npm install eslint-plugin-react-hooks --save-dev
+
+npm install --save-dev style-loader
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
+
+npm install --save-dev css-loader
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+};
+
+npm install --save-dev css-loader style-loader sass-loader sass
+
+npm install --save-dev style-loader
+npm install --save-dev css-loader
+npm install sass-loader sass webpack --save-dev
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+};
 // Define runtime deployment environemnt to run applcation in wepack-dev-server in memory
 2. create web.config.dev.ts
 
