@@ -1,12 +1,13 @@
 import path from 'path';
-import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'production';
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   target: 'web',
   entry: './src/index.tsx',
   output: {
@@ -32,8 +33,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
+          // Extracts CSS into separate files
+          MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
@@ -46,15 +47,14 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    historyApiFallback: true,
-    stats: 'minimal',
-    port: 3000,
-    open: true,
-    hot: true
+  optimization: {
+    minimize: true,
+    minimizer: [
+      `...`,  // extend existing minimizers (i.e. `terser-webpack-plugin`)
+      new CssMinimizerPlugin(),
+    ],
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
@@ -65,6 +65,8 @@ module.exports = {
         files: './src/**/*.{ts,tsx,js,jsx}' // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       }
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css"
+    })
   ]
 };

@@ -1,0 +1,46 @@
+1.  React Router - Login, Landing                       [1 weeks]
+2.  Spring MVC/Postman                                  [1 weeks]
+3.  Axios - ApiService wrapper for server side calls    [3 weeks]
+		security/headers
+		business errors
+4.  Spring Security - Basic Auth                        [4 weeks]
+		a. UserDetail
+		b. Swagger
+		c. Spring Data, JPA
+			i.  configuration
+			ii. transaction management
+5.  Axios - interceptor                                 [2 weeks]
+		a. http error handling / toastify
+6.  useContext/Redux                                    [4 weeks]
+		a. userInfo/authorities
+		b. i18n
+			i. properties
+7. 	react-bootstrap                                     [5 weeks]
+        a. menus
+		b. responsive forms
+		c. tabstrip - dynamic
+		d. form field validation
+8. 	React Swimlane		                                [4 weeks]
+		a. Grid
+		b. Splitter
+9. 	JPA / multitenant                                   [4 weeks]
+		a. discriminator/filter - tenand_id
+			i.  https://vivareddy.medium.com/muti-tenant-with-discriminator-column-hibernate-implementation-a363f03b1d10
+			ii. https://dzone.com/articles/adding-hibernate-entity-level
+		b. impl
+			i.  specification
+			ii. byExample
+		c. @Prepersist,@PreRemove,@PostPersist,@PostRemove,@PreUpdate,@PostUpdate,@PostLoad
+10  Redis                                               
+		a. i18n cached
+		b. Spring Data
+11. CSRF, XXS, https                                    
+12. OAuth w/ KeyCloak
+13. Config Server (microservices)
+14. Micro Service, Eureak, Api Gateway
+		a. logging
+		b. resiliency
+		c. monitoring
+15. Docker
+16,	Kubernetes
+17. Cloud (AWS)
