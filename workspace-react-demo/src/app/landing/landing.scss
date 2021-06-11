@@ -1,0 +1,16 @@
+@import '../../App.scss';
+
+.landing-containerr {
+    margin: 8px;
+    @extend .full;
+    @extend .flex-container;
+    & form {
+        text-align: right
+    }
+    &>div {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        @extend .flex-contained;
+    }
+}
