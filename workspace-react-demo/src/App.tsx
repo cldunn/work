@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <div className='full'>
       <Switch>
-        <Route path="/landing" component={Landing} />
+        <Route path="/topics" component={Landing} />
         <Route path="/" component={Login} />
       </Switch>
     </div>
