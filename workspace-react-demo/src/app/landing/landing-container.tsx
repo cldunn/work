@@ -5,8 +5,7 @@ import { BoxArrowLeft } from "react-bootstrap-icons";
 import {
     Link,
     Route,
-    useParams,
-    useRouteMatch
+    useParams
   } from 'react-router-dom'
 
 import './landing.scss';
@@ -18,124 +17,69 @@ const Landing: React.FC = (props: any)  => {
         props.history.push('/login');
     }
 
-    const topics = [
-        {
-            name: 'React Router',
-            id: 'react-router',
-            description: 'Declarative, component based routing for React',
-            resources: [
-            {
-                name: 'URL Parameters',
-                id: 'url-parameters',
-                description: "URL parameters are parameters whose values are set dynamically in a page's URL. This allows a route to render the same component while passing that component the dynamic portion of the URL so it can change based off of it.",
-                url: 'https://ui.dev/react-router-v5-url-parameters/'
-            },
-            {
-                name: 'Programmatically navigate',
-                id: 'programmatically-navigate',
-                description: "When building an app with React Router, eventually you'll run into the question of navigating programmatically. The goal of this post is to break down the correct approaches to programmatically navigating with React Router.",
-                url: 'https://ui.dev/react-router-v5-programmatically-navigate/'
-            }
-          ]
-        },
-        {
-          name: 'React.js',
-          id: 'reactjs',
-          description: 'A JavaScript library for building user interfaces',
-          resources: [
-            {
-              name: 'React Lifecycle Events',
-              id: 'react-lifecycle',
-              description: "React Lifecycle events allow you to tie into specific phases of a component's life cycle",
-              url: 'https://ui.dev/an-introduction-to-life-cycle-events-in-react-js/'
-            },
-            {
-              name: 'React AHA Moments',
-              id: 'react-aha',
-              description: "A collection of 'Aha' moments while learning React.",
-              url: 'https://ui.dev/react-aha-moments/'
-            }
-          ]
-        },
-        {
-          name: 'Functional Programming',
-          id: 'functional-programming',
-          description: 'In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.',
-          resources: [
-            {
-              name: 'Imperative vs Declarative programming',
-              id: 'imperative-declarative',
-              description: 'A guide to understanding the difference between Imperative and Declarative programming.',
-              url: 'https://ui.dev/imperative-vs-declarative-programming/'
-            },
-            {
-              name: 'Building User Interfaces with Pure Functions and Function Composition',
-              id: 'fn-composition',
-              description: 'A guide to building UI with pure functions and function composition in React',
-              url: 'https://ui.dev/building-user-interfaces-with-pure-functions-and-function-composition-in-react-js/'
-            }
-          ]
+    const demos = [{
+        name: 'Simple Demo',
+        id: 'simpleDemo',
+        detail: {
+            description: 'React UI to Spring API using basic security and JPA persistence using hibernate.'
         }
-    ]
+    }, {
+        name: 'Simple Demo using Redis',
+        id: 'redisDemo',
+        detail: {
+            description: 'React UI to Spring API using basic security, Redis cache and muti-tenant (via discriminator) JPA persistence using hibernate.'
+        }
+    }, {
+        name: 'Simple Demo with OAuth2',
+        id: 'oauth2Demo',
+        detail: {
+            description: 'React UI to Spring API using OAuth2 with KeyCloak, Redis cache and muti-tenant (via discriminator) JPA persistence using hibernate.'
+        }
+    }, {
+        name: 'Simple Demo using Cloud Config Server',
+        id: 'cloudDemo',
+        detail: {
+            description: 'React UI to Spring API using OAuth2 with KeyCloak, Cloud configuration server, Redis cache and muti-tenant (via discriminator) JPA persistence using hibernate.'
+        }
+    }]
 
-    function Resource () {
-        const { topicId, subId } = useParams<{topicId: string, subId: string}>()
+    
+    function Demo () {
+        const { demoId } = useParams<{demoId: string}>();
+        
+        // use "useRouteMatch" hook to get match info
+        // let match = useRouteMatch("/blog/:slug");
       
-        const topic = topics.find(({ id }) => id === topicId)
-          .resources.find(({ id }) => id === subId)
+        const demo = demos.find(({ id }) => id === demoId)
       
         return (
             <div>
-                <h3>{topic.name}</h3>
-                <p>{topic.description}</p>
-                <a href={topic.url}>More info.</a>
-            </div>
-        )
-    }
-
-    function Topic () {
-        const { topicId } = useParams<{topicId: string}>();
-        const { url, path } = useRouteMatch();
-      
-        const topic = topics.find(({ id }) => id === topicId)
-      
-        return (
-            <div>
-                <h2>{topic.name}</h2>
-                <p>{topic.description}</p>
-      
-                <ul>
-                    {topic.resources.map((sub) => (
-                    <li key={sub.id}>
-                        <Link to={`${url}/${sub.id}`}>{sub.name}</Link>
-                    </li>
-                ))}
-                </ul>
-      
+                { /* Replace link to=demo route */ }
+                <Link to='/login'>{demo.name}</Link>
+                <p>{demo.detail.description}</p>
+               
                 <hr />
       
-                <Route path={`${path}/:subId`}>
-                    <Resource />
-                </Route>
+                { /* Add multiple <Redirect from="demo[id] to="apporpriate page"/> */}
             </div>
         )
     }
 
-    function Topics () {
+    function Demos () {
         return (
             <div>
-                <h1>Topics</h1>
+                <h1>Demos</h1>
                 <ul>
-                    {topics.map(({ name, id }) => (
+                    {demos.map(({ name, id }) => (
                         <li key={id}>
-                            <Link to={`/topics/${id}`}>{name}</Link>
+                            <Link to={`/demos/${id}`}>{name}</Link>
                         </li>
                     ))}
                 </ul>
                 <hr />
       
-                <Route path={`/topics/:topicId`}>
-                  <Topic />
+                <Route path={`/demos/:demoId`}>
+                  <Demo />
                 </Route>
           </div>
         )
@@ -149,7 +93,7 @@ const Landing: React.FC = (props: any)  => {
                 </Form>
             </Navbar>
             <div>
-                <Topics />
+                <Demos />
             </div>
         </div>
     )

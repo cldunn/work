@@ -11,6 +11,11 @@
         display: flex; 
         align-items: center;
         justify-content: center;
+        @extend .flex-container;
         @extend .flex-contained;
+        &>div {
+            width: 50%;
+            @extend .flex-contained;
+        }
     }
 }

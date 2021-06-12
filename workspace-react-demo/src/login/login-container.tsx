@@ -6,7 +6,7 @@ import './login.scss';
 const Login: React.FC = (props: any) => {
     const handleSubmit = (evt: any) => {
         evt.preventDefault();
-        props.history.push('./topics');
+        props.history.push('./demos');
     }
 
     return (
