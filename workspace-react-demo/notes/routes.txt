@@ -94,7 +94,7 @@ Routes API
 					search - (string) The URL query string
 					hash - (string) The URL hash fragment
 					state - (object) location-specific state that was provided to e.g. push(path, state) when this location was pushed onto the stack. Only available in browser and memory history.
-				push(path, [state]) 
+				push(path, [state]) // note:use back ticks and ${...} to use path variables in path (eg.  history.push(`cosntPartOfUrl/${pathVar}`);)
 				replace(path, [state])
 				go(n) - (function) // + or -
 		
@@ -124,7 +124,7 @@ Routes API
 		
 	Link - declarative, accessible navigation 
 		to: 
-			string - A string Link location, oncatenate location’s pathname, search, and hash properties.
+			string - A string Link location, concatenate location’s pathname, search, and hash properties.
 			object - An object having: pathname: path to link to, search: string query parameters, hash: hash put in the URL, e.g. #a-hash, state: state to persist to the location.
 			function - function to which current location is passed, returning location as a string or as an objec
 		

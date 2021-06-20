@@ -1,21 +1,23 @@
 @import '../../App.scss';
 
-.landing-containerr {
+.landing-container {
     margin: 8px;
     @extend .full;
     @extend .flex-container;
     & form {
-        text-align: right
+        text-align: right;
+        div {
+            text-align: right;
+            svg {
+                margin: 0px 10px;
+            }
+        }
     }
     &>div {
         display: flex; 
         align-items: center;
         justify-content: center;
-        @extend .flex-container;
+        margin-bottom: 52px;
         @extend .flex-contained;
-        &>div {
-            width: 50%;
-            @extend .flex-contained;
-        }
     }
-}
+} 
