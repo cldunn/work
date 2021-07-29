@@ -1,0 +1,55 @@
+spring boot app via postman
+	@SpringBottApplication
+	@Configuration
+	@PropertySource("classpath:....properties")
+		@Value( "${jdbc.url}" )
+		private String jdbcUrl;
+		
+		@Autowired
+		private Environment env;
+		dataSource.setUrl(env.getProperty("jdbc.url"));
+		
+		// configuration variables
+	ExecutionContext
+		ThreadLocal<AppContext>
+		public class AppContext { // browserLocale
+	Filter
+		set locale
+	i18n
+		ReloadableResourceBundleMessage
+	@RestController
+		BaseController
+		SimpleMvcController
+			return JsonResponseModel versus ResponseEntity<data>
+	swagger
+		yaml
+			SimpleMvcControllerApi
+	@ControllerAdvice
+		// resolve error responses
+	logging (logback.xml)
+		loglevel
+	profile
+		dev   (loglevel=debug)
+		prod  (loglevel=warn)
+
+======================================================================
+status code      - http status code     
+error message    - error message/header (String)
+error details    - error details (String[])
+data map         - Map<String, Object> => JSON
+				   * interceptors must have access to all attributes
+				   
+ResponseEntity 
+	has body headers, statusCode
+	=> body needs to contain: error message, error details and data map
+
+JsonResponeModelAndView
+    follows builder pattern (easier to read)
+    status superfluous
+	constructors defined status, error message/detail
+	has Message
+						
+controller returns ResponseEntity<JsonResponseModelAndView> // enables spring view, model/view accessable via ResponseEntity.getBody(), now have response headers, status replaced via status code (more REST api)
+	=> change JsonResponseModelAndView, keep Message (message/header + [details]): add hasDetails() (error determined via status code), let i18n and permissions just be part of data, only part of pageConfig,
+	=> keep builder pattern, constructor (), (Message msg), (Message msg); then .data(key, value)...
+	

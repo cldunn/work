@@ -5,8 +5,10 @@
     @extend .full;
     @extend .flex-container;
     &>nav>form {
+        width: 100%;
         text-align: right;
         div {
+            width: 100%;
             text-align: right;
             svg {
                 margin: 0px 10px;

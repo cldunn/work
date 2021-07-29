@@ -1,0 +1,118 @@
+1. axios, apiService, http/biz error handling, spring-boot, spring-mvc, exceptionhandler, profile (dev.prod), logging (debug, warning), jackson, swagger, postman (export)
+2. react search form/grid with delete(s), split screen and add/edit form, spring service/repositories, spring data, JPA specification, schema.sql/data.sql, profile (dev/prod databases), (msSql/postgresql), 
+   junit tests, integration tests, db unit
+3. Spring security, supress, define passord in application.properties, BASIC - custom classes, authorities, method level permissions
+4. Spring Redis cache - Users, spring-boot-starter-mail, "file download"
+5. OAuth2, Keycloak
+6. OAuth2, Custom
+7. Gateway, configuration service, Discovery & micro-service
+8. Docker
+9. Kubernetes
+10 AWS Cloud deployment
+
+
+1.  npm install axios
+2.	spring boot
+	pom.xml
+		<parent><groupId>org.springframework.boot<artifactId>spring-boot-starter-parent
+		<groupId>org.springframework.boot<aretifactId>spring-boot-starter-parent
+		
+		<properties>
+		<respositories>
+		
+		<dependencies>
+			spring-boot-start-web
+			com.fasterxml.jackson.core
+				jackson-core
+				jacokson-databind
+				jackson-snnotations
+			org.apache.commons
+				commons-lang3
+				commons-text
+				commons-beanutils
+				commons-collections4
+			commons-io
+				commons-io
+			org.apache..logging.log4j
+				log4j-core
+			org.springframework
+				spring.web
+			org.springframework.boot				
+				spring-boot-starter-security
+				spring-boot-starter-data-jpa
+				
+				spring-boot-starter-test
+				
+			org.hibernate-validator
+				hibernate-validator
+				hibernate-validator-annotation-processor
+			com.microsoft.sqlserver
+				mssql-jdbc (runtime)
+			org.postgresql
+				postgresql
+			org.springframework.security
+				spring-security-test
+			org.powermock
+				powermock-module-junit4
+				powermock-api-mockito
+			org.dbuint
+				dbunit
+			io.springfox
+				springfox-swagger2
+				springfox-swagger-io
+				springofx-bean-validators
+				
+		<build>
+			<finalName>...
+			<plugins>
+				<plugin>
+					org.springframework.boot
+						spring-boot-maven-plugin
+				<plugin>
+					io.swagger.codegen.v3
+						swagger.codegen.maven.plugin
+						executions
+							execution
+								<id>WhateverPage
+								<goals><goal>generate
+								<configrations>
+									<inputSpec>....yaml
+									<language>spring
+									<apiPackage>
+									<modelPackage>
+									<configOptions>
+										<sourceFolder>src
+										<useBeanValidation>true
+										<returnResponse>true
+										<useOas2>false
+										<interfaceOnly>true
+										<java8>true
+									<importMapings>
+										<importMapping>
+									<library>spring-boot
+3. add controller to spring application
+4. invoke spring controller from postman, save exported postman
+5. invoke spring controller using axios
+6. move axios to apiService, and invoke via service
+7. incorporate axios interceptor
+8. add controller exception handler
+9. send react form parameters to controller, via jackson
+10. show message / handle business error / handle system error
+11. incorporate spring profile dev/prod for logging levels
+
+
+9. add spring security, add password to application.properties
+10. map out BASIC spring security classes/methods, via login and controller
+11. add 2nd controller, handle unauthorized access
+12. add JPA respositories access using specification (1:1, 1:M, M:1, M:M, uni-dercetional, bi-directional)
+12. junit tests for repositories
+13. display results in grid, with sorting and paging, return results using JsonResponseModel
+13  powermock intergration tests
+14. place readme in tab in tabstrip, dynamically open tab with search form and grid (see 13)
+15. split screen horizontally showing server side logging
+15. split screen vertically showing add/update form
+17. CSRF tokens
+18. Anti Samy filter
+				
+				
+				

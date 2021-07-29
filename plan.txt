@@ -44,3 +44,17 @@
 15. Docker
 16,	Kubernetes
 17. Cloud (AWS)
+=================================================
+
+workspace-react-libs      // chared components, axios, redux store, tab-strip, grid, split screen, ...
+workspace-react-demo      // ui only at root, navigate amongst demos
+	src
+		app
+			simple-mvc  // ui
+				components
+					landing
+		common
+		demos
+		login
+			
+simple-mvc  // api
