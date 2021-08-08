@@ -21,12 +21,14 @@
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.4",
         "react-router-dom": "^5.2.0",
-        "reactstrap": "^8.9.0"
+        "reactstrap": "^8.9.0",
+        "redux-logger": "^3.0.6"
     },
     "devDependencies": {
         "@types/react": "^17.0.6",
         "@types/react-dom": "^17.0.5",
         "@types/react-router-dom": "^5.1.7",
+        "@types/redux-logger": "^3.0.9",
         "@types/webpack": "^5.28.0",
         "@types/webpack-dev-server": "^3.11.4",
         "@typescript-eslint/eslint-plugin": "^4.24.0",

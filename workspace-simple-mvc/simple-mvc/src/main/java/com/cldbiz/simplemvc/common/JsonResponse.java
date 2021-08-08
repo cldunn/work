@@ -82,34 +82,39 @@ public class JsonResponse extends HashMap<String, Object> {
 
 	
 	public static class Builder {
-		private JsonResponse jsonResponseModelAndView;
+		private JsonResponse jsonResponse;
 		
 		public Builder() {
-			jsonResponseModelAndView = new JsonResponse();
+			jsonResponse = new JsonResponse();
 		}
 
 		public Builder(String msgContent) {
-			jsonResponseModelAndView = new JsonResponse();
-			jsonResponseModelAndView.setMessage(msgContent);
+			jsonResponse = new JsonResponse();
+			jsonResponse.setMessage(msgContent);
 		}
 
 		public Builder(String msgContent, List<String> msgDetails) {
-			jsonResponseModelAndView = new JsonResponse();
-			jsonResponseModelAndView.setMessage(msgContent, msgDetails);
+			jsonResponse = new JsonResponse();
+			jsonResponse.setMessage(msgContent, msgDetails);
 		}
 
 		public Builder(String msgContent, String... msgDetails) {
-			jsonResponseModelAndView = new JsonResponse();
-			jsonResponseModelAndView.setMessage(msgContent, msgDetails);
+			jsonResponse = new JsonResponse();
+			jsonResponse.setMessage(msgContent, msgDetails);
 		}
 
-		public Builder data(String key, Object value) {
-			jsonResponseModelAndView.getData().put(key, value);
+		public Builder addData(HashMap<String, Object> data) {
+			jsonResponse.put(JsonResponse.DATA_KEY, data);
+			return this;
+		}
+		
+		public Builder addData(String key, Object value) {
+			jsonResponse.getData().put(key, value);
 			return this;
 		}
 		
 		public JsonResponse built() {
-			return jsonResponseModelAndView;
+			return jsonResponse;
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package com.cldbiz.simplemvc.interceptor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -8,13 +10,18 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.cldbiz.simplemvc.common.JsonResponse;
+import com.cldbiz.simplemvc.controller.SimpleMvcController;
 import com.cldbiz.simplemvc.exception.ApplicationException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
-
+	private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+	
 	@ExceptionHandler(ApplicationException.class)
 	public ResponseEntity<JsonResponse> handleApplicationExcpetion(ApplicationException appEx, WebRequest request) {
+		LOGGER.info("This is an informative message from exception handler");
+		LOGGER.debug("This is a debug message from exception handler");
+		
 		// TODO: ONLY IN DEBUG MODE
 		appEx.printStackTrace();
 		

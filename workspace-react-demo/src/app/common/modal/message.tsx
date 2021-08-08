@@ -1,14 +1,13 @@
 import React from "react";
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectShowModal, selectModalMessage } from '../commonSlice';
 
 import './message.scss';
 
-const Message: React.FC = (props: any)  => {
+const Message: React.FC = ()  => {
     const showModal = useSelector(selectShowModal);
     const msg = useSelector(selectModalMessage);
-    const dispatch = useDispatch();
 
     return (
         <>

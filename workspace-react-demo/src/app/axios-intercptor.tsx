@@ -1,15 +1,12 @@
 import axios from 'axios';
 import {Dispatch } from 'redux';
 
-import Message from './common/modal/message';
-
 import { commonIsLoading } from './common/commonSlice';
 
 const createInterceptors = (dispatch: Dispatch): void => {
 
     axios.interceptors.request.use(
         (req) => {
-            // handle security
             dispatch(commonIsLoading(true));
             console.log('interceptors.request.use success request: ', req);
 
@@ -46,7 +43,8 @@ const createInterceptors = (dispatch: Dispatch): void => {
                     }
                 }
 
-                return res.data.data;
+                // return res.data.data;
+                return Promise.resolve(res.data.data);
             }
             return res;
         },
@@ -64,14 +62,14 @@ const createInterceptors = (dispatch: Dispatch): void => {
                     modalMessage: jsonResp.message
                 }});
 
-                return Promise.reject(jsonResp.data);
+                // return Promise.reject(jsonResp.data);
             }
             else {
                 console.log('interceptors.response.use failure err (none): ', err);
-                return Promise.reject(err);
+                // return Promise.reject(err);
             }
-                        
-            
+
+            return Promise.reject(err);
         }
     );
 };

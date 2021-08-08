@@ -1,0 +1,6 @@
+2021-08-07 19:49:05 INFO       --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/simple-mvc] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-07 19:49:05 INFO       --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2021-08-07 19:49:05 INFO       --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 0 ms
+2021-08-07 19:49:05 INFO       --- [http-nio-8080-exec-1] c.c.s.i.ControllerExceptionHandler : This is an informative message from exception handler
+2021-08-07 19:49:05 DEBUG      --- [http-nio-8080-exec-1] c.c.s.i.ControllerExceptionHandler : This is a debug message from exception handler
+2021-08-07 19:49:26 INFO       --- [http-nio-8080-exec-3] c.c.s.c.SimpleMvcController : This is an informative message
