@@ -1,7 +1,11 @@
 package com.cldbiz.simplemvc.interceptor;
 
+import java.util.Arrays;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,26 +21,35 @@ import com.cldbiz.simplemvc.exception.ApplicationException;
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 	
+	@Autowired
+	private Environment environment;
+	
 	@ExceptionHandler(ApplicationException.class)
 	public ResponseEntity<JsonResponse> handleApplicationExcpetion(ApplicationException appEx, WebRequest request) {
-		LOGGER.info("This is an informative message from exception handler");
-		LOGGER.debug("This is a debug message from exception handler");
-		
-		// TODO: ONLY IN DEBUG MODE
-		appEx.printStackTrace();
+
+		if (Arrays.asList(environment.getActiveProfiles()).contains("dev")) {
+			// Only if running in dev mode
+			appEx.printStackTrace();
+		}
 		
 		String contentMsg = 
 			appEx.getContent() == null ?
 				appEx.getStatusCode().getReasonPhrase() : appEx.getContent();
 		
-		JsonResponse mv = JsonResponse.getBuilder(contentMsg, appEx.getDetails()).built();
-		return new ResponseEntity<JsonResponse>(mv, appEx.getStatusCode());
+		JsonResponse jsonResp = JsonResponse.getBuilder(contentMsg, appEx.getDetails())
+				.addData(appEx.getData())
+				.built();
+		
+		return new ResponseEntity<JsonResponse>(jsonResp, appEx.getStatusCode());
 	}
 
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<JsonResponse> handleRuntimeExcpetion(Exception ex, WebRequest request) {
-		// TODO: ONLY IN DEBUG MODE
-		ex.printStackTrace();
+		
+		if (Arrays.asList(environment.getActiveProfiles()).contains("dev")) {
+			// Only if running in dev mode
+			ex.printStackTrace();
+		}
 		
 		String errMsg = 
 			ex.getMessage() == null ? 

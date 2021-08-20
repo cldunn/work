@@ -26,6 +26,12 @@ public class ApplicationException extends RuntimeException {
 		this.content = content;
 	}
 	
+	public ApplicationException(String content, List<String> details) {
+		super(new RuntimeException());
+		this.content = content;
+		this.details = details;
+	}
+
 	public ApplicationException(String content, String... details) {
 		super(new RuntimeException());
 		this.content = content;

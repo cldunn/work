@@ -27,3 +27,9 @@ body {
     flex: 1 1;
 }
 
+.row {
+    display: flex; /* equal height of the children */
+}
+.col {
+    flex: 1; /* additionally, equal width */
+}

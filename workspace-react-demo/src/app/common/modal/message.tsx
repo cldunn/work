@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useSelector } from 'react-redux'
-import { selectShowModal, selectModalMessage } from '../commonSlice';
+import { selectShowModal, selectModalMessage } from '../common-slice';
 
 import './message.scss';
 

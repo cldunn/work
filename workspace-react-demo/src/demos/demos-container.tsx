@@ -3,17 +3,21 @@ import React from "react";
 import {
     Link,
     Route,
+    Switch,
     useParams
   } from 'react-router-dom'
 
+import DemosDescription from "./descriptions/demos-description";
+import SimpleMvc from './descriptions/simple-mvc-description';
+  
 import './demos.scss';
 
 const Demos: React.FC = ()  => {
     const demos = [{
-        name: 'Simple Demo',
-        id: 'simpleDemo',
+        name: 'Simple Mvc',
+        id: 'simpleMvc',
         detail: {
-            description: 'React UI to Spring API using basic security and JPA persistence using hibernate.'
+            description: SimpleMvc
         }
     }, {
         name: 'Simple Demo using Redis',
@@ -43,14 +47,16 @@ const Demos: React.FC = ()  => {
         // let match = useRouteMatch("/blog/:slug");
       
         const demo = demos.find(({ id }) => id === demoId)
-      
+
         return (
-            <div>
+            <div className="flex-container">
                 { /* Replace link to=demo route */ }
-                <Link to={`/login/${demo.id}`}>{demo.name}</Link>
-                <p>{demo.detail.description}</p>
+                <div style={{marginBottom: '20px'}}>
+                    <Link to={`/login/${demo.id}`}>Launch {demo.name}</Link>
+                </div>
+
+                {React.createElement(demo.detail.description)}
                
-                <hr />
       
                 { /* Add multiple <Redirect from="demo[id] to="apporpriate page"/> */}
                 
@@ -69,11 +75,11 @@ const Demos: React.FC = ()  => {
                         </li>
                     ))}
                 </ul>
-                <hr />
       
-                <Route path={`/demos/:demoId`}>
-                  <Demo />
-                </Route>
+                <Switch>
+                    <Route path="/demos/:demoId" component={Demo} />
+                    <Route path="/demos" component={DemosDescription} />
+                </Switch>
           </div>
         )
     }

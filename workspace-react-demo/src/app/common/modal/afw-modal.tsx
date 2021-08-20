@@ -2,7 +2,7 @@ import React from "react";
 import {  Modal } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { selectStatus } from '../commonSlice';
+import { selectStatus } from '../common-slice';
 
 import { AfwModalProps } from './afw-modal.types';
 

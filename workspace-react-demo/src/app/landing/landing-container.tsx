@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useCallback, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
-import { selectIsLoading, selectShowAlert, selectAlertMessage, selectShowModal, initApp } from '../common/commonSlice';
+import { selectIsLoading, selectShowAlert, selectAlertMessage, selectShowModal, initApp } from '../common/common-slice';
 
 import { Navbar, Form, Spinner, Alert } from 'react-bootstrap';
 import { Tv, BoxArrowLeft } from "react-bootstrap-icons";
@@ -42,22 +42,24 @@ const Landing: React.FC = (props: any)  => {
         dispatch({type: 'common/commonCloseAlert'});
     }
 
-    const init = async () => {
+    const init = useCallback(async () => {
         try {
-            const data = await dispatch(initApp()).unwrap();
-            gCtx.addI18n(data.i18n);
-            setInit(true);
+            if (!isInit) {
+                const data = await dispatch(initApp()).unwrap();
+                gCtx.addI18n(data.i18n);
+                setInit(true);
+            }
         }
         catch(err) {
             console.error('initApp catch: ', err);
         }
-    }
+    }, [isInit, gCtx, dispatch])
 
     useEffect(() => {
         init();
-    }, [])
+    }, [init])
 
-    return (
+    return (isInit && (
         <div className='landing-container'>
             <Navbar bg="light" variant="light">
                 <Form inline>
@@ -68,6 +70,10 @@ const Landing: React.FC = (props: any)  => {
                 </Form>
             </Navbar>
             <div className="alert-div">
+                {/* 
+                    Will be opened and closed (using a timer) via redux actions 'common/commonOpenAlert' and 'common/commonCloseAlert' that are
+                    launched from the axios-intercptor handling the request's response.  The Alert may also be closed manually.
+                */}
                 <Alert variant='primary' show={showAlert} onClose={() => closeAlert()} dismissible>
                     {alertMessage}
                 </Alert>
@@ -77,16 +83,20 @@ const Landing: React.FC = (props: any)  => {
                     {<Spinner animation="border"></Spinner>}
                 </div>
                 <div className="box center-placed">
-                    <div>
+                    <div style={{width: '50%'}}>
                         <Home />
                     </div>
                 </div>
             </div>
+            {/* 
+                Will be opened via redux actions 'common/commonOpenModal' that is launched from the axios-intercptor 
+                handling the request's response and must be closed manually.
+            */}
             <AfwModal show={showModal} dialogClassName={'danger'} closeModal={true}>
                 <Message/>
             </AfwModal>
         </div>
-    )
+    ))
 }
 
 export default Landing; 

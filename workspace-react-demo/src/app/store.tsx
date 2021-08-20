@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 
 import logger from 'redux-logger';
 
-import commonReducer from './common/commonSlice'
-import homeReducer from './home/homeSlice'
+import commonReducer from './common/common-slice'
+import homeReducer from './home/home-slice'
 
 const store = configureStore({
   reducer: {

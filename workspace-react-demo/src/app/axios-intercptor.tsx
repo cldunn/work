@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {Dispatch } from 'redux';
 
-import { commonIsLoading } from './common/commonSlice';
+import { commonIsLoading } from './common/common-slice';
 
 const createInterceptors = (dispatch: Dispatch): void => {
+    let alertId: any;
 
     axios.interceptors.request.use(
         (req) => {
@@ -22,6 +23,8 @@ const createInterceptors = (dispatch: Dispatch): void => {
     axios.interceptors.response.use(
         (res) => {
             dispatch(commonIsLoading(false));
+            
+            clearTimeout(alertId);
 
             // extract msg and data if 200-299, do 300s show up here?
             console.log('interceptors.response.use success response: ', res);
@@ -34,6 +37,10 @@ const createInterceptors = (dispatch: Dispatch): void => {
                             status: 'success',
                             alertMessage : jsonResp.message.content
                         }});
+
+                        alertId = setTimeout(() => {
+                            dispatch({type: 'common/commonCloseAlert'});
+                        }, 5000);
                     }
                     else {
                         dispatch({ type: 'common/commonOpenModal', payload: {
@@ -50,6 +57,8 @@ const createInterceptors = (dispatch: Dispatch): void => {
         },
         (err: any) => {
             dispatch(commonIsLoading(false));
+            
+            clearTimeout(alertId);
 
             // The AXIOS error message can actually return 3 different structure, depending from what kind of failure
             // Error in setting up the request: message,  No response – Network Error: request, Request returned with an error status: err

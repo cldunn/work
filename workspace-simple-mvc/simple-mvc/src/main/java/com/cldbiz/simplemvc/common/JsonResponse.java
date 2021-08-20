@@ -28,6 +28,11 @@ public class JsonResponse extends HashMap<String, Object> {
 			this.details = details;
 		}
 		
+		public Message(String content, String... details) {
+			this.content = content;
+			this.details = Arrays.asList(details);
+		}
+
 		public String getContent() {
 			return content;
 		}
@@ -103,7 +108,7 @@ public class JsonResponse extends HashMap<String, Object> {
 			jsonResponse.setMessage(msgContent, msgDetails);
 		}
 
-		public Builder addData(HashMap<String, Object> data) {
+		public Builder addData(Map<String, Object> data) {
 			jsonResponse.put(JsonResponse.DATA_KEY, data);
 			return this;
 		}

@@ -31,25 +31,28 @@ spring boot app via postman
 	profile
 		dev   (loglevel=debug)
 		prod  (loglevel=warn)
+		
+======================================================================
+00. ----	initApp		get		noParams				ok			none
+01.	1789	washington	get		noParams				ok			1 		Global Alert	success
+02. 1797	adams		get		pathVar					ok			1		App	Alert		success
+03.	1801	jefferson	get		qryStr					ok			1+		Modal			success
+04.	1861	lincoln		get		pathVarAndQryStr		40x			1		Modal			danger
+05.	1913	wilson		get		qryStrDto				40x			1+		Modal			danger
+06.	1945	truman		get		pathVarAndQryStrDto		appEx/ok	1		Alert			success
+07.	1953	eisenhower	post	body					appEx/ok	1+		Modal			success
+08.	1961	kennedy		post	pathVarAndBody			appEx/40x	1		Modal			danger
+09.	1963	johnson		post	bodyDto					appEx/40x	1+		Modal			danger
+10.	1981	reagan		post	pathVarAndBodyDto		runtime		1		modal			danger
 
 ======================================================================
-status code      - http status code     
-error message    - error message/header (String)
-error details    - error details (String[])
-data map         - Map<String, Object> => JSON
-				   * interceptors must have access to all attributes
-				   
-ResponseEntity 
-	has body headers, statusCode
-	=> body needs to contain: error message, error details and data map
 
-JsonResponeModelAndView
-    follows builder pattern (easier to read)
-    status superfluous
-	constructors defined status, error message/detail
-	has Message
-						
-controller returns ResponseEntity<JsonResponseModelAndView> // enables spring view, model/view accessable via ResponseEntity.getBody(), now have response headers, status replaced via status code (more REST api)
-	=> change JsonResponseModelAndView, keep Message (message/header + [details]): add hasDetails() (error determined via status code), let i18n and permissions just be part of data, only part of pageConfig,
-	=> keep builder pattern, constructor (), (Message msg), (Message msg); then .data(key, value)...
-	
+features: 
+	bootstrap (spinner, alert, modal, tooltip), 
+	react (useState, useEffect, useContext, useCallback, useSelector), 
+	redux-toolkit (configureStore, useDispatch, createSlice, createAsyncThunk, useSelector), 
+	axios (rest-service, interceptor), 
+	spring-mvc, 
+	HandlerInterceptor (ThreadLocal), 
+	ResponseEntityExceptionHandler, 
+	application.properties (environment, messagesource, logging (spring-logback.xml), profiles)

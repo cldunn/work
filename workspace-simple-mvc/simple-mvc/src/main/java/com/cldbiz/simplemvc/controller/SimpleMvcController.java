@@ -1,8 +1,7 @@
 package com.cldbiz.simplemvc.controller;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,16 +13,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldbiz.simplemvc.common.JsonResponse;
 import com.cldbiz.simplemvc.domain.Person;
-import com.cldbiz.simplemvc.common.I18nMessage;
-import com.cldbiz.simplemvc.dto.MessageKeyWithArgDto;
+import com.cldbiz.simplemvc.dto.PresidentDto;
 import com.cldbiz.simplemvc.exception.ApplicationException;
 import com.cldbiz.simplemvc.service.PersonService;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @RestController
 @RequestMapping("/v1")
@@ -32,99 +30,243 @@ public class SimpleMvcController extends BaseController {
 	
 	@Autowired
 	PersonService personSerivce;
-	
-	/* Example using no parameters, returns data but no message */
+
+	/*************************************************************************
+	 * Passes in no parameters, 
+	 * returns no message triggering no UI, returns data and status OK 
+	 *************************************************************************/
 	@GetMapping(value="/simpleMvc/initApp", produces="application/json") 
 	public ResponseEntity<JsonResponse> initApp() {
-		Map<String, String> i18n = getMessages("label");
-		JsonResponse mv = JsonResponse.getBuilder().addData("i18n", i18n).built();
+		// retrieve UI labels
+		Map<String, String> i18n = getMessages("btn", "lbl", "msg");
 		
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+		JsonResponse jsonResp = JsonResponse.getBuilder()
+			.addData("i18n", i18n).built();
+		
+		LOGGER.info("initApp called, this info message will appear in dev and prod profiles");
+
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.OK);
 	}
 
-	@GetMapping(value="/simpleMvc/getPerson", produces="application/json") 
-	public ResponseEntity<JsonResponse> getLabelData() {
-		Person person = personSerivce.getPerson("Cliff", "Dunn");
-		JsonResponse mv = JsonResponse.getBuilder().addData("person", person).built();
+	/*************************************************************************
+	 * Passes in no parameters, 
+	 * returns simple message triggering UI alert, returns data and status OK 
+	 *************************************************************************/
+	@GetMapping(value="/simpleMvc/findWashington", produces="application/json") 
+	public ResponseEntity<JsonResponse> findWashington() {
+		Person person = personSerivce.getPerson("George", "Washinton");
 		
-		LOGGER.info("This is an informative message");
-		LOGGER.debug("This is a debug message");
-
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
-	}
-
-	@GetMapping(value="/simpleMvc/getSucessMessage", produces="application/json") 
-	public ResponseEntity<JsonResponse> getSucessMessage() {
 		String message = getMessage("global.success");
-		Map<String, String> labels = getMessages("label");
-		JsonResponse mv = JsonResponse.getBuilder(message).addData("labels", labels).built();
 		
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+		JsonResponse jsonResp = JsonResponse.getBuilder(message)
+			.addData("person", person).built();
+		
+		LOGGER.info("findWashington info message, will appear in dev and prod profiles");
+		LOGGER.debug("findWashington debug message, will appear only in dev profile");
+
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.OK);
 	}
 
-	@GetMapping(value="/simpleMvc/getMessageKeyAsPathVar/{key}", produces="application/json") 
-	public ResponseEntity<JsonResponse> getMessageKeyAsPathVar(@PathVariable("key") String key) {
-		JsonResponse mv = JsonResponse.getBuilder(getMessage(key)).built();
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+	/*************************************************************************
+	 * Passes path variable parameter, 
+	 * returns simple message triggering UI alert, returns data and status OK 
+	 *************************************************************************/
+	@GetMapping(value="/simpleMvc/findAdams/{id}", produces="application/json") 
+	public ResponseEntity<JsonResponse> findAdams(
+			@PathVariable("id") Long id) {
+		Person person = personSerivce.getPerson("John", "Adams");
+		
+		String message = getMessage("msg.get.pathVar", id.toString());
+		
+		JsonResponse jsonResp = JsonResponse.getBuilder(message).addData("person", person).built();
+		
+		LOGGER.info("findAdams info message, will appear in dev and prod profiles");
+		LOGGER.debug("findAdams debug message, path variable {}, will appear only in dev profile", id);
+		
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.OK);
 	}
 
-	@GetMapping(value="/simpleMvc/getMessageWithArgAsParams", produces="application/json") 
-	public ResponseEntity<JsonResponse> getMessageWithArgAsParams(
-			@RequestParam(value="key", required=true) String key,
-			@RequestParam(value="arg", required=true) String arg) {
-		JsonResponse mv = JsonResponse.getBuilder(getMessage(key, arg)).built();
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+	/*************************************************************************
+	 * Passes in query string parameter, 
+	 * returns detailed message triggering UI modal, returns data and status OK 
+	 *************************************************************************/
+	@GetMapping(value="/simpleMvc/findJefferson", produces="application/json") 
+	public ResponseEntity<JsonResponse> findJefferson(
+			@RequestParam(value="year", required=true) String year) {
+		Person person = personSerivce.getPerson("Thomas", "Jefferson");
+
+		String message = getMessage("msg.get.qryStr.content");
+		String detail = getMessage("msg.get.qryStr.detail", year);
+		
+		JsonResponse jsonResp = JsonResponse.getBuilder(message, List.of(detail))
+			.addData("person", person).built();
+		
+		LOGGER.info("findJefferson info message, will appear in dev and prod profiles");
+		LOGGER.debug("findJefferson debug message, " +
+					 "query string parameter {}, will appear only in dev profile", year);
+
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.OK);
 	}
 
-	@GetMapping(value="/simpleMvc/getMessageKeyAsPathVarArgAsParam/{key}", produces="application/json") 
-	public ResponseEntity<JsonResponse> getMessageKeyAsPathVarArgAsParam(
-			@PathVariable("key") String key,
-			@RequestParam(value="arg", required=true) String arg) {
-		JsonResponse mv = JsonResponse.getBuilder(getMessage(key, arg)).built();
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+	/**********************************************************************************
+	 * Passes in path variable and query string parameter, 
+	 * returns simple message triggering UI modal, returns data and status UNAUTHORIZED 
+	 **********************************************************************************/
+	@GetMapping(value="/simpleMvc/findLincoln/{id}", produces="application/json") 
+	public ResponseEntity<JsonResponse> findLincoln(
+			@PathVariable("id") Long id,
+			@RequestParam(value="year") String year) {
+		Person person = personSerivce.getPerson("Abraham", "Lincoln");
+		
+		String message = getMessage("msg.get.pathVarAndQryStr", id.toString(), year);
+		
+		JsonResponse jsonResp = JsonResponse.getBuilder(message).addData("person", person).built();
+		
+		LOGGER.info("findLincoln info message, will appear in dev and prod profiles");
+		LOGGER.debug("findLincoln debug message, " +
+					 "path variable {} and query string {} parameters, " +
+					 "will appear only in dev profile", id, year);
+
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.UNAUTHORIZED);
 	}
 
-	@GetMapping(value="/simpleMvc/getMessageWithKeyAndArgAsDto", produces="application/json") 
-	public ResponseEntity<JsonResponse> getMessageWithKeyAndArgAsDto(MessageKeyWithArgDto messageKeyWithArgDto) {
-		String message = getMessage(messageKeyWithArgDto.getKey(), messageKeyWithArgDto.getArg());
-		JsonResponse mv = JsonResponse.getBuilder(message).built();
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+	/************************************************************************************
+	 * Passes in query string parameter into dto, 
+	 * returns detailed message triggering UI modal, returns data and status UNAUTHORIZED 
+	 ************************************************************************************/
+	@GetMapping(value="/simpleMvc/findWilson", produces="application/json") 
+	public ResponseEntity<JsonResponse> findWilson(PresidentDto presidentDto) {
+		Person person = personSerivce.getPerson("Woodrow", "Wilson");
+
+		String message = getMessage("msg.get.qryStrDto.content");
+		String detail = getMessage("msg.get.qryStrDto.detail", presidentDto.getYear());
+		
+		JsonResponse jsonResp = JsonResponse.getBuilder(message, List.of(detail))
+			.addData("person", person).built();
+
+		LOGGER.info("findWilson info message, will appear in dev and prod profiles");
+		LOGGER.debug("findWilson debug message, " +
+				     "query string {} parameter, " +
+				     "will appear only in dev profile", presidentDto.getYear());
+
+		return new ResponseEntity<JsonResponse>(jsonResp, HttpStatus.UNAUTHORIZED);
 	}
 
-	@PostMapping(value="/simpleMvc/postMessageWithKeyAsDto", produces="application/json") 
-	public ResponseEntity<JsonResponse> postMessageWithKeyAsDto(@RequestBody MessageKeyWithArgDto messageKeyWithArgDto) {
-		String message = getMessage(messageKeyWithArgDto.getKey());
-		JsonResponse mv = JsonResponse.getBuilder(message).built();
-		return new ResponseEntity<JsonResponse>(mv, HttpStatus.OK);
+	/************************************************************************************
+	 * Passes in path variable and query string parameter into dto, 
+	 * throws application exception with simple message triggering UI alert, 
+	 * returns data and status OK 
+	 ************************************************************************************/
+	@GetMapping(value="/simpleMvc/findTruman/{id}", produces="application/json") 
+	public ResponseEntity<JsonResponse> findTruman(
+			@PathVariable("id") Long id,
+			PresidentDto presidentDto) {
+		Person person = personSerivce.getPerson("Harry", "Truman");
+
+		String message = getMessage("msg.get.pathVarAndQryStrDto", 
+			id.toString(), presidentDto.getYear());
+		
+		LOGGER.info("findTruman info message, will appear in dev and prod profiles");
+		LOGGER.debug("findTruman debug message, " +
+			     	 "path variable {} and query string {} parameter, " +
+			         "will appear only in dev profile", id, presidentDto.getYear());
+
+		throw new ApplicationException(message)
+			.addData("person", person)
+			.setStatusCode(HttpStatus.OK);
 	}
 
-	@PostMapping(value="/simpleMvc/postThrowApplicationException", produces="application/json") 
-	public void postThrowApplicationException() {
-		I18nMessage msg = new I18nMessage("exception.method", "postThrowApplicationException");
+	/************************************************************************************
+	 * Passes body parameter, 
+	 * throws application exception with detail message triggering UI modal, 
+	 * returns data and status OK 
+	 ************************************************************************************/
+	@PostMapping(value="/simpleMvc/findEisenhower", produces="application/json") 
+	public ResponseEntity<JsonResponse> findEisenhower(@RequestBody ObjectNode json) {
+		// Post receives parameters an an object,  ObjectNode is a JsonNode Tree of the body
+		String year = json.get("year").asText();
+		
+		Person person = personSerivce.getPerson("Dwight", "Eisenhower");
 
-		// TODO: log exception based upon profile and log level
-		throw new ApplicationException(msg.getText());
+		String message = getMessage("msg.post.body.content");
+		String detail = getMessage("msg.post.body.detail", year);
+		
+		LOGGER.info("findEisenhower info message, will appear in dev and prod profiles");
+		LOGGER.debug("findEisenhower debug message, body parameter {}, " +
+			         "will appear only in dev profile", year);
+
+		throw new ApplicationException(message, detail)
+			.addData("person", person)
+			.setStatusCode(HttpStatus.OK);
 	}
 
-	@PostMapping(value="/simpleMvc/postThrowApplicationExceptionWithDetails", produces="application/json") 
-	public void postThrowApplicationExceptionWithDetails() {
-		I18nMessage msg = new I18nMessage("exception.files.notFound", "postThrowApplicationExceptionWithDetails");
-		ApplicationException appEx = new ApplicationException(msg.getText()).setStatusCode(HttpStatus.NOT_FOUND);
-		appEx.addDetail("MyFileOne.txt");
-		appEx.addDetail("MyFileTwo.txt");
-		appEx.addDetail("MyFileThree.txt");
-		appEx.addDetail("MyFileFour.txt");
-		appEx.addDetail("MyFileFive.txt");
-		appEx.addDetail("MyFileSix.txt");
+	/************************************************************************************
+	 * Passes path variable and body parameter, 
+	 * throws application exception with simple message triggering UI modal, 
+	 * returns data and status UNAUTHORIZED 
+	 ************************************************************************************/
+	@PostMapping(value="/simpleMvc/findKennedy/{id}", produces="application/json") 
+	public ResponseEntity<JsonResponse> findKennedy(
+			@PathVariable("id") Long id,
+			@RequestBody ObjectNode json) {
+		// Post receives parameters an an object,  ObjectNode is a JsonNode Tree of the body
+		String year = json.get("year").asText();
+				
+		Person person = personSerivce.getPerson("John", "Kennedy");
+		
+		String message = getMessage("msg.post.pathVarAndBody", id.toString(), year);
+		
+		LOGGER.info("findKennedy info message, will appear in dev and prod profiles");
+		LOGGER.debug("findKennedy debug message, path variable {} and body parameter {}, " +
+			         "will appear only in dev profile", id, year);
 
-		// TODO: log exception based upon profile and log level
-		throw appEx;
+		throw new ApplicationException(message)
+			.addData("person", person)
+			.setStatusCode(HttpStatus.UNAUTHORIZED);
 	}
 
-	@PostMapping(value="/simpleMvc/postThrowRuntimeException", produces="application/json") 
-	public void postThrowRuntimeException() {
-		// TODO: log exception based upon profile and log level
-		throw new NullPointerException();
+	/************************************************************************************
+	 * Passes body parameter into dto, 
+	 * throws application exception with detail message triggering UI modal, 
+	 * returns data and status UNAUTHORIZED 
+	 ************************************************************************************/
+	@PostMapping(value="/simpleMvc/findJohnson", produces="application/json") 
+	public ResponseEntity<JsonResponse> findJohnson(@RequestBody PresidentDto presidentDto) {
+		Person person = personSerivce.getPerson("Lyndon", "Johnson");
+
+		String message = getMessage("msg.post.bodyDto.content");
+		String detail = getMessage("msg.post.bodyDto.detail", presidentDto.getYear());
+		
+		LOGGER.info("findJohnson info message, will appear in dev and prod profiles");
+		LOGGER.debug("findJohnson debug message, body parameter {}, " +
+			         "will appear only in dev profile", presidentDto.getYear());
+
+		throw new ApplicationException(message, detail)
+		.addData("person", person)
+		.setStatusCode(HttpStatus.UNAUTHORIZED);
 	}
+
+	/************************************************************************************
+	 * Passes path variable and body parameter into dto, 
+	 * throws null pointer exception with simple message triggering UI modal, 
+	 * returns no data and status INTERNAL_SERVER_ERROR
+	 ************************************************************************************/
+	@PostMapping(value="/simpleMvc/findReagan/{id}", produces="application/json") 
+	public ResponseEntity<JsonResponse> findReagan(
+			@PathVariable("id") Long id,
+			@RequestBody PresidentDto presidentDto) {
+		Person person = null;
+		
+		LOGGER.info("findReagan info message, will appear in dev and prod profiles");
+		LOGGER.debug("findReagan debug message, path variable {} and body parameter {}, " +
+			         "will appear only in dev profile", id, presidentDto.getYear());
+		
+		// Force a NullPointer Exception
+		person.setFirstName("Ronald");
+		person.setLastName("Reagan");
+		
+		return null;
+	}
+
 }
 
