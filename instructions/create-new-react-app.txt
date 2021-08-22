@@ -1,0 +1,113 @@
+1. create package.json  // define application runtime dependencies and dev dependencies
+
+	https://docs.npmjs.com/cli/v7/configuring-npm/package-json
+	name, description, version, repository,main (ie.package.json relative path to index.html), homepage (ie. root directory; eg. "."), scripts, dependencies, devDependencies
+	
+	BASE LINE
+		npm install --save react
+		npm install --save react-dom
+		npm imstall --save react-bootstrap-v5
+
+		npm install --save-dev @types/react @types/react-dom
+
+		npm install --save-dev webpack webpack-cli @types/webpack
+		npm install --save-dev webpack-dev-server @types/webpack-dev-server
+		npm install --save-dev html-webpack-plugin
+		npm install --save-dev typescript ts-loader ts-node
+		npm install --save-dev css-loader style-loader sass-loader sass
+		npm install --save-dev fork-ts-checker-webpack-plugin
+
+		npm install --save-dev eslint
+		npm install --save-dev eslint-plugin-import
+		npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+		npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks
+
+		npm install --save-dev mini-css-extract-plugin css-minimizer-webpack-plugin
+
+2. create web.config.dev.ts  // Define runtime deployment environemnt to run applcation in wepack-dev-server in memory
+	
+	process.env.NODE_ENV = 'development"
+	
+	https://webpack.js.org/plugins/
+	https://webpack.js.org/configuration/
+	module.exports = {
+		mode (ie. development), target (ie. web), entry (ie. path relative from config file to index.tsx'),
+		output (ie. path & filename of output, root directory  // in dev not actually generated),
+		resolve =>  {extensions (ie. file extentions of app files), alias: { react: path.resolve('./node_modules/react')  // required for npm link  }},
+		module => : {rules: [(ie. ts loader), (ie. sass/css loaders), {test: /\.(png|woff|woff2|eot|ttf|svg)$/, type: 'asset/inline' }]},
+		devtool: 'eval-source-map' (ie. source map for development), devServer (ie. webpack dev server parameters),
+		plugins: [HtmlWebpackPlugin (ie. build deployment index.html), ForkTsCheckerWebpackPlugin (ie. speeds up TypeScript type checking and ESLint linting), 
+				  new webpack.HotModuleReplacementPlugin() (ie. dev only hot deploy)]
+
+
+3. create web.config.prod.ts  // Define creation of production bundle main.js & index.html to /dist for distribution of application to web container (ie. tomcat)
+	responsible for:
+		bundle/minify js/css, 
+		get js/css sourcemaps, 
+		exclude dev concerns (ie. dev server, redux dev config overhead), 
+		prod mode => remove prop type validation,
+		[bundle report] display chunk size, 
+		deploy output in /dist to tomcat webapps
+
+	process.env.NODE_ENV = 'production"
+
+	https://webpack.js.org/plugins/
+	const webpackBundleAnalyzer = require("webpack-bundle-analyzer"}  // generate chunk size report
+		
+	https://webpack.js.org/configuration/
+	module.exports = {
+		mode (ie. production), target (ie. web), entry (ie. path relative from config file to index.tsx'),
+		output (ie. path & filename of output, root directory // in production actually is generated into /dist),
+		resolve =>  {extensions (ie. file extentions of app files), alias: { react: path.resolve('./node_modules/react')  // required for npm link  }},
+		module => : {rules: [(ie. ts loader), (ie. sass/css loaders & extracts CSS into separate files via MiniCssExtractPlugin.loader), 
+		                     {test: /\.(png|woff|woff2|eot|ttf|svg)$/, type: 'asset/inline' } (ie. asset/inline - exports a data URI of the asset)]},
+		devtool: 'source-map' (ie. source map for production),
+		optimization: {minimize: true, minimizer: [`...` (ie. extend existing code minimizer `terser-webpack-plugin`), new CssMinimizerPlugin() (ie. minimize css)]}
+		plugins: [HtmlWebpackPlugin (ie. build deployment index.html), ForkTsCheckerWebpackPlugin (ie. speeds up TypeScript type checking and ESLint linting), 
+				  new MiniCssExtractPlugin({filename: "[name].[contenthash].css"})(ie. extracts CSS into separate files)]
+	
+	/dist
+		index.html
+		style.css    (minified)
+		main.js      (minified)
+		main.js.map
+
+	Tomcat deployment:
+		1. create application folder in tomcat's webapps directory (webapps/myApp)
+		2. copy entire /dist into created webapps directory (webapps/myApp)
+		3. launch tomcat server via bin/startup.bat (on windows)
+		4. from browser goto http://localhost:8080/myApp
+		5. bring tomcat server down via /bin/shoutdown.bat (on windows)
+	
+// define typescript compiler options, used in webpack configurations of transpiler
+4. create tsconfig.json
+{
+    "include": array of globs defining source files to be compiled  (ie.["./src/", "./types/"]),
+    "exclude": array of globs defining source files excluded from compilation (ie.["./node_modules/", "./dist/"],
+    "compilerOptions": {
+        "esModuleInterop": flag allowing support for importing CommonJS modules, enabling allowSyntheticDefaultImportstrue => 'import x from y' for modules sans default export,
+        "noImplicitAny": flag prohibiting implied any type,
+        "target": set the JavaScript language version (ie. "esnext" for latest),
+        "sourceMap": flag to create source map,
+        "jsx": specify what JSX code is generated (ie. "react"),
+        "baseUrl": base directory to resolve non-relative module names (ie. "."),
+        "moduleResolution":  how typeScript looks up a file from a given module specifier. (ie. "node"),
+        "resolveJsonModule": flag enabling importing .json files,
+        "typeRoots": only types in packages under typeRoots will be included (ie. ["./node_modules/@types", "./types"])
+    }
+}
+
+// define behavior of eslint eror checking to enforce consistent best practices
+5. create .eslintrc.json
+{
+    "parser": specify parser (ie."@typescript-eslint/parser"),
+    "env": { specify environment that provides predefined global variables  (ie "browser": true)},
+    "parserOptions" : {
+        "project": compiler config file (ie. "./tsconfig.json"), "ecmaVersion": js syntax (ie. 2020), "ecmaFeatures.jsx": flag enabling jsx,  
+		"sourceType": "module" if your code is in ECMAScript modules. (ie. "module"),  "tsconfigRootDir": "."
+    },
+    "plugins": use of third-party plugins (ie. ["eslint-plugin-import", "@typescript-eslint", "react", "react-hooks"],
+    "extends": extend the set of enabled rules from base configurations (ie. ["plugin:@typescript-eslint/recommended", "plugin:react/recommended"],
+    "rules": enable additional rules, change an inherited rule's severity , override options for rules {(ie. "@typescript-eslint/no-explicit-any": "off", ...)},
+    "settings": have linter detect react version (ie. {"react": { "version": "detect"  }})
+}

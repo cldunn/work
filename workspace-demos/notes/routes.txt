@@ -1,0 +1,164 @@
+DEMO
+	Router
+		Login
+			<form> username/password </form>
+			<btn onClick=...history.pushState) />
+		Landing
+			// Links / Navlinks
+			// Nested Routes => <switch>...routes...</switch>
+				a. component, render, children
+				b. utilize match|location|history
+				c. parameterized
+				d. redirect
+			
+Routes API
+	Hooks
+		useHistory - The useHistory hook gives you access to the history instance that you may use to navigate.
+		
+			import { useHistory } from "react-router-dom";
+			let history = useHistory();
+			function handleClick() { history.push("/home");}
+		
+		useLocation - returns the location object that represents the current URL. You can think about it like a useState
+		
+			useEffect(() => {
+				console.log("pageview: ", location.pathname);
+			}, [location]);
+  
+		useParams - returns an object of key/value pairs of URL parameters
+		
+			function BlogPost() { let { slug } = useParams();  return <div>Now showing post {slug}</div>; }
+			<Router> <Route path="/blog/:slug"><BlogPost /></Route> </Router>
+			
+		useRouteMatch - matches the current URL like a <Route> would. Used to get the "match" data without rendering <Route>
+		
+			function BlogPost() { let match = useRouteMatch("/blog/:slug");  /* use the match... */ return <div>;  } 
+			
+			match
+				params - (object) Key/value pairs from the URL corresponding to the dynamic segments of the path
+				isExact - (boolean) true if the entire URL was matched (no trailing characters)
+				path - (string) The path pattern used to match. Useful for building nested <Route>s
+				url - (string) The matched portion of the URL. Useful for building nested <Link>s
+
+	Router - common low-level interface for all router components (<BrowserRouter>, <HashRouter>, <MemoryRouter>, <NativeRouter>, <StaticRouter>)
+		history - history object to use for navigation
+		children -  child element to render
+
+	BrowserRouter - A <Router> that uses the HTML5 history API (pushState, replaceState and the popstate event) 
+		baseName - The base URL for all locations.
+			<BrowserRouter basename="/calendar">
+				<Link to="/today"/> // renders <a href="/calendar/today">
+				
+	Switch - the first child <Route> or <Redirect> that matches the location (In contrast, every <Route> that matches the location renders inclusively)
+		children - All children of a <Switch> should be <Route> or <Redirect> elements
+		
+	Route - render some UI when its path matches 
+		
+		route methods: component|render|children
+	
+			component - component to render only when the location matches (create a new component every render)
+			
+			render -  function to be called when the location matches (without the undesired remounting)
+			
+			children - function exactly like render except that it gets called whether there is a match or not.
+		
+		route props - three render methods will be passed the same three route props (match|location|history)
+	
+			function User(props) {return <h1>Hello {props.match.params.username}!</h1>;}
+			<Router><Route path="/user/:username" component={User} /></Router>,
+  
+			match
+				params - (object) Key/value pairs from the URL corresponding to the dynamic segments of the path
+				isExact - (boolean) true if the entire URL was matched (no trailing characters)
+				path - (string) The path pattern used to match. Useful for building nested <Route>s
+				url - (string) The matched portion of the URL. Useful for building nested <Link>s
+		
+			location - represent where the app is now, where you want it to go, or even where it was
+				{
+				  key: 'ac3df4',                  // not with HashHistory!
+				  pathname: '/somewhere',         // path of the URL
+				  search: '?some=search-string',  // URL query string
+				  hash: '#howdy',                 // URL hash fragment
+				  state: {                        // location-specific state that was provided (e.g. push(path, state)) Only available in browser and memory history.
+					[userDefined]: true
+				  }
+				}
+
+			history - from history package {browserHistory, memoryHistory}, 
+				properties & methods
+				
+				length - (number) entries in the history stack
+				action - (string) (PUSH, REPLACE, or POP)
+				location - (object) The current location. ( recommended to access the location from the render props of <Route>, not from history.location ) 
+					pathname - (string) The path of the URL
+					search - (string) The URL query string
+					hash - (string) The URL hash fragment
+					state - (object) location-specific state that was provided to e.g. push(path, state) when this location was pushed onto the stack. Only available in browser and memory history.
+				push(path, [state]) // note:use back ticks and ${...} to use path variables in path (eg.  history.push(`cosntPartOfUrl/${pathVar}`);)
+				replace(path, [state])
+				go(n) - (function) // + or -
+		
+		path - valid URL path or array of paths 
+		
+		exact:boolean - true => only match if the path matches the location.pathname exactly
+		
+		strict: boolean - true => path that has a trailing slash will only match a location.pathname with a trailing slash
+		
+		sensitive: boolean - true => path match is case sensitive.
+
+	Redirect - Rendering a <Redirect> will navigate to a new location
+		
+		to: 
+			string - A string Link location, oncatenate location’s pathname, search, and hash properties.
+			object - An object having: pathname: path to link to, search: string query parameters, hash: hash put in the URL, e.g. #a-hash, state: state to persist to the location.
+		
+		push - true, redirecting will push a new entry onto the history instead of replacing the current one
+
+		from - A pathname to conditionally redirect from
+
+		exact - Match "from" exactly
+		
+		strict: boolean - true => location must match "from" strictly (trailing /) when rendering a <Redirect> inside of a <Switch>
+		
+		sensitive: boolean - true => Match "from" case sensitive
+		
+	Link - declarative, accessible navigation 
+		to: 
+			string - A string Link location, concatenate location’s pathname, search, and hash properties.
+			object - An object having: pathname: path to link to, search: string query parameters, hash: hash put in the URL, e.g. #a-hash, state: state to persist to the location.
+			function - function to which current location is passed, returning location as a string or as an objec
+		
+		replace: boolean - true => link click will replace (!add) the current entry in the history stack.
+		
+		component: React.Component - custom NAVIGATION component (NOTHING to do with destination component of route)
+			const FancyLink = React.forwardRef((props, ref) => ( <a ref={ref} {...props}>💅 {props.children}</a> ))
+			<Link to="/" component={FancyLink} />
+		
+		others - can pass props to be on the <a> (ie. title, id, className, ...)
+	
+	NavLink - special <Link> (extends Link) that decorates link when "to" matches the current URL.
+	
+		activeClassName - class applied to element when active, default is "active", joined with className prop.
+	
+		activeStyle - styles to apply to the element when it is active.
+			<NavLink to="/faq" activeStyle={{ fontWeight: "bold", color: "red" }}> Test </NavLink>
+			
+		exact:boolean - true => the active class/style applied only if the location is matched exactly
+		
+		strict:boolean - true => trailing slash on a location’s pathname taken into account
+		
+		isActive: func - function to add extra logic for determining whether the link is active
+			<NavLink to="/events/123" isActive={(match, location) => { if (!match) { return false; } else { return !isNaN(eventID); }> Test </NavLink>
+
+		aria-current - aria-current attribute used on an active link (page (default), step, location, date, time, true, false)
+		
+	<Prompt message="Are you sure?" when={formIncomplete}>
+		message - string prompting the user when they try to navigate away
+		when - function returning T | F allowing navigation accordingly
+	
+	generatePath - function to generate URLs to the routes
+		eg. generatePath("/user/:id/:entity(posts|comments)", {id: 1, entity: "posts"}); // Will return /user/1/posts
+
+		
+	
+		

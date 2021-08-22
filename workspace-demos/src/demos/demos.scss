@@ -1,0 +1,18 @@
+@import '../App.scss';
+
+.demos-container {
+    margin: 8px;
+    @extend .full;
+    @extend .flex-container;
+    &>div {
+        margin-top: 5%;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        @extend .flex-container;
+        &>div {
+            width: 50%;
+            @extend .flex-container;
+        }
+    }
+}

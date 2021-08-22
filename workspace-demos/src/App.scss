@@ -1,0 +1,35 @@
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+html,
+body {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+
+.full {
+    height: 100% !important;
+}
+
+.flex-container {
+    flex-direction: column;
+    display: flex;
+}
+
+.flex-contained {
+    height: 100% !important;
+    overflow-y: auto;
+    flex: 1 1;
+}
+
+.row {
+    display: flex; /* equal height of the children */
+}
+.col {
+    flex: 1; /* additionally, equal width */
+}
