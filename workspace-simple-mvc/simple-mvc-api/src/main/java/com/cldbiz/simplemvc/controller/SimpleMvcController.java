@@ -35,7 +35,7 @@ public class SimpleMvcController extends BaseController {
 	 * Passes in no parameters, 
 	 * returns no message triggering no UI, returns data and status OK 
 	 *************************************************************************/
-	@GetMapping(value="/simpleMvc/initApp", produces="application/json") 
+	@GetMapping(value="/initApp", produces="application/json") 
 	public ResponseEntity<JsonResponse> initApp() {
 		// retrieve UI labels
 		Map<String, String> i18n = getMessages("btn", "lbl", "msg");
@@ -52,9 +52,9 @@ public class SimpleMvcController extends BaseController {
 	 * Passes in no parameters, 
 	 * returns simple message triggering UI alert, returns data and status OK 
 	 *************************************************************************/
-	@GetMapping(value="/simpleMvc/findWashington", produces="application/json") 
+	@GetMapping(value="/findWashington", produces="application/json") 
 	public ResponseEntity<JsonResponse> findWashington() {
-		Person person = personSerivce.getPerson("George", "Washinton");
+		Person person = personSerivce.getPerson("George", "Washington");
 		
 		String message = getMessage("global.success");
 		
@@ -71,7 +71,7 @@ public class SimpleMvcController extends BaseController {
 	 * Passes path variable parameter, 
 	 * returns simple message triggering UI alert, returns data and status OK 
 	 *************************************************************************/
-	@GetMapping(value="/simpleMvc/findAdams/{id}", produces="application/json") 
+	@GetMapping(value="/findAdams/{id}", produces="application/json") 
 	public ResponseEntity<JsonResponse> findAdams(
 			@PathVariable("id") Long id) {
 		Person person = personSerivce.getPerson("John", "Adams");
@@ -90,7 +90,7 @@ public class SimpleMvcController extends BaseController {
 	 * Passes in query string parameter, 
 	 * returns detailed message triggering UI modal, returns data and status OK 
 	 *************************************************************************/
-	@GetMapping(value="/simpleMvc/findJefferson", produces="application/json") 
+	@GetMapping(value="/findJefferson", produces="application/json") 
 	public ResponseEntity<JsonResponse> findJefferson(
 			@RequestParam(value="year", required=true) String year) {
 		Person person = personSerivce.getPerson("Thomas", "Jefferson");
@@ -112,7 +112,7 @@ public class SimpleMvcController extends BaseController {
 	 * Passes in path variable and query string parameter, 
 	 * returns simple message triggering UI modal, returns data and status UNAUTHORIZED 
 	 **********************************************************************************/
-	@GetMapping(value="/simpleMvc/findLincoln/{id}", produces="application/json") 
+	@GetMapping(value="/findLincoln/{id}", produces="application/json") 
 	public ResponseEntity<JsonResponse> findLincoln(
 			@PathVariable("id") Long id,
 			@RequestParam(value="year") String year) {
@@ -134,7 +134,7 @@ public class SimpleMvcController extends BaseController {
 	 * Passes in query string parameter into dto, 
 	 * returns detailed message triggering UI modal, returns data and status UNAUTHORIZED 
 	 ************************************************************************************/
-	@GetMapping(value="/simpleMvc/findWilson", produces="application/json") 
+	@GetMapping(value="/findWilson", produces="application/json") 
 	public ResponseEntity<JsonResponse> findWilson(PresidentDto presidentDto) {
 		Person person = personSerivce.getPerson("Woodrow", "Wilson");
 
@@ -157,7 +157,7 @@ public class SimpleMvcController extends BaseController {
 	 * throws application exception with simple message triggering UI alert, 
 	 * returns data and status OK 
 	 ************************************************************************************/
-	@GetMapping(value="/simpleMvc/findTruman/{id}", produces="application/json") 
+	@GetMapping(value="/findTruman/{id}", produces="application/json") 
 	public ResponseEntity<JsonResponse> findTruman(
 			@PathVariable("id") Long id,
 			PresidentDto presidentDto) {
@@ -181,7 +181,7 @@ public class SimpleMvcController extends BaseController {
 	 * throws application exception with detail message triggering UI modal, 
 	 * returns data and status OK 
 	 ************************************************************************************/
-	@PostMapping(value="/simpleMvc/findEisenhower", produces="application/json") 
+	@PostMapping(value="/findEisenhower", produces="application/json") 
 	public ResponseEntity<JsonResponse> findEisenhower(@RequestBody ObjectNode json) {
 		// Post receives parameters an an object,  ObjectNode is a JsonNode Tree of the body
 		String year = json.get("year").asText();
@@ -205,7 +205,7 @@ public class SimpleMvcController extends BaseController {
 	 * throws application exception with simple message triggering UI modal, 
 	 * returns data and status UNAUTHORIZED 
 	 ************************************************************************************/
-	@PostMapping(value="/simpleMvc/findKennedy/{id}", produces="application/json") 
+	@PostMapping(value="/findKennedy/{id}", produces="application/json") 
 	public ResponseEntity<JsonResponse> findKennedy(
 			@PathVariable("id") Long id,
 			@RequestBody ObjectNode json) {
@@ -230,7 +230,7 @@ public class SimpleMvcController extends BaseController {
 	 * throws application exception with detail message triggering UI modal, 
 	 * returns data and status UNAUTHORIZED 
 	 ************************************************************************************/
-	@PostMapping(value="/simpleMvc/findJohnson", produces="application/json") 
+	@PostMapping(value="/findJohnson", produces="application/json") 
 	public ResponseEntity<JsonResponse> findJohnson(@RequestBody PresidentDto presidentDto) {
 		Person person = personSerivce.getPerson("Lyndon", "Johnson");
 
@@ -251,7 +251,7 @@ public class SimpleMvcController extends BaseController {
 	 * throws null pointer exception with simple message triggering UI modal, 
 	 * returns no data and status INTERNAL_SERVER_ERROR
 	 ************************************************************************************/
-	@PostMapping(value="/simpleMvc/findReagan/{id}", produces="application/json") 
+	@PostMapping(value="/findReagan/{id}", produces="application/json") 
 	public ResponseEntity<JsonResponse> findReagan(
 			@PathVariable("id") Long id,
 			@RequestBody PresidentDto presidentDto) {

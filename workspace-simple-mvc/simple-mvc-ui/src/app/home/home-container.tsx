@@ -38,7 +38,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findWashington({
-                        url: 'v1/simpleMvc/findWashington'
+                        url: '/findWashington'
                     })).unwrap();
                     
                     // in order to access any changes in state immeadiately, must directly access store
@@ -57,7 +57,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findAdams({
-                        url: 'v1/simpleMvc/findAdams/2'
+                        url: '/findAdams/2'
                     })).unwrap();
                     
                     // in order to access any changes in state immeadiately, must directly access store
@@ -76,7 +76,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findJefferson({
-                        url: 'v1/simpleMvc/findJefferson',
+                        url: '/findJefferson',
                         params: {
                             year: 1801
                         }
@@ -98,7 +98,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findLincoln({
-                        url: 'v1/simpleMvc/findLincoln/4',
+                        url: '/findLincoln/4',
                         params: {
                             year: 1861
                         }
@@ -120,7 +120,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findWilson({
-                        url: 'v1/simpleMvc/findWilson',
+                        url: '/findWilson',
                         params: {
                             year: 1913
                         }
@@ -143,7 +143,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findTruman({
-                        url: 'v1/simpleMvc/findTruman/6',
+                        url: '/findTruman/6',
                         params: {
                             year: 1945
                         }
@@ -166,7 +166,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findEisenhower({
-                        url: 'v1/simpleMvc/findEisenhower',
+                        url: '/findEisenhower',
                         params: {
                             year: 1953
                         }
@@ -189,7 +189,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findKennedy({
-                        url: 'v1/simpleMvc/findKennedy/8',
+                        url: '/findKennedy/8',
                         params: {
                             year: 1961
                         }
@@ -212,7 +212,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findJohnson({
-                        url: 'v1/simpleMvc/findJohnson',
+                        url: '/findJohnson',
                         params: {
                             year: 1963
                         }
@@ -235,7 +235,7 @@ const Home: React.FC = ()  => {
                 try {
                     // will return the jsonResp.data via fulfilled action.payload
                     const resultAction = await dispatch(findReagan({
-                        url: 'v1/simpleMvc/findReagan/10',
+                        url: '/findReagan/10',
                         params: {
                             year: 1981
                         }
@@ -257,7 +257,7 @@ const Home: React.FC = ()  => {
     return (
         <div className="home-container">
             <div className="center-filled">
-                <h2>Simple-Mvc</h2>
+                <h2>Simple-Mvc-UI</h2>
             </div>
             <div className='person row' style={{visibility: president == null ? 'hidden' : 'visible'}}>
                 <div className="n1 col">

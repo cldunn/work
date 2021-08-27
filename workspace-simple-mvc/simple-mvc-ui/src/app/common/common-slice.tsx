@@ -27,7 +27,7 @@ const initialState:CommonSliceState = {
 // thunk functions
 export const initApp = createAsyncThunk('common/initApp', async () => {
   // retrieves jsonResp.data
-  const data = await restService.get('v1/simpleMvc/initApp');
+  const data = await restService.get('/initApp');
   return data;
 })
 

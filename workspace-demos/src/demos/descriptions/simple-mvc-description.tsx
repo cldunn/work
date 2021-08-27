@@ -3,7 +3,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import './descriptions.scss';
 
-const SimpleMvc: React.FC = () => {
+const SimpleMvcDescription: React.FC = () => {
     return (
         <div className="flex-container flex-contained">
             <div>
@@ -48,7 +48,7 @@ const SimpleMvc: React.FC = () => {
                                                 <div>landing-container.tsx,</div>
                                                 <div>global-context.tsx</div>
                                             </Tooltip>}>
-                                            <span>userParams, useState, useEffect, useCallback, useContext, useSelector</span>
+                                            <span>useState, useEffect, useCallback, useContext, useSelector</span>
                                         </OverlayTrigger>
                                     </li>
                                 </ul>
@@ -184,4 +184,4 @@ const SimpleMvc: React.FC = () => {
     )
 }
 
-export default SimpleMvc;
+export default SimpleMvcDescription;

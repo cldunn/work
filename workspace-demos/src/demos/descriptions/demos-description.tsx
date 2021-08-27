@@ -13,7 +13,7 @@ const DemosDescription: React.FC = () => {
                     provide a tooltip identifying a file from which one can observe the implementation of the associated technique. 
                 </p>
                 <p>
-                    You can download the source code from github.  Clicking the &quot;Launch ...&quot; link will navigate to a new tab running the selected demo, assuming 
+                    You can download the source code from github.  Clicking the &quot;Launch ...&quot; link will navigate to the selected demo, assuming 
                     the demo is already running.
                 </p>
             </div>
@@ -31,7 +31,7 @@ const DemosDescription: React.FC = () => {
                                     </li>
                                     <li>
                                         <OverlayTrigger placement="right" trigger="hover" overlay={<Tooltip id={`tt`}>demos-container.tsx</Tooltip>}>
-                                            <span>Nested Routes</span>
+                                            <span>userParams, Nested Routes</span>
                                         </OverlayTrigger>
                                     </li>
                                 </ul>

@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
+const Dotenv = require('dotenv-webpack');
 process.env.NODE_ENV = 'production';
 
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     extensions: [".wasm", ".ts", ".tsx", ".mjs", ".cjs", ".js", ".json"],
@@ -64,6 +65,10 @@ module.exports = {
       eslint: {
         files: './src/**/*.{ts,tsx,js,jsx}' // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       }
+    }),
+    new Dotenv({
+      path: `./.env.production`,
+      systemvars: true
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css"

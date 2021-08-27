@@ -1,11 +1,10 @@
 import React, { useState, useContext, useCallback, useEffect } from "react";
-import { useParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { selectIsLoading, selectShowAlert, selectAlertMessage, selectShowModal, initApp } from '../common/common-slice';
 
-import { Navbar, Form, Spinner, Alert } from 'react-bootstrap';
-import { Tv, BoxArrowLeft } from "react-bootstrap-icons";
+import { Navbar, Form, OverlayTrigger, Tooltip, Spinner, Alert } from 'react-bootstrap';
+import { Tv } from "react-bootstrap-icons";
 
 import { useAppDispatch } from "../store";
 import GlobalContext from '../common/global-content';
@@ -14,10 +13,11 @@ import Message from "../common/modal/message";
 
 import Home from "../home/home-container";
 
+import { ROOT_DEMOS } from '../../../environment';
+
 import './landing.scss';
 
-const Landing: React.FC = (props: any)  => {
-    const { demo } = useParams<{demo: string}>();
+const Landing: React.FC = ()  => {
     const isLoading = useSelector(selectIsLoading);
     const showAlert = useSelector(selectShowAlert);
     const alertMessage = useSelector(selectAlertMessage);
@@ -54,9 +54,11 @@ const Landing: React.FC = (props: any)  => {
             <Navbar bg="light" variant="light">
                 <Form inline>
                     <div>
-                        <a href="http://localhost:3000">
-                            <Tv color="royalblue" size={48} />
-                        </a>
+                        <OverlayTrigger placement="left" trigger="hover" overlay={<Tooltip id={`tooltip-demos`}>{gCtx.getI18n('msg.demos')}</Tooltip>}>
+                            <a href={ROOT_DEMOS}>
+                                <Tv color="royalblue" size={48} />
+                            </a>
+                        </OverlayTrigger>
                     </div>
                 </Form>
             </Navbar>

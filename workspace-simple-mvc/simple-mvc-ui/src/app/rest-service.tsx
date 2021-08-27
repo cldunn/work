@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/simple-mvc/';
+import { ROOT_SIMPLE_MVC_API } from '../../environment';
 
 const restService = {
     request(
@@ -12,7 +12,7 @@ const restService = {
         responseType?: string
     ): Promise<any> {
         const config: any = {
-            url: BASE_URL + url,
+            url: ROOT_SIMPLE_MVC_API + url,
             method: method,
             params: params,
             data: postData,

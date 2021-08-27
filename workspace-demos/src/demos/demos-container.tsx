@@ -7,8 +7,10 @@ import {
     useParams
   } from 'react-router-dom'
 
+import { ROOT_SIMPLE_MVC_UI } from '../environment';
+
 import DemosDescription from "./descriptions/demos-description";
-import SimpleMvc from './descriptions/simple-mvc-description';
+import SimpleMvcDescription from './descriptions/simple-mvc-description';
   
 import './demos.scss';
 
@@ -16,9 +18,9 @@ const Demos: React.FC = ()  => {
     const demos = [{
         name: 'Simple Mvc',
         id: 'simpleMvc',
-        href: 'http://localhost:3001',
+        href: `${ROOT_SIMPLE_MVC_UI}`,
         detail: {
-            description: SimpleMvc
+            description: SimpleMvcDescription
         }
     }, {
         name: 'Simple Demo using Redis',
@@ -48,7 +50,7 @@ const Demos: React.FC = ()  => {
         // let match = useRouteMatch("/blog/:slug");
       
         const demo = demos.find(({ id }) => id === demoId)
-
+        console.log(`${process.env.API_SIMPLE_MVC}`);
         return (
             <div className="flex-container">
                 { /* Replace link to=demo route */ }
