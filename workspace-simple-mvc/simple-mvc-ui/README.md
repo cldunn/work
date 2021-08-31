@@ -11,3 +11,15 @@ showing alerts of single message success or modal message for multi-message succ
 
 It uses redux and redux-toolkit to maintain a state of the bootstrap spinner, alert and modal.  It also maintaines data from the last successfully return response or clears the 
 data if a response is unsuccessful.
+
+# Build simple-mvc-ui Application in Development Mode
+1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm start
+2. Launch in browser: http:/localhost:3001
+
+# Build simple-mvc-ui Application in Production Mode and deploy in Tomcat
+1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm run build
+2. This will create workspace-simple-mvc/simple-mvc-ui/dist directory
+3. Go to your tomcat deployment, in the webapps directory create a "simple-mvc-ui" directory 
+4. Copy all the contents from the workspace-simple-mvc/simple-mvc-ui/dist directory to the webapps/simple-mvc-ui directory
+5. Launch tomcat - application assumes default tomcat settings
+6. Launch in browser: http:/localhost:8080/demos, navigate to Simple MVC demo, select link to launch simple-mvc-ui
