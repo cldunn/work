@@ -12,7 +12,7 @@ The first step is to download the demo application and all the actual demos.  Th
 # Build Demos Application in Production Mode and deploy in Tomcat
 1. Navigate to the workspace-demos directory and run: npm install && npm run build
 2. This will create workspace-demos/dist directory
-3. Go to you tomcat deployment, in the webapps directory create a "demos" directory 
+3. Go to your tomcat deployment, in the webapps directory create a "demos" directory 
 4. Copy all the contents from the workspace-demos/dist directory to the webapps/demos directory
 5. Launch tomcat - application assumes default tomcat settings
 6. Launch in browser: http:/localhost:8080/demos
