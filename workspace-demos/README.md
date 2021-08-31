@@ -6,8 +6,8 @@ link to navigate to the demo.  This assumes the demos list application and each 
 The first step is to download the demo application and all the actual demos.  They all reside in the work repository so all that is needed is to clone the work repository.
 
 # Build Demos Application in Development Mode
-Navigate to the workspace-demos directory and run: npm install && npm start
-Launch in browser: http:/localhost:3000
+1. Navigate to the workspace-demos directory and run: npm install && npm start
+2. Launch in browser: http:/localhost:3000
 
 # Build Demos Application in Production Mode and deploy in Tomcat
 Navigate to the workspace-demos directory and run: npm install && npm run build
