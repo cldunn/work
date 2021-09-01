@@ -14,12 +14,12 @@ data if a response is unsuccessful.
 
 The first step is to download the demo application and all the actual demos. They all reside in the work repository so all that is needed is to clone the work repository.
 
-# Build simple-mvc-ui Application in Development Mode
+# Build simple-mvc-ui application in development mode
 1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm start
 2. Start the simple-mvc-api server side application (see workspace-simple-mvc/simple-mvc-api README.md)
 3. Launch in browser: http:/localhost:3001
 
-# Build simple-mvc-ui Application in Production Mode and deploy in Tomcat
+# Build simple-mvc-ui application in production mode and deploy in tomcat
 1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm run build
 2. This will create workspace-simple-mvc/simple-mvc-ui/dist directory
 3. Go to your tomcat deployment, in the webapps directory create a "simple-mvc-ui" directory 
