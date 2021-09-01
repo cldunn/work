@@ -17,7 +17,7 @@ The first step is to download the demo application and all the actual demos. The
 # Build simple-mvc-ui Application in Development Mode
 1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm start
 2. Start the simple-mvc-api server side application (see workspace-simple-mvc/simple-mvc-api README.md)
-3. Launch in browser: http:/localhost:3001 
+3. Launch in browser: http:/localhost:3001
 
 # Build simple-mvc-ui Application in Production Mode and deploy in Tomcat
 1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm run build
