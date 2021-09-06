@@ -13,18 +13,10 @@ All responses returned will be in a uniform json format encapsulating a message/
 The first step is to download the demo application and all the actual demos. They all reside in the work repository so all that is needed is to clone the work repository.
 
 # Build simple-mvc-api application deployed in embedded tomcat
+1. Navigate to the workspace-simple-mvc/simple-mvc-api directory and run: mvn spring-boot:run
 
-java -jar C:\Users\cliff\work\workspace-simple-mvc\simple-mvc-api\target\simple-mvc-api-1.0.jar
-
-1. Navigate to the workspace-simple-mvc/simple-mvc-api directory and run: npm install && npm start
-2. Start the simple-mvc-api server side application (see workspace-simple-mvc/simple-mvc-api README.md)
-3. Launch in browser: http:/localhost:3001
 
 # Build simple-mvc-api executable jar deploy with embedded tomcat
-1. Navigate to the workspace-simple-mvc/simple-mvc-ui directory and run: npm install && npm run build
-2. This will create workspace-simple-mvc/simple-mvc-ui/dist directory
-3. Go to your tomcat deployment, in the webapps directory create a "simple-mvc-ui" directory 
-4. Copy all the contents from the workspace-simple-mvc/simple-mvc-ui/dist directory to the webapps/simple-mvc-ui directory
-5. Launch tomcat - application assumes default tomcat settings
-6. Start the simple-mvc-api server side application (see workspace-simple-mvc/simple-mvc-api README.md)
-7. Launch in browser: http:/localhost:8080/simple-mvc-ui or go to http:/localhost:8080/demos, select the simple-mvc demo and use the launch link
+1. Navigate to the workspace-simple-mvc/simple-mvc-api directory
+2. run: mvn clean package spring-boot:repackage
+3. run: java -jar ./target/simple-mvc-api-1.0.jar
