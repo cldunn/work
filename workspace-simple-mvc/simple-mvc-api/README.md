@@ -16,7 +16,7 @@ The first step is to download the demo application and all the actual demos. The
 1. Navigate to the workspace-simple-mvc/simple-mvc-api directory and run: mvn spring-boot:run
 
 
-# Build simple-mvc-api executable jar deploy with embedded tomcat
+# Build simple-mvc-api executable jar and deploy with embedded tomcat
 1. Navigate to the workspace-simple-mvc/simple-mvc-api directory
 2. run: mvn clean package spring-boot:repackage
 3. run: java -jar ./target/simple-mvc-api-1.0.jar
