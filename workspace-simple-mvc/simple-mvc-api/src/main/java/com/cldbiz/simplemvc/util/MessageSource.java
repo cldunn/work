@@ -10,9 +10,10 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.stereotype.Component;
 
 @Component
+/* MessageSource implementation that accesses resource bundles using specified basenames */
 public class MessageSource extends ReloadableResourceBundleMessageSource {
 
-	// injection is done after the constructor so inject as parameters into constructor
+	// Injection is done after the constructor so inject as parameters into constructor
 	public MessageSource(
 			@Value("${message.basenames}") String[] baseNames, 
 			@Value("${message.cache-refresh-interval}") int cacheRefreshInterval) {

@@ -1,0 +1,75 @@
+https://react-bootstrap.github.io/getting-started/introduction
+
+<Spinner animation="border" variant="primary" />
+ 
+	Name	                   	Type	                        	Default	          	Description
+	animation required	       	'border' | 'grow'            		true              	Changes the animation style of the spinner.
+	variant	               		'primary' | 'secondary' |                      			The visual color style of the spinner
+								'success' | 'danger' | 
+								'warning' | 'info' | 
+								'light' | 'dark'
+
+	* Wrap spinner in div, then display div based upon boolean redux selector. 
+	* In axios-interceptor, display spinner upon request via dispatch(commonIsLoading(true)), hide spinner upon response via dispatch(commonIsLoading(false))
+
+
+<Alert variant='primary' show={showAlert} onClose={() => closeAlert()} dismissible>{alertMessage}</Alert>
+
+	Name	             		Type	                        	Default	          	Description
+	show	                	boolean                      		true	          	Controls the visual state of the Alert. (controlled by: onClose, initial prop: defaultShow)
+	dismissible	           		boolean                                        			Renders a properly aligned dismiss button, as well as adding extra horizontal padding to the Alert.
+	onClose	               		function                                       			Callback fired when alert is closed. (controls show)
+	variant	               		'primary' | 'secondary' |    		'primary'	      	The Alert visual variant
+								'success' | 'danger' | 
+								'warning' | 'info' | 
+								'dark' | 'light'
+
+
+
+	* Will be opened and closed (using a timer) via redux actions 'common/commonOpenAlert' and 'common/commonCloseAlert' 
+	* that are launched from the axios-intercptor handling the request's response.  The Alert may also be closed manually using the 'common/commonCloseAlert' action.
+ 
+ 
+// A modal with header, body, and set of actions in the footer.
+<Modal show={show} size={'lg'} dialogClassName={dialogClassName} centered>
+	<Modal.Header className={headerClassName} onHide={() => dispatch({ type: 'common/commonCloseModal'})} closeButton>...</Modal.Header>
+	<Modal.Body>{children}</Modal.Body>
+	<Modal.Footer><Button variant="secondary">Close</Button></Modal.Footer>
+</Modal>
+ 
+	Name <Modal>              	Type	                        	Default	          	Description
+	show	                  	boolean                      		false	          	When true The modal will show itself.	
+	size                      	'sm' | 'lg' | 'xl'                            			Render a large, extra large or small modal. When not provided, the modal is rendered with medium (default) size.
+	centered	              	boolean                                        			Vertically center the Dialog in the window
+	dialogClassName	       	  	string                                         			A css class to apply to the Modal dialog DOM node.
+	scrollable	               	boolean                                        			Allows scrolling the <Modal.Body> instead of the entire Modal when overflowing.
+	 
+	Name <Modal.Header>       	Type	                        	Default	          	Description
+	closeButton	              	boolean                      		false	          	Specify whether the Component should contain a close button
+	onHide	                  	function                                       			A Callback fired when the close button is clicked. 
+	 
+	* Will be opened by the axios-interceptor via redux actions 'common/commonOpenModal' via multi-message success or error responses
+	* The close button on the <Modal.Header> will dispatch the redux action 'common/commonCloseModal' via the hide function
+
+	 
+<OverlayTrigger overlay={<Tooltip id={`tooltip-adams`}>...</Tooltip>} trigger="hover" placement="left">
+	<Button variant="primary" size="sm" onClick={(evt) => triggerButton(evt, 'pathVar')}>...</Button>
+</OverlayTrigger>
+
+	Name <OverlayTrigger>		Type	                        	Default	          	Description
+	overlay required			function | element										An element or text to overlay next to the target.
+	trigger						'hover' | 'click' |'focus' | 		['hover', 'focus']	Specify which action or actions trigger Overlay visibility (focus - primarily for mobile/phone)
+								Array<'hover' | 'click' |'focus'>
+	placement	               	'auto-start' | 'auto' |                        			The placement of the Overlay in relation to it's target.
+								'auto-end' | 'top-start' | 
+								'top' | 'top-end' | 
+								'right-start' | 'right' | 
+								'right-end' | 'bottom-end' | 
+								'bottom' | 'bottom-start' | 
+								'left-end' | 'left' | 
+								'left-start'
+	
+	Name <Tooltip>				Type	                        	Default	          	Description
+	id required					string													An html id attribute, necessary for accessibility
+	
+	

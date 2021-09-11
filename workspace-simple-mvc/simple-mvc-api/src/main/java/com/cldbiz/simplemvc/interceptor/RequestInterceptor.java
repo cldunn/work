@@ -8,6 +8,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.cldbiz.simplemvc.config.AppExecutionContext;
 
+/* 
+ * Intercept all API endpoints and set up thread locale vars, similar functionality to filters
+ */
 @Component
 public class RequestInterceptor implements HandlerInterceptor{ 
 

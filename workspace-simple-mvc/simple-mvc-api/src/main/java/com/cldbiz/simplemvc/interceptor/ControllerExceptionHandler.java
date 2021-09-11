@@ -17,6 +17,13 @@ import com.cldbiz.simplemvc.common.JsonResponse;
 import com.cldbiz.simplemvc.controller.SimpleMvcController;
 import com.cldbiz.simplemvc.exception.ApplicationException;
 
+/*
+ * Intercept any exception thrown by any controller method and uniformly handle it here.
+ * 
+ * All business/application thrown should be caught and wrapped in an ApplicationException
+ * 
+ * All exception of any kind should result in a ResponseEntity<JsonResponse> being returned to the UI   
+ */
 @ControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);

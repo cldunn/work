@@ -1,0 +1,22 @@
+Resolve URL for dev and prod environments (and potentiall override with OS environment variables)
+	package.json
+		"dotenv-webpack": "^7.0.3",
+		
+	.env.development
+		<declare constants to be added to process.env for development>  // eg. ROOT_APP=http:localhost:3000
+	.env.production
+		<declare constants to be added to process.env for production>  // eg. ROOT_APP=http:localhost:8080
+			
+	webpack.config.dev.ts
+		const Dotenv = require('dotenv-webpack');
+		plugins: [ ..., new Dotenv({ path: `./.env.development`, systemvars: true })]
+	webpack.config.prod.ts
+		const Dotenv = require('dotenv-webpack');
+		plugins: [ ..., new Dotenv({ path: `./.env.production`, systemvars: true })]
+		
+	environment.tsx
+		const ROOT_APP = process.env.ROOT_APP;
+		export {ROOT_APP};
+			
+	<component:
+		import { ROOT_APP } from '../../../environment';  // values based upon development or production environment

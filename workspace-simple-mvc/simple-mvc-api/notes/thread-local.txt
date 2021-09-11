@@ -1,0 +1,57 @@
+
+thread-local, 
+	1. create context provider - POJO of variables
+	2. create @Component with final ThreadLocal instance of POJO
+	
+		@Component
+		public class AppExecutionContext {
+			private static final ThreadLocal<AppContext> appContext =  new ThreadLocal<AppContext>() {
+				@Override protected AppContext initialValue() { return new AppContext(); }
+			};
+	
+			// getter/setters for appContext attributes (eg.)
+			public static Locale getLocale() { return appContext.get().getLocale();	}
+			public static void setLocale(Locale locale) { appContext.get().setLocale(locale); }
+			
+			// clean thread local
+			public static void remove() { appContext.remove(); }
+			
+AOP
+	HandlerInterceptor => Workflow interface that allows for customized handler (ie. endpoint) execution chains.
+		preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+		postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
+		afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+		
+	@Component public class RequestInterceptor implements HandlerInterceptor { 
+		preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {... // intercept every incomming request and set thread-local vars}
+	
+	// Must register interceptors with spring application context
+	@Configuration 
+	@PropertySource("classpath:application.properties")
+	public class ApplicationConfiguration implements WebMvcConfigurer  {
+		@Override public void addInterceptors(InterceptorRegistry registry) { ...
+		
+NOTE: Filters - alternative way to initialize thread local, must also register with spring application context
+	@Component
+	public RequestContextFilter extends OncePerRequestFilter { 
+		@Override
+		protected void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain chain) {
+			// extract values from request and create thread-local variables here
+			...
+			chain.doFilter(req, resp);
+		}
+	
+	}
+	
+	@Configuration
+	@EnableWebSecurity
+	public class SecurityConfig extends WebSecurityConfigurerAdapter {
+		@Autowired
+		RequestcontextFilter requestContextFilter;
+		
+		@Override
+		protected void configure(HttpSecruity http) {
+			http.addFilterAfter(requestContextFilter, UserNameAuthenticationFilter.class)
+		}
+		
+	}

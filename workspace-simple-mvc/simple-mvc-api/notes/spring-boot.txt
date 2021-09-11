@@ -1,0 +1,54 @@
+spring-boot, logging, profiles
+
+WARNING: When you add @EnableWebMvc, spring boot autoconfiguration is disabled.				
+
+Launch Application
+	@SpringBootApplication - short hand annotation for @EnableAutoConfig, @ComponentScan, @Configuration
+		annotated class launches application via:
+			main(String[] args) {
+				SpringApplication.run(SimpleMvcApplication.class, args);
+			}
+
+Address CORS
+	Since react runs as its own application, spring must accomodate CORS errors // default does not allow other domains to communicate with application
+	@Configuration
+	@PropertySource("classpath:application.properties")
+	public class ApplicationConfiguration implements WebMvcConfigurer  { ... }
+	
+		@Override
+		public void addCorsMappings(CorsRegistry registry) {
+			registry.addMapping("/**").allowedOrigins("*").allowedHeaders("*").allowedMethods("*");
+		}
+
+Logging
+	logback-spring.xml  // defines properties, appenders and loggers
+		can parametarize logback-spring.xml via application.properties  (eg. root.log.level=INFO)
+			<springProperty scope="context" name="rootLogLevel" source="root.log.level" defaultValue="ERROR"/>		
+
+		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">...</appender>
+		<root level="${rootLogLevel}"><appender-ref ref="FILE"/></root>
+		
+		can selectivley set log level for class/package via application.properties
+			logging.level.com.cldbiz.simplemvc.interceptor.ControllerExceptionHandler=DEBUG
+			
+Environment
+	application.properties - define properties parameterizing spring beans and application
+	
+	Profiles
+		can break properties into mutliple files with file name formats of application-<profile>.properties
+		then construct composite environment of all property files as defined in application.propeties property: 
+			spring.profiles.active=<profile>,...
+	
+	Can access any property in the application via:
+		@Configuration
+		@PropertySource("classpath:application.properties")
+		public class ApplicationConfiguration implements WebMvcConfigurer  { ... }
+		
+		Then in any class
+			@Value("${message.basenames}") String[] baseNames
+			
+			@Autowired
+			private Environment environment;
+			
+				environment.getProperty("message.basenames")
+		

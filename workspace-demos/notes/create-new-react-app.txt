@@ -1,7 +1,7 @@
 1. create package.json  // define application runtime dependencies and dev dependencies
 
 	https://docs.npmjs.com/cli/v7/configuring-npm/package-json
-	name, description, version, repository,main (ie.package.json relative path to index.html), homepage (ie. root directory; eg. "."), scripts, dependencies, devDependencies
+	name, description, version, repository, main (ie.package.json relative path to index.html), homepage (ie. root directory; eg. "."), scripts, dependencies, devDependencies
 	
 	BASE LINE
 		npm install --save react
@@ -57,7 +57,7 @@
 	https://webpack.js.org/configuration/
 	module.exports = {
 		mode (ie. production), target (ie. web), entry (ie. path relative from config file to index.tsx'),
-		output (ie. path & filename of output, root directory // in production actually is generated into /dist),
+		output (ie. path & filename of output, root directory (eg. output.publicPath: '/') // in production actually is generated into /dist),
 		resolve =>  {extensions (ie. file extentions of app files), alias: { react: path.resolve('./node_modules/react')  // required for npm link  }},
 		module => : {rules: [(ie. ts loader), (ie. sass/css loaders & extracts CSS into separate files via MiniCssExtractPlugin.loader), 
 		                     {test: /\.(png|woff|woff2|eot|ttf|svg)$/, type: 'asset/inline' } (ie. asset/inline - exports a data URI of the asset)]},
@@ -78,37 +78,12 @@
 		3. launch tomcat server via bin/startup.bat (on windows)
 		4. from browser goto http://localhost:8080/myApp
 		5. bring tomcat server down via /bin/shoutdown.bat (on windows)
-	
-		to deploy /dist artifacts to tomcat, build requires:
-			webpack.config.dev.ts
-				output.publicPath: '/'
-	
+		
+		to deploy /dist artifacts to tomcat, build requires:  
+			// eg. enable index.html to find main.js
 			webpack.config.prod.ts
-				output.publicPath: './'
+				output.publicPath: './'  
 	
-	Resolve URL for dev and prod environments (and potentiall override with OS environment variables)
-		pakcage.json
-			"dotenv-webpack": "^7.0.3",
-		
-		.env.development
-			<declare constants to be added to process.env for development>  // eg. ROOT_APP=http:localhost:3000
-		.env.production
-			<declare constants to be added to process.env for production>  // eg. ROOT_APP=http:localhost:8080
-			
-		webpack.config.dev.ts
-			const Dotenv = require('dotenv-webpack');
-			plugins: [ ..., new Dotenv({ path: `./.env.development`, systemvars: true })]
-		webpack.config.prod.ts
-			const Dotenv = require('dotenv-webpack');
-			plugins: [ ..., new Dotenv({ path: `./.env.production`, systemvars: true })]
-		
-		environment.tsx
-			const ROOT_APP = process.env.ROOT_APP;
-			export {ROOT_APP};
-			
-		<component:
-			import { ROOT_APP } from '../../../environment';  // values based upon development or production environment
-			
 // define typescript compiler options, used in webpack configurations of transpiler
 4. create tsconfig.json
 {

@@ -1,0 +1,159 @@
+https://redux-toolkit.js.org/api/configureStore
+
+configureStore
+	abstraction over the standard Redux createStore function that adds good defaults to the store setup
+	
+	interface ConfigureStoreOptions {
+		reducer: Reducer<S, A> | ReducersMapObject<S, A>  // root reducer, or an object of slice reducers passed to `combineReducers()
+		middleware?: ((getDefaultMiddleware: CurriedGetDefaultMiddleware<S>) => M) | M  // Array of Redux middleware to install. defaults to middleware returned by `getDefaultMiddleware()
+		devTools?: boolean | DevToolsOptions  // Whether to enable Redux DevTools integration. Defaults to `true`.
+		preloadedState?: DeepPartial<S extends any ? S : S>
+		enhancers?: StoreEnhancer[] | ConfigureEnhancersCallback
+	}
+
+	const store = configureStore({
+		reducer: {
+			common: commonReducer,
+			home: homeReducer
+		},
+		middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+	})
+	
+useSelector (React-Redux hook)
+	Equivalent to the mapStateToProps
+	Allows you to extract data from the Redux store state, using a selector function.
+	
+	The selector will be called with the entire Redux store state as its only argument.
+	useSelector() will also subscribe to the Redux store, and run your selector whenever an action is dispatched.
+	
+	eg.
+		const initialState:any = {..., modalMessage: {...}}
+		const commonSlice = createSlice({
+		  name: 'common',
+		  initialState,
+		  reducers: {...}
+		  extraReducers: (builder) => {builder...}
+
+		export const selectModalMessage = (state: any): MessageInterface => state.common.modalMessage;
+		---------------------------------------------------------------------------------------------
+		import { useSelector } from 'react-redux'
+		import { selectModalMessage, ... } from '../common-slice';
+
+		const msg = useSelector(selectModalMessage);  // Everytime state.common.modalMessage is updated/changed, components using useSelector are re-rendered 
+		<ul>
+			{msg.details.map((d: string) => <li key={d}>{d}</li>)}
+		</ul>
+
+
+useDispatch  (React-Redux hook)
+	const dispatch = useDispatch()  // Dispatches a redux action. Triggers a state change, called with the current getState() result and the given action  
+									
+	returns a reference to the dispatch function from the Redux store
+	
+	const dispatch = useDispatch();
+	dispatch({ type: 'common/commonOpenAlert', payload: {
+		status: 'success',
+		alertMessage : jsonResp.message.content
+	}});
+	----------------------------------------------------------------------------------
+	const commonSlice = createSlice({
+		name: 'common',
+		initialState,
+		reducers: {
+			commonOpenAlert(state, action) {
+				const { status, alertMessage} = action.payload; 
+				...
+			}
+			
+	* Note: The default Dispatch type does not know about thunks or other middleware. 
+	  In order to correctly dispatch thunks, you need to use the specific customized AppDispatch type from the store that includes the thunk middleware types
+	  
+		export type AppDispatch = typeof store.dispatch
+		export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>()
+		
+		const resultAction = await dispatch(findWashington({
+			url: '/findWashington'
+		})).unwrap();
+		-----------------------------------------------------------------------------------
+		// thunk functions
+		export const findWashington = createAsyncThunk('home/findWashington', async (payload: any) => {
+			// retrieves jsonResp.data
+			const data = await restService.get(payload.url);
+			return data;
+		})
+		
+		const homeSlice = createSlice({
+		  name: 'home',
+		  initialState,
+		  reducers: {
+			homeSetData(state, action) {
+				...
+			}
+		  extraReducers: (builder) => {
+			builder
+				.addCase(findWashington.pending, (state, action) => {...})
+				.addCase(findWashington.fulfilled, (state, action) => {
+					// action.payload === jsonResp.data, can use caseReducers to indirectly update state
+					homeSlice.caseReducers.homeSetData(state, action);
+				})
+				.addCase(findWashington.rejected, (state, action) => {...})
+	
+createSlice
+	Function that accepts a "slice name", an initial state, an object full of reducer functions
+	Automatically generates action creators and action types that correspond to the reducers and state.
+	Uses Immer to write "mutating" immutable updates
+	
+	const initialState:HomeSliceState = { president: null }
+
+	const homeSlice = createSlice({
+	  name: 'home',
+	  initialState,
+	  reducers: {
+		homeSetData(state, action) {
+			...
+		}
+	})
+	
+createAsyncThunk
+	A function that accepts a Redux action type string and a callback function that should return a promise. 
+	
+	It generates promise lifecycle action types based on the action type prefix that you pass in, and returns a thunk action creator that will run the promise callback 
+	and dispatch the lifecycle actions based on the returned promise.  It does not generate any reducer functions, you should write your own reducer logic that handles these actions.
+
+	Args:
+		type - to generate additional Redux action type (eg. 'home/findWashington' => findWashington.pending, findWashington.fulfilled, findWashington.rejected)
+		payloadCreator - A callback function that should return a promise containing the result of some asynchronous logic. It may also return a value synchronously. 
+
+	When dispatched, the thunk will:	
+		1. dispatch the pending action
+		2. call the payloadCreator callback and wait for the returned promise to settle
+		3. when the promise settles:
+			a. if the promise resolved successfully, dispatch the fulfilled action with the promise value as action.payload
+			b. if the promise resolved with a rejectWithValue(value) return value, dispatch the rejected action with the value passed into action.payload and 'Rejected' as action.error.message
+			c. if the promise failed and was not handled with rejectWithValue, dispatch the rejected action with a serialized version of the error value as action.error
+			d. Return a fulfilled promise containing the final dispatched action (either the fulfilled or rejected action object)
+
+	--------------------------------------------------------------------------------------------------
+	export const findWashington = createAsyncThunk('home/findWashington', async (payload: any) => {
+		// retrieves jsonResp.data
+		const data = await restService.get(payload.url);
+		return data;
+	})
+	
+	const homeSlice = createSlice({
+		name: 'home',
+		initialState,
+		reducers: {
+			homeSetData(state, action) {
+				...
+		}
+		extraReducers: (builder) => {
+			builder
+				.addCase(findWashington.pending, (state, action) => {...})
+				.addCase(findWashington.fulfilled, (state, action) => {
+					// action.payload === jsonResp.data, can use caseReducers to indirectly update state
+					homeSlice.caseReducers.homeSetData(state, action);
+				})
+				.addCase(findWashington.rejected, (state, action) => {...})
+
+			

@@ -7,7 +7,7 @@ import {
     useParams
   } from 'react-router-dom'
 
-import { ROOT_SIMPLE_MVC_UI } from '../environment';
+import { APP_TITLE, ROOT_SIMPLE_MVC_UI } from '../environment';
 
 import DemosDescription from "./descriptions/demos-description";
 import SimpleMvcDescription from './descriptions/simple-mvc-description';
@@ -70,7 +70,7 @@ const Demos: React.FC = ()  => {
     function Demos () {
         return (
             <div>
-                <h1>Demos</h1>
+                <h1>{APP_TITLE}</h1>
                 <ul>
                     {demos.map(({ name, id }) => (
                         <li key={id}>

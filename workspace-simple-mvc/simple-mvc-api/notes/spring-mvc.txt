@@ -1,0 +1,30 @@
+spring-mvc,
+	@GetMapping("users/{id}")
+		public ResponseEntity<User> getById(@PathVariable long id) {
+	@PostMapping
+		public ResponseEntity<User> create(@RequestBody User newUser)
+	@PutMapping("/employees/{id}")
+		public ResponseEntity<Employee> updateEmployee(
+			@PathVariable(value = "id") Long employeeId,
+			@Valid @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
+	@DeleteMapping
+		@DeleteMapping("/employees/{id}")
+		public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId) throws ResourceNotFoundException {
+	@PatchMapping
+		@PatchMapping("/users/{id}")
+		public ResponseEntity<User> updateUserPartially(
+			@PathVariable(value = "id") Long userId,
+			@Valid @RequestBody User userDetails) throws ResourceNotFoundException {
+
+
+@ControllerAdvice 
+	Specialization of @Component for classes that declare @ExceptionHandler, @InitBinder, or @ModelAttribute methods to be shared across multiple @Controller classes.
+
+	ResponseEntityExceptionHandler
+		A convenient base class for @ControllerAdvice classes that wish to provide centralized exception handling across all @RequestMapping methods through @ExceptionHandler methods.
+
+	@ControllerAdvice 
+	public class ControllerExceptionHandler extends ResponseEntityExceptionHandler { 
+		ExceptionHandler(Exception.class)
+		public ResponseEntity<JsonResponse> handleRuntimeExcpetion(Exception ex, WebRequest request) { ... // intercept all exceptions thrown by controllers and uniformly handle		
+	

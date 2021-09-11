@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 
-import './App.scss';
+import './app.scss';
 
 import store from './app/store';
 import Landing from './app/landing/landing-container';
-import createInterceptors from "./app/axios-intercptor";
+import createInterceptors from "./app/axios-interceptor";
 
 const App: React.FC = () => {
   createInterceptors(store.dispatch);

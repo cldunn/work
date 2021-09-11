@@ -2,7 +2,14 @@ import axios from 'axios';
 
 import { ROOT_SIMPLE_MVC_API } from '../../environment';
 
+// request calls are synchronous ...
+// TODO: add asyncRequest that returns the promise
+
 const restService = {
+    // All axios request config options
+    // url, method, baseURL, transformRequest, transformResponse, headers, params, paramsSerializer, data, timeout, withCredentials, adapter, auth, 
+    // responseType, responseEncoding, xsrfCookieName, xsrfHeaderName, onUploadProgress, onDownloadProgress, maxContentLength, maxBodyLength, 
+    // validateStatus, maxRedirects, socketPath, httpAgent, httpsAgent, proxy, cancelToken, decompress
     request(
         url: string,
         method: string,
@@ -37,6 +44,7 @@ const restService = {
             })
     },
 
+    // TODO: parametrize async access that returns the promise
     get(url: string, params?: any, requestHeaders?: any, responseType?: string): Promise<any> {
         return this.request(url, 'get', params, null, requestHeaders, responseType);
     },

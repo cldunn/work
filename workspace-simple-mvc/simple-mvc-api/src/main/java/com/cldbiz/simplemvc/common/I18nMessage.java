@@ -13,12 +13,14 @@ import com.cldbiz.simplemvc.config.AppExecutionContext;
 import com.cldbiz.simplemvc.util.ApplicationContextUtils;
 import com.cldbiz.simplemvc.util.MessageSource;
 
+/* Redundant class to MessageSource */
 public class I18nMessage {
 	// Cannot @Autowire bean in a non-component, use ApplicationContext instead
 	private static MessageSource messageSource;
 	
 	// Manually initialize MessageSource from ApplicationContext
 	static {
+		// ApplicationContextAware utility class that provide ApplicationContext access 
 		ApplicationContext ctx = ApplicationContextUtils.getApplicationContext();
 		messageSource = ctx.getBean(MessageSource.class);
 	}

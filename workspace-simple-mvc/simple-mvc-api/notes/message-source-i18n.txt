@@ -1,0 +1,11 @@
+messaging
+	MessageSource - Strategy interface for resolving messages, with support for the parameterization and internationalization of such messages.
+	ReloadableResourceBundleMessageSource - MessageSource implementation that accesses resource bundles using specified basenames
+	
+	@Component 
+	public class MessageSource extends ReloadableResourceBundleMessageSource { // i18n application from properties, enhanced to get by prefix
+		public MessageSource(@Value("${message.basenames}") String[] baseNames,...) {
+			super.setBasenames(baseNames);
+		}	
+
+		getMessage(String code, Object[] args, Locale locale){...}

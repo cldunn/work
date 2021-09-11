@@ -24,11 +24,15 @@ import GlobalContext from "../common/global-content";
 import './home.scss';
 
 const Home: React.FC = ()  => {
+    // useSelector allows you to extract data from the Redux store state, using a selector function.
     const president = useSelector(selectPresident);
+
+    // dispatch function from the Redux store derived from store with thunk access
     const dispatch = useAppDispatch ();
     
+    // useContext accepts a context object (returned from React.createContext) 
+    // and returns the current context value for that context.
     const gCtx = useContext(GlobalContext);
-    
     
     const triggerButton = async (evt: any, action: any) => {
         switch(action) {

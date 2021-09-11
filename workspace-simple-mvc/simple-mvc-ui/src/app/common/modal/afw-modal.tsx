@@ -16,7 +16,10 @@ const AfwModal = (props: AfwModalProps): any => {
         dialogClassName
     } = props;
 
+    // useSelector allows you to extract data from the Redux store state, using a selector function.
     const status = useSelector(selectStatus);
+
+    // useDispatch returns a reference to the dispatch function from the Redux store
     const dispatch = useDispatch();
 
     const headerClassName = status === 'danger' ? 'bg-danger' : 'bg-success';

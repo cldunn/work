@@ -8,10 +8,10 @@ const SimpleMvcDescription: React.FC = () => {
         <div className="flex-container flex-contained">
             <div>
                 <p>
-                    Simple MVC demonstrates the interaction between a React UI and a Spring MVC Rest API.  The React UI uses the axios request service to 
+                    Simple MVC demonstrates the interaction between a React UI and a Spring MVC Rest API.  The React UI uses an axios request service to 
                     communicate with a server side API via JSON.  An axios interceptor handles any response to display an appropriate Alert or or Modal message
                     to the user and set or clear the redux state corresponding to the http status code.  The server side provides rest endpoints and provides 
-                    multiple exmples of how Spring MVC may recieve parameters as well as return data and messages as well as throw exceptions.
+                    multiple exmples of how Spring MVC may recieve parameters, return data/messages as well as throw exceptions.
                 </p>
                 <p>
                     Clicking one of the buttons will return a former presidents name to be displayed above the buttons, if the rest endpoint is successful,

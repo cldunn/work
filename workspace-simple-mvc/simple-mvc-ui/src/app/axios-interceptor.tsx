@@ -8,25 +8,28 @@ const createInterceptors = (dispatch: Dispatch): void => {
 
     axios.interceptors.request.use(
         (req) => {
+            // Do something before request is sent
             dispatch(commonIsLoading(true));
             console.log('interceptors.request.use success request: ', req);
 
             return req;
         },
         (err) => {
+            // Do something with request error
             console.log('interceptors.request.use failure err: ', err);
             return Promise.reject(err);
         }
     );
     
-    // For POST requests
     axios.interceptors.response.use(
         (res) => {
+            // Any status code that lie within the range of 2xx cause this function to trigger, do something with response data
+            // Standard codes are 200 -208, 226; any other 2xx can be used for customization
             dispatch(commonIsLoading(false));
             
             clearTimeout(alertId);
 
-            // extract msg and data if 200-299, do 300s show up here?
+            // extract msg and data if 200-299
             console.log('interceptors.response.use success response: ', res);
             if (res.status >= 200 && res.status <= 299) {
                 const jsonResp = res.data;
@@ -56,6 +59,7 @@ const createInterceptors = (dispatch: Dispatch): void => {
             return res;
         },
         (err: any) => {
+            // Any status codes that falls outside the range of 2xx cause this function to trigger, do something with response error
             dispatch(commonIsLoading(false));
             
             clearTimeout(alertId);
