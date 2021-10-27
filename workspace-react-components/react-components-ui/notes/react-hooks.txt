@@ -1,0 +1,59 @@
+https://reactjs.org/docs/hooks-reference.html
+
+useState
+	const [state, setState] = useState(initialState);
+
+	1. Returns a stateful value, and a function to update it.
+	2. During the initial render, the returned state (state) is the same as the value passed as the first argument (initialState).
+	3. The setState function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
+		
+		setState(newState);	
+	
+	
+useEffect 
+	Since mutations, subscriptions, timers, logging, and other side effects are not allowed inside the main body of a function component due to rendering timing constraints
+	
+	useEffect(() => {...  return()=>{...} }, [...])  // always fires upon initialization
+	
+	1. first arg (fx) is function passed to useEffect will run after the render is committed to the screen, before next render; 
+	   fx may return a clean up function which will be fired before executing the next effect
+	2. second argument is the array of values that the effect (eg. fx) depends on, fires only when they change; [] => fire once; if missing then fires after each render
+	
+	* if DOM mutation in fx, call useLayoutEffect instead
+	
+
+useCallback 
+	const memoizedCallback = useCallback(
+		() => {
+			doSomething(a, b);
+		},
+		[a, b]
+	);
+	
+	Pass an inline callback and an array of dependencies. useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
+	=> returns	the cached result when the same inputs occur again
+	
+	*  exhaustive-deps rule as part of our eslint-plugin-react-hooks package warns when dependencies are specified incorrectly and suggests a fix.
+	
+
+useContext 
+	Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+	
+	const MyContext = React.createContext({...})  // can hold value with state and setter functions
+	const value = useContext(MyContext);
+	
+	Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. 
+	The current context value is determined by the value prop of the nearest <MyContext.Provider value={...}> above the calling component in the tree.
+
+    The defaultValue argument is only used when a component does not have a matching Provider above it in the tree
+	
+    Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
+    The Provider component accepts a value prop to be passed to consuming components that are descendants of this Provider.
+
+    <MyContext.Provider value={ some_value }>
+	
+	* Note: create a context and do not supply Provider, all useContext(MyContext) share same MyContext default value, can modify MyContext value via setter functionality
+
+
+
+	

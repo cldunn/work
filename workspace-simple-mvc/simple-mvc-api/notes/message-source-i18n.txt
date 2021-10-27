@@ -3,7 +3,7 @@ messaging
 	ReloadableResourceBundleMessageSource - MessageSource implementation that accesses resource bundles using specified basenames
 	
 	@Component 
-	public class MessageSource extends ReloadableResourceBundleMessageSource { // i18n application from properties, enhanced to get by prefix
+	public class MessageSource extends ReloadableResourceBundleMessageSource { // i18n application from properties, enhanced to get map by key prefix
 		public MessageSource(@Value("${message.basenames}") String[] baseNames,...) {
 			super.setBasenames(baseNames);
 		}	

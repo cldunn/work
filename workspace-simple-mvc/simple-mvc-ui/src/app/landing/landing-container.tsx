@@ -11,7 +11,7 @@ import { Tv } from "react-bootstrap-icons";
 import { useAppDispatch } from "../store";
 import GlobalContext from '../common/global-content';
 import AfwModal from "../common/modal/afw-modal";
-import Message from "../common/modal/message";
+import Message from "../common/modal/afw-message/afw-message";
 
 import Home from "../home/home-container";
 

@@ -36,7 +36,7 @@ Environment
 	
 	Profiles
 		can break properties into mutliple files with file name formats of application-<profile>.properties
-		then construct composite environment of all property files as defined in application.propeties property: 
+		then construct composite environment of selected property files as defined in application.propeties property: 
 			spring.profiles.active=<profile>,...
 	
 	Can access any property in the application via:

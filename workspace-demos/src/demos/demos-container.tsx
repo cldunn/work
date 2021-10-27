@@ -50,7 +50,6 @@ const Demos: React.FC = ()  => {
         // let match = useRouteMatch("/blog/:slug");
       
         const demo = demos.find(({ id }) => id === demoId)
-        console.log(`${process.env.API_SIMPLE_MVC}`);
         return (
             <div className="flex-container">
                 { /* Replace link to=demo route */ }

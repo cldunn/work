@@ -1,4 +1,3 @@
-
 thread-local, 
 	1. create context provider - POJO of variables
 	2. create @Component with final ThreadLocal instance of POJO
@@ -23,7 +22,7 @@ AOP
 		afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 		
 	@Component public class RequestInterceptor implements HandlerInterceptor { 
-		preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {... // intercept every incomming request and set thread-local vars}
+		preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {... // intercept every incoming request and set thread-local vars}
 	
 	// Must register interceptors with spring application context
 	@Configuration 
