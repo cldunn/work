@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Pagination from 'react-bootstrap/Pagination';
 import './afw-pager.scss'
 
-const AfwPager: React.FC<any> = (props: any)  => {
+const AfwPager: React.FC<any> = (props: any) => {
     const {pageable, criteria, total, doSubmit} = props;
     
     const [blockState, setBlockState] = useState([
@@ -30,13 +30,6 @@ const AfwPager: React.FC<any> = (props: any)  => {
         });
     };
 
-    const blockClicked = (blockNdx: any) => {
-        setBlockState(blockState => blockState.map((block: any, ndx: number): any => {
-            block.active = (ndx == blockNdx) ? true : false;
-            return block;
-        }));
-    };
-    
     const firstClicked = () => {
         setBlkStart(1);
         setCurPos(0);
@@ -84,20 +77,18 @@ const AfwPager: React.FC<any> = (props: any)  => {
             return;
         }
         
+        const blockClicked = (blockNdx: any) => {
+            setBlockState(blockState => blockState.map((block: any, ndx: number): any => {
+                block.active = (ndx == blockNdx) ? true : false;
+                return block;
+            }));
+        };
+        
+    
         blockClicked(curPos);
         doSubmit({...pageable, page: blkStart + curPos}, criteria);
-    }, [ blkStart, curPos]);
-
-    /*
-    useEffect(() => {
-        (() => {
-           fetch(`https://jsonplaceholder.typicode.com/${query}`)
-          .then(response => response.json())
-          .then(json => setData(json)
-         )();
-      }, [query]);
-    }
-    */
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ pageable, blkStart, curPos, criteria ]);
 
     return (
         <div style={{width: '100%'}}>

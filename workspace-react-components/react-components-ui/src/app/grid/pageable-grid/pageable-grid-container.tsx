@@ -20,12 +20,13 @@ const PageableGrid: React.FC = ()  => {
     // and returns the current context value for that context.
     const gCtx = useContext(GlobalContext);
 
-    const [pageable, setPageable] = useState({
+    const [pageable] = useState({
         page: 1,
 		pageSz: 10,
         orderBy: 'itemId',
         orderDir: 'asc'
     });
+
     const [criteria, setCriteria] = useState({
         description: null
     });
@@ -49,21 +50,20 @@ const PageableGrid: React.FC = ()  => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         
-        setPageable({...pageable, page: 1});
-        doSubmit(pageable, criteria);
+        doSubmit({...pageable, page: 1}, criteria);
     }
 
-    const doSubmit = async (pageable: any, criteria: any) => {
+    const doSubmit = async (myPageable: any, myCriteria: any) => {
         const data = await dispatch(searchItems({
             url: '/pageable-grid/searchItems',
             params: {
                 pageInfo: {
-                    page: pageable.page, 
-                    pageSz: pageable.pageSz,
-                    orderBy: pageable.orderBy,
-                    orderDir: pageable.orderDir
+                    page: myPageable.page, 
+                    pageSz: myPageable.pageSz,
+                    orderBy: myPageable.orderBy,
+                    orderDir: myPageable.orderDir
                 },
-                criteria: criteria
+                criteria: myCriteria
             }
         })).unwrap();
 
@@ -78,6 +78,7 @@ const PageableGrid: React.FC = ()  => {
         }
 
         initPage();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

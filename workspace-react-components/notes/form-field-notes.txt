@@ -1,0 +1,60 @@
+Input Types
+	// FORMATTED & VALIDATED
+		<input type="date">
+		<input type="time">
+		<input type="datetime-local">
+		<input type="number">
+		
+		<input type="text">
+			<input type="decimal">   // really formatted type="text"
+			<input type="currency">  // really formatted type="text"
+		<input type="password">
+		<input type="email">
+		<input type="tel">
+		<input type="url">  
+
+		<input type="credit-card">  // really library
+
+	<input type="file">
+	<input type="week">
+	<input type="month">
+
+	<input type="hidden">
+	<input type="checkbox">
+	<input type="radio">
+	<input type="button">
+	<input type="image">
+
+	<input type="reset">
+	<input type="search">
+	<input type="submit">
+	
+Formatters
+		date          MM/dd/yy, MM/dd/yyyy, yyyy-MM-dd, ... // spacers (/ | -), applies to 6-8#
+		time
+		datetime      MM/dd/yy 24HH:mm:ss, .... // spacers (/ | -, :), applies to 12-14#
+		email		  regEx
+		number        only 0-9 can be entered
+		phone         RegEx (domestic | i18n)
+
+		decimal       precision (default 2), group separator, decimal separator
+		currency      symbol, precision (default 2), group separator, decimal separator
+		credit card   via library: Payment.js, creditCardValidator.js
+
+Validators
+	required
+	minLength
+	maxLength
+	regular expression
+		*
+		date
+		time
+		datetime
+		number
+		email
+		phone
+		decimal
+		currency
+		credit card
+		
+* apply formatter then validation

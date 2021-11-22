@@ -1,0 +1,8 @@
+.afw-form-input {
+  & .errSpace.valid-feedback {
+    display: block !important;
+  }
+  & .errSpace.invalid-feedback {
+    display: block !important;
+  }
+}
