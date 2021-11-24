@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { Field } from "react-final-form";
 
 import {Form, Row, Col, InputGroup, FormControl} from 'react-bootstrap'
 
 import './afw-form-input.scss';
 
-const AfwFormInput: React.FC<any> = (props: any)  => {
-    const { name, type, label, lblWidth, placeholder, value, validators, ...rest } = props;
+const AfwFormCurrency: React.FC<any> = (props: any)  => {
+    const { name, label, lblWidth, placeholder, value, validators, ...rest } = props;
 
     const lblSize = lblWidth ? lblWidth - 0 : -1;
     const fldSize = lblWidth ? 12 - lblWidth : 12;
+    const [hasFocus, setHasFocus ] = useState(false);
+    const [displayValue, setDisplayValue ] = useState(value);
     const processValidation = (validators: any) => (val: any) => {
         // return validators && validators.reduce((err: any, validator: any) => err || validator(val), undefined);
         return validators && validators.reduce((errMsgs: any, validator: any) => {
@@ -21,6 +23,19 @@ const AfwFormInput: React.FC<any> = (props: any)  => {
     return (
         <Field name={name} validate={processValidation(validators)}>
             {({ input, meta }) => {
+                const doFocus = (event: any) => {
+                    console.log('doFocus', event);
+                    setHasFocus(true);
+                    event.target.value = input.value;
+                    input.onFocus(event);
+                }
+                const doBlur = (event: any) => {
+                    console.log('doBlur', event);
+                    setHasFocus(false);
+                    setDisplayValue('A' + input.value);
+
+                    input.onBlur(event);
+                }
                 return (
                     <div>
                         {console.log(input, meta)}
@@ -30,12 +45,12 @@ const AfwFormInput: React.FC<any> = (props: any)  => {
                                 <InputGroup hasValidation>
                                     <Form.Control {...rest}
                                         name={input.name} 
-                                        type={type} 
+                                        type='text' 
                                         placeholder={placeholder} 
-                                        value={input.value}  
+                                        value={hasFocus ? input.value : displayValue}  
                                         onChange={input.onChange}
-                                        onBlur={input.onBlur}
-                                        onFocus={input.onFocus}
+                                        onFocus={doFocus}
+                                        onBlur={doBlur}
                                         className="p-2"
                                         style={{borderColor: meta.touched && meta.error ? 'red' : ''}} />
                                     <FormControl.Feedback className='errSpace' type={meta.touched && meta.error ? 'invalid' : 'valid'}>
@@ -51,4 +66,4 @@ const AfwFormInput: React.FC<any> = (props: any)  => {
     )
 }
 
-export default AfwFormInput;
+export default AfwFormCurrency;

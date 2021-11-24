@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import AfwForm from "../common/form/afw-form-container";
 import AfwFormInput from "../common/form/afw-form-input-container";
 import AfwFormSelect from "../common/form/afw-form-select-container";
+import AfwFormCurrency from "../common/form/afw-form-currency-container";
 import { required, minLen, regEx } from "../common/form/afw-form-validators";
 
 const EditableForm: React.FC = ()  => {
@@ -47,14 +48,26 @@ const EditableForm: React.FC = ()  => {
                         </Row>
                         <Row>
                             <Col xs={12} sm={6}>
+                                <AfwFormSelect name='gender' value='M'
+                                    label='Gender' lblWidth='2' placeholder='Gender' 
+                                    disabled={true} options={genderLvbs} validators={[required()]} />
+                            </Col>
+                            <Col xs={12} sm={6}>
                                 <AfwFormInput name='email' type='email' 
                                     label='Email' lblWidth='2' placeholder='Email' 
                                     validators={[required(), minLen(12)]} />
                             </Col>
+                        </Row>
+                        <Row>
                             <Col xs={12} sm={6}>
-                                <AfwFormSelect name='gender' value='M'
-                                    label='Gender' lblWidth='2' placeholder='Gender' 
-                                    disabled={true} options={genderLvbs} validators={[required()]} />
+                                <AfwFormCurrency name='currency' value=''
+                                    label='Currency' lblWidth='2' placeholder='Currency' 
+                                    validators={[required()]} />
+                            </Col>
+                            <Col xs={12} sm={6}>
+                                <AfwFormInput name='date' type='date'
+                                    label='Date' lblWidth='2' placeholder='Date' 
+                                    validators={[required()]} />
                             </Col>
                         </Row>
                     </Container>
