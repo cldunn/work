@@ -3315,3 +3315,1230 @@ Unconditional classes:
 2021-11-24 11:33:03 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
 2021-11-24 11:33:03 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
 2021-11-24 11:33:03 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 18:49:23 INFO       --- [http-nio-8002-exec-7] o.a.coyote.http11.Http11Processor : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0xd30xb6F ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:18:18 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/init", parameters={}
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#initApp()
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/init", parameters={}
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#initApp()
+2021-11-24 22:18:18 INFO       --- [http-nio-8002-exec-3] c.c.r.c.PageableGridController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:18:18 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:18:27 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:18:27 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:18:55 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:18:55 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:18:55 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:18:55 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:18:55 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:18:55 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:19:10 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:19:10 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:19:10 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:19:10 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:19:10 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:19:10 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:22:32 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:22:32 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:22:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:22:37 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:22:37 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:22:37 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:22:37 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:22:37 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:22:37 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:27:14 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:27:14 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:27:14 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:27:19 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:27:19 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:27:19 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:27:19 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:27:19 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:27:19 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:32:55 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:32:55 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:32:55 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:32:55 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:32:55 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:32:55 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:32:56 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:32:56 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:32:56 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:32:56 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:32:56 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:32:56 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:33:03 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:33:03 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:33:03 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:33:03 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:33:03 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:33:03 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:36:46 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:36:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:36:46 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:36:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:36:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:36:46 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:36:47 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:36:47 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:36:47 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:37:35 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:37:35 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:37:35 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:37:35 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:37:41 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:37:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:37:41 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:37:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:37:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:37:41 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:38:46 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:38:46 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:38:46 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:38:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:38:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:38:47 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:38:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:38:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:38:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:39:16 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:39:16 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:39:16 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:39:16 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:44:12 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:44:12 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:44:12 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:48:23 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:48:23 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:48:33 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:48:33 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:54:00 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:54:00 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:54:00 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:54:00 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:54:00 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:54:00 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:54:01 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:54:01 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:54:01 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:54:01 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:54:01 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:54:01 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:54:05 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:54:05 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:54:05 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:54:05 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:54:05 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:54:05 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:58:50 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 22:58:50 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 22:58:50 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:02:16 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:02:16 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:02:16 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:08:12 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:08:12 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:08:12 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:10:30 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:10:30 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:10:30 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:12:29 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:12:29 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:12:29 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:13:54 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:13:54 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:13:54 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:13:54 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:13:54 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:13:54 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:13:55 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:13:55 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:13:55 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:13:55 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:13:55 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:13:55 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:14:33 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:14:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:14:33 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:14:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:14:33 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:14:33 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:14:34 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:14:34 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:14:34 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:14:34 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:14:34 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:14:34 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:14:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:14:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:14:41 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:14:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:14:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:14:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:15:14 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:15:14 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:15:14 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:15:14 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:15:14 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:15:14 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:15:15 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:15:15 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:15:15 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:15:15 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:15:15 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:15:15 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:24:11 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-24 23:24:11 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-24 23:24:11 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:19:57 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:19:57 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:19:58 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:19:58 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:20:46 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:20:46 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:20:46 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:27:01 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:27:01 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:27:01 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:27:01 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:27:01 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:27:01 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:27:02 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:27:02 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:27:02 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:27:02 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:27:02 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:27:02 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/init", parameters={}
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#initApp()
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/init", parameters={}
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#initApp()
+2021-11-25 10:29:13 INFO       --- [http-nio-8002-exec-3] c.c.r.c.PageableGridController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:29:13 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:15 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/searchItems?page=1&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:15 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:15 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:15 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=1&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:15 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:26 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:26 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@1a1d83c6}, message=null}]
+2021-11-25 10:29:26 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/searchItems?page=2&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=2&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@5540133c}, message=null}]
+2021-11-25 10:29:36 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/searchItems?page=3&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=3&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@4429e2bf}, message=null}]
+2021-11-25 10:29:38 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:40 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=1&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@6012e3f4}, message=null}]
+2021-11-25 10:29:40 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/searchItems?page=7&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=7&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@7743789d}, message=null}]
+2021-11-25 10:29:43 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/pageable-grid/searchItems?page=5&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=5&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@c85d315}, message=null}]
+2021-11-25 10:29:57 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:29:59 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/pageable-grid/searchItems?page=3&pageSz=10&orderBy=itemId&orderDir=asc", parameters={masked}
+2021-11-25 10:29:59 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.PageableGridController#searchItems(ItemCriteria)
+2021-11-25 10:29:59 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:29:59 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={result=com.cldbiz.reactcomponents.common.SearchResult@258bad35}, message=null}]
+2021-11-25 10:29:59 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:33:31 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 10:33:31 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 10:33:31 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:36:51 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:36:51 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:36:52 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:36:52 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:45:51 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:45:51 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:45:51 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:45:51 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:45:51 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:45:51 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:45:52 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:45:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:45:52 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:45:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:45:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:45:52 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:46:30 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:46:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:46:30 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:46:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:46:30 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:46:30 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:47:23 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:47:23 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:47:23 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:52:34 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:52:34 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:52:34 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:52:34 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:52:34 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:52:34 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:52:35 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:52:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:52:35 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:52:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:52:35 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:52:35 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:53:39 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:53:39 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:53:39 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:53:39 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:53:39 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:53:39 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 22:53:40 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 22:53:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 22:53:40 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 22:53:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 22:53:40 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 22:53:40 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:00:46 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:00:46 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:00:46 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:00:46 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:00:46 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:00:46 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:00:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:00:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:00:47 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:00:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:00:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:00:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:01:02 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:01:02 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:01:02 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:01:02 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:01:02 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:01:02 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:07:53 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:07:53 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:07:54 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:07:54 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:09:49 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:09:49 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:09:49 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:09:49 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:09:49 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:09:49 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:09:50 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:09:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:09:50 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:09:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:09:50 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:09:50 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:11:11 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:11:11 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:11:11 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:20:07 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:20:07 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:20:07 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:20:07 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:20:07 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:20:07 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:20:08 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:20:08 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:20:08 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:20:08 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:20:08 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:20:08 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:22:02 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:22:02 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:22:02 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:24:57 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:24:57 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:24:57 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:28:47 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:28:47 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:28:47 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:33:17 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:33:17 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:33:17 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:33:17 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:33:17 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:33:17 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:33:18 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:33:18 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:33:18 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:33:18 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:33:18 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:33:18 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:38:32 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:38:32 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:38:33 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:38:33 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:39:32 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:39:32 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:39:32 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:39:32 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:39:32 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:39:32 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:39:36 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:39:36 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:39:36 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:39:36 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:39:36 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:39:36 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:45:32 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:45:32 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:45:32 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:46:26 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-25 23:46:26 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-25 23:46:26 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:40:42 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:40:42 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:40:43 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:40:43 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:53:35 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:53:35 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:53:35 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:53:57 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:53:57 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:53:57 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 08:54:09 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 08:54:09 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 08:54:09 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 08:54:09 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 08:54:09 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 08:54:09 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:03:21 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:03:21 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:03:21 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:03:41 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:03:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:03:41 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:03:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:03:41 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:03:41 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:41:52 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:41:52 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:41:52 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:43:09 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:43:09 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:43:09 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:43:09 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:43:09 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:43:09 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:48:01 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:48:01 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:48:01 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:48:06 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:48:06 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:48:06 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:48:06 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:48:06 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:48:06 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:59:32 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:59:32 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:59:32 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 09:59:37 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 09:59:37 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 09:59:37 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 09:59:37 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 09:59:37 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 09:59:37 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 10:00:37 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 10:00:37 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 10:00:37 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 10:00:37 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 10:00:37 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 10:00:37 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 10:00:38 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 10:00:38 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 10:00:38 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 10:00:38 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 10:00:38 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 10:00:38 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 10:01:15 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 10:01:15 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 10:01:15 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:21:41 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:21:41 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:21:41 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:25:19 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:25:19 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:25:19 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:26:25 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:26:25 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:26:25 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:26:25 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:26:25 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:26:25 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:26:26 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:26:26 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:26:26 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:26:26 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:26:26 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:26:26 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:31:32 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:31:32 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:31:32 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:37:51 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:37:51 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:37:51 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:38:42 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:38:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:38:42 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:38:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:38:42 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:38:42 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:39:06 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:39:06 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:39:06 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:39:06 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:39:06 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:39:06 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 12:39:58 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 12:39:58 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 12:39:58 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 12:39:58 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 12:39:58 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 12:39:58 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:03:44 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:03:44 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:03:45 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:03:45 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:04:56 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:04:56 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:04:56 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:04:56 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:04:56 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:04:56 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:04:57 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:04:57 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:04:57 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:04:57 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:04:57 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:04:57 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:13:48 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:13:48 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:13:48 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:16:44 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 15:16:44 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 15:16:44 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:57:36 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 18:57:36 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:57:42 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 18:57:42 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:58:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:58:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:58:41 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 18:58:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 18:58:41 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 18:58:41 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:58:42 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:58:42 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:58:42 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 18:58:42 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 18:58:42 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 18:58:42 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 18:59:17 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 18:59:17 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 18:59:17 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 18:59:17 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 18:59:17 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 18:59:17 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:42:26 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:42:26 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:42:26 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:44:06 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:44:06 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:44:06 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:44:06 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:44:06 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:44:06 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:44:11 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:44:11 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:44:11 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:44:11 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:44:11 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:44:11 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:50:24 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:50:24 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:50:24 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:50:24 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:50:24 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:50:24 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:50:29 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:50:29 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:50:29 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:50:29 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:50:29 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:50:29 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:54:09 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:54:09 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:54:09 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:54:09 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:54:09 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:54:09 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:54:33 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:54:33 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:54:33 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:54:37 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:54:37 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:54:37 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:54:37 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:54:37 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:54:37 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:55:58 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:55:58 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:55:58 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:55:58 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:55:58 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:55:58 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:59:00 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:59:00 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:59:00 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:59:00 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:59:00 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:59:00 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 19:59:02 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 19:59:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 19:59:02 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 19:59:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 19:59:02 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 19:59:02 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:01:52 INFO       --- [http-nio-8002-exec-8] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-8] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:01:52 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:01:52 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:02:12 INFO       --- [http-nio-8002-exec-1] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:02:12 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:02:12 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:03:54 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:03:54 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:03:54 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:03:54 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:03:54 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:03:54 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:04:52 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:04:52 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:04:52 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:06:03 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:06:03 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:06:03 INFO       --- [http-nio-8002-exec-3] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:06:03 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:06:03 DEBUG      --- [http-nio-8002-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:06:03 DEBUG      --- [http-nio-8002-exec-3] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:07:19 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:07:19 INFO       --- [http-nio-8002-exec-9] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:07:19 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:08:24 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:08:24 INFO       --- [http-nio-8002-exec-5] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:08:24 DEBUG      --- [http-nio-8002-exec-5] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 20:08:28 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 20:08:29 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 20:08:29 INFO       --- [http-nio-8002-exec-10] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 20:08:29 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 20:08:29 DEBUG      --- [http-nio-8002-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 20:08:29 DEBUG      --- [http-nio-8002-exec-10] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-1] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:03 INFO       --- [http-nio-8002-exec-2] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 21:31:03 DEBUG      --- [http-nio-8002-exec-2] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : OPTIONS "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-9] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-9] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:04 INFO       --- [http-nio-8002-exec-7] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 21:31:04 DEBUG      --- [http-nio-8002-exec-7] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:20 INFO       --- [http-nio-8002-exec-4] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-4] o.s.web.servlet.DispatcherServlet : Completed 200 OK
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : GET "/react-components-api/v1/initApp", parameters={}
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cldbiz.reactcomponents.controller.ReactComponentsController#initApp()
+2021-11-26 21:31:20 INFO       --- [http-nio-8002-exec-6] c.c.r.c.ReactComponentsController : initApp called, this info message will appear in dev and prod profiles
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor : Writing [{data={i18n={}}, message=null}]
+2021-11-26 21:31:20 DEBUG      --- [http-nio-8002-exec-6] o.s.web.servlet.DispatcherServlet : Completed 200 OK

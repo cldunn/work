@@ -14,8 +14,8 @@ const AfwForm: React.FC<any> = (props: any)  => {
     return (
         <Form
             onSubmit={doSubmit}
-            initialValues={formData}
             validateOnBlur={true}
+            initialValues={formData}
             render={({ handleSubmit }) => (
                 <form noValidate onSubmit={handleSubmit}>
                     {children}

@@ -60,7 +60,7 @@ const EditableForm: React.FC = ()  => {
                         </Row>
                         <Row>
                             <Col xs={12} sm={6}>
-                                <AfwFormCurrency name='currency' value=''
+                                <AfwFormCurrency name='currency' sym='&#x20AC;' grp='.' sep=',' pre='2'
                                     label='Currency' lblWidth='2' placeholder='Currency' 
                                     validators={[required()]} />
                             </Col>

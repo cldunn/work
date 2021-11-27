@@ -13,7 +13,6 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
     const [hasFocus, setHasFocus ] = useState(false);
     const [displayValue, setDisplayValue ] = useState(value);
     const processValidation = (validators: any) => (val: any) => {
-        // return validators && validators.reduce((err: any, validator: any) => err || validator(val), undefined);
         return validators && validators.reduce((errMsgs: any, validator: any) => {
             const errMsg = validator(val);
             return errMsg ? errMsgs ? errMsgs + ", " + errMsg : errMsg : errMsgs;
@@ -24,18 +23,54 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
         <Field name={name} validate={processValidation(validators)}>
             {({ input, meta }) => {
                 const doFocus = (event: any) => {
-                    console.log('doFocus', event);
-                    setHasFocus(true);
                     event.target.value = input.value;
+                    
+                    setTimeout(() => event.target.select(), 0);
+                    setHasFocus(true);
+
                     input.onFocus(event);
                 }
+                const doKeyPress = (event: any) => {
+                    const posAt = event.target.selectionStart;
+                    const newValue = input.value.slice(0, posAt) + event.key + input.value.slice(posAt);
+                    const regex = new RegExp("^\\d+(\\" + props.sep + "(\\d{0," + props.pre + "})?)?$");
+
+                    if (!isTextSelected(event.target) && !regex.test(newValue)) {
+                        event.preventDefault();
+                    }
+                }
                 const doBlur = (event: any) => {
-                    console.log('doBlur', event);
+                    setDisplayValue(formatCurrency(event.target.value));
                     setHasFocus(false);
-                    setDisplayValue('A' + input.value);
 
                     input.onBlur(event);
                 }
+                function isTextSelected(target: any) {
+                    return target.value.length > 0 && target.selectionStart == 0 && target.selectionEnd == target.value.length;
+                }
+                const formatCurrency = (value: any) => {
+                    const parts = value.split(props.sep);
+                    
+                    let wholeNbr = '';
+                    parts[0] = parseInt(parts[0], 10) + '';
+                    parts[0].split("").reverse().forEach((nbr:any, ndx: any) => {
+                        wholeNbr = ndx > 0 && ndx % 3 === 0 ? nbr + props.grp + wholeNbr : nbr + wholeNbr
+                    });
+
+                    let fracNbr = '';
+                    if (wholeNbr.length > 0) {
+                        const decParts = parts.length > 1 ? parts[1] : '00';
+                        for (let i = 0; i < props.pre; i++) {
+                            fracNbr += (i + 1 > decParts.split("").length) ? 0 : decParts.split("")[i];
+                        }
+
+                        input.onChange(parts[0] + props.sep + fracNbr);
+                        return wholeNbr + props.sep + fracNbr;
+                    }
+
+                    return '';
+                }
+                
                 return (
                     <div>
                         {console.log(input, meta)}
@@ -43,12 +78,14 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
                             <Form.Label column sm={lblSize}>{label}</Form.Label>
                             <Col sm={fldSize}>
                                 <InputGroup hasValidation>
+                                    <InputGroup.Text>{props.sym}</InputGroup.Text>
                                     <Form.Control {...rest}
                                         name={input.name} 
                                         type='text' 
                                         placeholder={placeholder} 
                                         value={hasFocus ? input.value : displayValue}  
                                         onChange={input.onChange}
+                                        onKeyPress={doKeyPress}
                                         onFocus={doFocus}
                                         onBlur={doBlur}
                                         className="p-2"
@@ -66,4 +103,10 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
     )
 }
 
+AfwFormCurrency.defaultProps = {
+    sym: "$",
+    grp: ",",
+    sep: ".",
+    pre: 2
+}
 export default AfwFormCurrency;
