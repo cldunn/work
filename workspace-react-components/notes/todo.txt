@@ -1,0 +1,29 @@
+input (text/email/password/date) / currency /select
+
+	
+	validator - email, phone, decimal, currency, date
+
+	any => typescript typescript
+
+	integer
+	
+	decimal
+	
+	time 
+	
+	date time
+	
+	date range
+
+	reaact-bootstrap-date-picker
+		stringtoZonedDateTime binder
+		
+editable grid 
+	text
+	select
+	date 
+	time 
+	date time
+	integer
+	decimal
+	currency

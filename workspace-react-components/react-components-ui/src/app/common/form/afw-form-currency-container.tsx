@@ -11,7 +11,7 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
     const lblSize = lblWidth ? lblWidth - 0 : -1;
     const fldSize = lblWidth ? 12 - lblWidth : 12;
     const [hasFocus, setHasFocus ] = useState(false);
-    const [displayValue, setDisplayValue ] = useState(value);
+    
     const processValidation = (validators: any) => (val: any) => {
         return validators && validators.reduce((errMsgs: any, validator: any) => {
             const errMsg = validator(val);
@@ -40,7 +40,6 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
                     }
                 }
                 const doBlur = (event: any) => {
-                    setDisplayValue(formatCurrency(event.target.value));
                     setHasFocus(false);
 
                     input.onBlur(event);
@@ -52,25 +51,25 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
                     const parts = value.split(props.sep);
                     
                     let wholeNbr = '';
-                    parts[0] = parseInt(parts[0], 10) + '';
+                    parts[0] = parts[0].length >  0 ? parseInt(parts[0], 10) + '' : '';
                     parts[0].split("").reverse().forEach((nbr:any, ndx: any) => {
                         wholeNbr = ndx > 0 && ndx % 3 === 0 ? nbr + props.grp + wholeNbr : nbr + wholeNbr
                     });
-
+            
                     let fracNbr = '';
                     if (wholeNbr.length > 0) {
                         const decParts = parts.length > 1 ? parts[1] : '00';
                         for (let i = 0; i < props.pre; i++) {
                             fracNbr += (i + 1 > decParts.split("").length) ? 0 : decParts.split("")[i];
                         }
-
+            
                         input.onChange(parts[0] + props.sep + fracNbr);
                         return wholeNbr + props.sep + fracNbr;
                     }
-
+            
                     return '';
                 }
-                
+            
                 return (
                     <div>
                         {console.log(input, meta)}
@@ -83,7 +82,7 @@ const AfwFormCurrency: React.FC<any> = (props: any)  => {
                                         name={input.name} 
                                         type='text' 
                                         placeholder={placeholder} 
-                                        value={hasFocus ? input.value : displayValue}  
+                                        value={hasFocus ? input.value : formatCurrency(input.value)}  
                                         onChange={input.onChange}
                                         onKeyPress={doKeyPress}
                                         onFocus={doFocus}

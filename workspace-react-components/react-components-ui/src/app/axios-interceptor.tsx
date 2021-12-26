@@ -53,9 +53,9 @@ const createInterceptors = (dispatch: Dispatch): void => {
                     }
                 }
 
-                // return res.data.data;
                 return Promise.resolve(res.data.data);
             }
+            
             return res;
         },
         (err: any) => {

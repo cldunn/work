@@ -4,13 +4,15 @@ import { useDispatch } from 'react-redux'
 import logger from 'redux-logger';
 
 import commonReducer from './common/response/common-slice'
+import editableFormReducer from '../app/form/editable-form-slice'
 import homeReducer from './home/home-slice'
 
 // abstraction over the standard Redux createStore function that adds good defaults to the store setup
 const store = configureStore({
   reducer: {
     common: commonReducer,
-    home: homeReducer
+    home: homeReducer,
+    editableForm: editableFormReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })

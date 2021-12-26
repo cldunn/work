@@ -23,6 +23,7 @@
   }
 
   .alert-div {
+    z-index: 10;
     position: relative;
     & > .alert {
       left: 8px;
