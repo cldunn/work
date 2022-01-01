@@ -1,4 +1,4 @@
-package com.cldbiz.reactcomponents.dto.serializer;
+package com.cldbiz.reactcomponents.dto.deserializer;
 
 import java.io.IOException;
 import java.text.DecimalFormat;

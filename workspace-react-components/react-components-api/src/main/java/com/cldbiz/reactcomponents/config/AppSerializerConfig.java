@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.cldbiz.reactcomponents.dto.serializer.CustomDoubleDeserializer;
+import com.cldbiz.reactcomponents.dto.deserializer.CustomDoubleDeserializer;
 import com.cldbiz.reactcomponents.dto.serializer.CustomDoubleSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
