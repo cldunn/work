@@ -1,0 +1,57 @@
+Create Specification implementation
+	// constructor with "filter" where filter is MyEntityDto (values)
+	public class MySpecification implements Specification<MyEntity> {
+		private MyEntityDto myEntityDto;
+		public MySpecification(MyEntityDto myEntityDto) {
+			super();
+			this.myEntityDto = myEntityDto;
+		}
+		
+		toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+			Predicate p1 = cb.conjunction();  // will and added predicates
+			Predicate p2 = cb.disjunction();  // will or added predicates
+			
+			// 3 parts to clause segment: p1.getExpressions(); cb.equal(...); cb.fx parameters => root.get("fldNm"), dto.getFldNm()
+			p1.getExpressions().add(root.get("myEntityFldNm").in("Apple", "Orange")) // simplest usage
+			p1.getExpressions().add(cb.equal(root.get("myEntityFieldName"), myEntityDto.getMyEntityFieldName()));
+			p1.getExpressions().add(cb.between(root.get("hireDate"), myEntityDto.getStartDate(), myEntityDto.getEndDate()))
+			
+			p2.getExpression().add(root.get("myEntityFldName").in("High", "Low"))
+			p2.getExpression().add(root.get("myEntityFldName").isNull())
+			
+			
+			
+			
+			return criteriaBuiler.and(p1, p2)
+		}
+	}
+	
+	// these and the like return predicates
+	root.get(...).in(...), root.get(...).isNull
+	cb.equal(root.get("xyz"), dto.getXyz()), cb.like(root.get("xyz"), "S" + '%'), cb.greaterThan(root.get("xyz"), dto.getXyz()), ..., cb.isNull(root.get("xyz")), ...
+
+@Repository
+... JpaRepository<MyEntity, Long>, JpaSpecificationExecutor<MyEntity>
+		// findAll(Specification<T>)
+		
+@Service
+		myFindBy(myEntityDto, pageInfo) {
+			...
+			Pageable pageable = PageRequest.of(pageNo, size, Sort)
+			
+			
+			page = myRepository.findAll(new MySpecification(myEntityDto>), pageable)
+			List<MyEntity> myEntities = page.getContent()
+			...
+			return myEntityDtos;
+		}
+		
+		myComboFindBy(myEntityDto, pageInfo) {
+			...
+
+			// alternatively can combine multiple specifications  using: and(Specification): or(Specification); not(Specification); where(Specification);
+			List<MyEntity> results = repository.findAll(Specification.where(spec1).and(spec2));
+			...
+			
+			return myEntityDtos;
+		}
