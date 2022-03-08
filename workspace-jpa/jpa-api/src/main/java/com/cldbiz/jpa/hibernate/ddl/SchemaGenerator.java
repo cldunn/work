@@ -61,6 +61,7 @@ public class SchemaGenerator {
  
         Map<String, String> settings = new HashMap<>();
         settings.put("hibernate.dialect", props.getProperty("spring.jpa.properties.hibernate.dialect"));
+        settings.put("hibernate.temp.use_jdbc_metadata_defaults", props.getProperty("hibernate.temp.use_jdbc_metadata_defaults"));
         
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
         		.applySettings(settings)
@@ -95,6 +96,11 @@ public class SchemaGenerator {
         } else {
             exportFile = new File(fileName);
         }
+        
+        if (exportFile.exists()) {
+        	exportFile.delete();
+        }
+        
         return exportFile;
     }
  

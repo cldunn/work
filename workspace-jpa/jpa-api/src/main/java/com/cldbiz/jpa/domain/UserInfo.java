@@ -3,6 +3,7 @@ package com.cldbiz.jpa.domain;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import java.time.ZonedDateTime;
@@ -27,6 +28,7 @@ import com.cldbiz.jpa.dto.UserProfileDto;
    uniqueConstraints= {  @UniqueConstraint(name = "UK_EMAIL_ADDRESS", columnNames={"EMAIL_ADDRESS"}),
  	  				     @UniqueConstraint(name = "UK_LOGIN", columnNames={"LOGIN"})}
 )
+@NamedQuery(name = "UserInfo.findByFirstNameAndLastName", query = "SELECT u FROM UserInfo u WHERE u.firstName like CONCAT('%',?1,'%') AND u.lastName like CONCAT('%',?2,'%')")
 public class UserInfo extends BaseDomain {
 	@Size(max=40)
     @Column(name="FIRST_NAME", nullable=true)
@@ -92,11 +94,9 @@ public class UserInfo extends BaseDomain {
 	@Column(name="PASSWORD_EXPIRE_DATE")
 	private ZonedDateTime passwordExpireDate;
 	
-	/*
 	@Size(max=20)
     @Column(name="STATUS", nullable=false)
 	private String status = AppConstants.USER_STATUS_INACTIVE;
-	*/
 	
 	@Column(name="IS_LOCKED")
 	private Boolean isLocked;
@@ -130,7 +130,7 @@ public class UserInfo extends BaseDomain {
 		this.setLastLoginDate(userAuthenticationDto.getLastLoginDate());
 		this.setPasswordModifiedDate(userAuthenticationDto.getPasswordModifiedDate());
 		this.setPasswordExpireDate(userAuthenticationDto.getPasswordExpireDate());	
-		// this.setStatus(userAuthenticationDto.getStatus());
+		this.setStatus(userAuthenticationDto.getStatus());
 		this.setIsLocked(userAuthenticationDto.getIsLocked());
 	}
 	
@@ -270,7 +270,6 @@ public class UserInfo extends BaseDomain {
 		this.passwordExpireDate = passwordExpireDate;
 	}
 
-	/*
 	public String getStatus() {
 		return status;
 	}
@@ -278,7 +277,6 @@ public class UserInfo extends BaseDomain {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	*/
 	
 	public Boolean getIsLocked() {
 		return isLocked;

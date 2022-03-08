@@ -1,34 +1,24 @@
+	create sequence hibernate_sequence start with 10000 increment by 10;
 
     create table ROLE (
-       ID bigint identity not null,
+       ID bigint not null,
         CREATED_BY varchar(255) not null,
         CREATED_DATE datetime2 not null,
         MAINTAINED_BY varchar(255),
         MAINTAINED_DATE datetime2,
-        VERSION bigint,
+        VERSION bigint default 0,
         DESCRIPTION varchar(255) not null,
         NAME varchar(255) not null,
         primary key (ID)
     );
 
-    create table TEST (
-       ID bigint identity not null,
-        CREATED_BY varchar(255) not null,
-        CREATED_DATE datetime2 not null,
-        MAINTAINED_BY varchar(255),
-        MAINTAINED_DATE datetime2,
-        VERSION bigint,
-        NAME varchar(255) not null,
-        primary key (ID)
-    );
-
     create table USER_INFO (
-       ID bigint identity not null,
+       ID bigint not null,
         CREATED_BY varchar(255) not null,
         CREATED_DATE datetime2 not null,
         MAINTAINED_BY varchar(255),
         MAINTAINED_DATE datetime2,
-        VERSION bigint,
+        VERSION bigint default 0,
         ADDRESS varchar(255),
         CITY varchar(255),
         COUNTRY varchar(255),
@@ -46,6 +36,7 @@
         PROVINCE varchar(255),
         SECONDARY_PHONE varchar(255),
         STATE varchar(255),
+        STATUS varchar(255) not null,
         ZIP varchar(255),
         primary key (ID)
     );

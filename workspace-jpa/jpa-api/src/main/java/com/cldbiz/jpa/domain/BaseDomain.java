@@ -35,7 +35,7 @@ public abstract class BaseDomain implements Serializable {
     private Long id;
 
 	@Version
-	@Column(name="VERSION", nullable=true)
+	@Column(name="VERSION", nullable=true, columnDefinition = "bigint default 0")
 	private Long version;
 	
 	@Column(name="CREATED_BY", nullable=false)

@@ -25,7 +25,7 @@ public class PageDto<T> {
 		return rows;
 	}
 	
-	public void setPageDto(List<T> rows) {
+	public void setRows(List<T> rows) {
 		this.rows.clear();
 		this.rows = rows;
 	}

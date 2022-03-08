@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cldbiz.jpa.mapper.UserInfoMapper">
+
+	<resultMap id="UserInfoResultMap" type="com.cldbiz.jpa.domain.UserInfo">
+        <result column="ID" javaType="Long" property="id"/>
+        <result column="EMAIL_ADDRESS" javaType="String" property="emailAddress"/>
+        <result column="LOGIN" javaType="String" property="login"/>
+        <result column="PASSWORD" javaType="String" property="password"/>
+        <result column="STATUS" javaType="String" property="status"/>
+    </resultMap>
+    
+    <select id="selectUserInfoByStatus" resultMap="UserInfoResultMap">
+        select u.ID, u.EMAIL_ADDRESS, u.LOGIN, u.PASSWORD, u.STATUS
+          from USER_INFO as u where u.STATUS = #{status}
+    </select>
+
+	
+	<select id="selectUserInfoByUserProfileDto" resultType="com.cldbiz.jpa.domain.UserInfo">
+  		SELECT * FROM USER_INFO
+		<where>
+		    <if test="zip != null">
+		         ZIP = #{zip}
+		    </if>
+		    <if test="emailAddress != null">
+		        AND EMAIL_ADDRESS like '%' + #{emailAddress} + '%'
+		    </if>
+		    <if test="userAuthenticationDto != null and userAuthenticationDto.login != null">
+		        AND LOGIN like '%' + #{userAuthenticationDto.login} + '%'
+		    </if>
+	  	</where>
+	</select>
+</mapper>

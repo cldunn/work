@@ -21,11 +21,11 @@ import com.cldbiz.jpa.service.UserInfoService;
 
 @RestController
 @RequestMapping("/v1")
-public class UserInfoController extends BaseController{
+public class UserInfoController extends BaseController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserInfoController.class);
 	
 	@Autowired
-	UserInfoService userInfoService;
+	private UserInfoService userInfoService;
 
 	@GetMapping(value="/usersList", produces="application/json") 
 	public ResponseEntity<JsonResponse> usersList(UserProfileDto userProfileDto) {
@@ -40,6 +40,7 @@ public class UserInfoController extends BaseController{
 
 	@GetMapping(value="/usersPage", produces="application/json") 
 	public ResponseEntity<JsonResponse> usersPage(UserProfileDto userProfileDto) {
+		
 		PageDto<UserProfileDto> pageDto = userInfoService.findUserInfoPage(userProfileDto);
 		
 		String message = getMessage("global.success");

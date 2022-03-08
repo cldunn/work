@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cldbiz.jpa.mapper.USUserInfoMapper">
+
+	<resultMap id="USUserInfoResultMap" type="com.cldbiz.jpa.domain.USUserInfo">
+        <result column="ID" javaType="Long" property="id"/>
+        <result column="FIRST_NAME" javaType="String" property="firstName"/>
+        <result column="LAST_NAME" javaType="String" property="lastName"/>
+        <result column="COUNTRY" javaType="String" property="country"/>
+        <result column="EMAIL_ADDRESS" javaType="String" property="emailAddress"/>
+        <result column="LOGIN" javaType="String" property="login"/>
+        <result column="PASSWORD" javaType="String" property="password"/>
+        <result column="STATUS" javaType="String" property="status"/>
+    </resultMap>
+    
+    <select id="selectAllUSUserInfo" resultMap="USUserInfoResultMap">
+        select u.ID, u.FIRST_NAME, u.LAST_NAME, u.COUNTRY, 
+               u.EMAIL_ADDRESS, u.LOGIN, u.PASSWORD, u.STATUS
+          from US_USER_INFO as u 
+    </select>
+</mapper>    
