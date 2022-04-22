@@ -1,0 +1,43 @@
+.afw-form-input .errSpace.valid-feedback {
+  display: block !important;
+}
+.afw-form-input .errSpace.invalid-feedback {
+  display: block !important;
+}
+
+li.page-item {
+  width: 42px;
+}
+
+.modal-content .modal-body {
+  min-height: 150px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  position: relative;
+}
+.container .box {
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.container .center-placed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .center-placed div {
+  word-wrap: break-word;
+}
+.container .list-title {
+  margin-bottom: 25px;
+}
+.container .list-body {
+  line-height: 1.5em;
+  max-height: 4.5em;
+  overflow-y: auto;
+}

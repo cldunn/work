@@ -19,9 +19,6 @@ Create Specification implementation
 			p2.getExpression().add(root.get("myEntityFldName").in("High", "Low"))
 			p2.getExpression().add(root.get("myEntityFldName").isNull())
 			
-			
-			
-			
 			return criteriaBuiler.and(p1, p2)
 		}
 	}
@@ -30,10 +27,6 @@ Create Specification implementation
 	root.get(...).in(...), root.get(...).isNull
 	cb.equal(root.get("xyz"), dto.getXyz()), cb.like(root.get("xyz"), "S" + '%'), cb.greaterThan(root.get("xyz"), dto.getXyz()), ..., cb.isNull(root.get("xyz")), ...
 
-@Repository
-... JpaRepository<MyEntity, Long>, JpaSpecificationExecutor<MyEntity>
-		// findAll(Specification<T>)
-		
 @Service
 		myFindBy(myEntityDto, pageInfo) {
 			...
@@ -50,8 +43,43 @@ Create Specification implementation
 			...
 
 			// alternatively can combine multiple specifications  using: and(Specification): or(Specification); not(Specification); where(Specification);
-			List<MyEntity> results = repository.findAll(Specification.where(spec1).and(spec2));
+			List<MyEntity> results = myRepository.findAll(Specification.where(spec1).and(spec2));
 			...
 			
 			return myEntityDtos;
 		}
+		
+@Repository
+	public interface MyRepository extends JpaRepository<MyEntity, Long>, JpaSpecificationExecutor<MyEntity>
+		// findAll(Specification<T>)
+		
+
+@Query("SELECT c.year AS yearComment, COUNT(c.year) AS totalComment FROM Comment AS c GROUP BY c.year ORDER BY c.year DESC")
+List<ICommentCount> countTotalCommentsByYearInterface();
+
+@Query(value = "SELECT c.year AS yearComment, COUNT(c.*) AS totalComment FROM comment AS c GROUP BY c.year ORDER BY c.year DESC", nativeQuery = true)
+List<ICommentCount> countTotalCommentsByYearNative();
+
+CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+CriteriaQuery<Discount> criteriaQuery = criteriaBuilder.createQuery(Discount.class);
+Root<Discount> root = criteriaQuery.from(entityManager.getMetamodel().entity(Discount.class));
+
+SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+java.util.Date startDate = dateFormat.parse("24-02-2016");
+java.util.Date endDate = dateFormat.parse("24-03-2016");
+
+ParameterExpression<java.util.Date> parameter = criteriaBuilder.parameter(java.util.Date.class);
+
+Predicate startDatePredicate = criteriaBuilder.greaterThanOrEqualTo(root.get(Discount_.discountStartDate).as(java.sql.Date.class), parameter);
+Predicate endDatePredicate = criteriaBuilder.lessThanOrEqualTo(root.get(Discount_.discountEndDate).as(java.sql.Date.class), parameter);
+
+Predicate startDateOrPredicate = criteriaBuilder.or(startDatePredicate, root.get(Discount_.discountStartDate).isNull());
+Predicate endDateOrPredicate = criteriaBuilder.or(endDatePredicate, root.get(Discount_.discountEndDate).isNull());
+
+Predicate and = criteriaBuilder.and(startDateOrPredicate, endDateOrPredicate);
+criteriaQuery.where(and);
+
+List<Discount> list = entityManager.createQuery(criteriaQuery)
+        .setParameter(parameter, startDate, TemporalType.DATE)
+        .setParameter(parameter, endDate, TemporalType.DATE)
+        .getResultList();		
