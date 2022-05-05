@@ -1,4 +1,4 @@
-export { createGlobalContext } from './components/global-context';
+export { GlobalContext } from './components/global-context';
 export { AfwForm } from './components/form/afw-form-container';
 export { AfwFormInput } from './components/form/afw-form-input-container';
 export { AfwFormSelect } from './components/form/afw-form-select-container';

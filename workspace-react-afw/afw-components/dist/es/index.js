@@ -205,17 +205,15 @@ function _nonIterableRest() {
     <MyContext.Provider value={ some_value }>
 */
 
-function createGlobalContext() {
-  return /*#__PURE__*/React__default.createContext({
-    i18n: {},
-    addI18n: function addI18n(moreI18n) {
-      this.i18n = _objectSpread2(_objectSpread2({}, this.i18n), moreI18n);
-    },
-    getI18n: function getI18n(key) {
-      return this.i18n[key] || '??' + key + '??';
-    }
-  });
-}
+var GlobalContext = /*#__PURE__*/React__default.createContext({
+  i18n: {},
+  addI18n: function addI18n(moreI18n) {
+    this.i18n = _objectSpread2(_objectSpread2({}, this.i18n), moreI18n);
+  },
+  getI18n: function getI18n(key) {
+    return this.i18n[key] || '??' + key + '??';
+  }
+});
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -7127,4 +7125,4 @@ var AfwMessage = function AfwMessage(props) {
   })))));
 };
 
-export { AfwForm, AfwFormCurrency, AfwFormInput, AfwFormSelect, AfwMessage, AfwModal, AfwPager, createGlobalContext, isEmail, minLen, regEx, required };
+export { AfwForm, AfwFormCurrency, AfwFormInput, AfwFormSelect, AfwMessage, AfwModal, AfwPager, GlobalContext, isEmail, minLen, regEx, required };

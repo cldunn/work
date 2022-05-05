@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Dispatch } from 'redux';
 
-import { commonIsLoading } from 'afw-components';
+import { commonIsLoading } from './common-slice';
 const createInterceptors = (dispatch: Dispatch): void => {
     let alertId: any;
 
@@ -52,7 +52,7 @@ const createInterceptors = (dispatch: Dispatch): void => {
                     }
                 }
 
-                return Promise.resolve(res.data.data);
+                return Promise.resolve(jsonResp.data);
             }
             
             return res;

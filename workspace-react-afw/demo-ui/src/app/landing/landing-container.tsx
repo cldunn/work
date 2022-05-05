@@ -1,11 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import {
-    Link,
-    Route,
-    Switch
-  } from 'react-router-dom'
-
 import { useSelector } from 'react-redux'
 
 // selector functions and a thunk
@@ -15,9 +9,8 @@ import { Navbar, Form, OverlayTrigger, Tooltip, Spinner, Alert } from 'react-boo
 import { Tv } from "react-bootstrap-icons";
 
 import { useAppDispatch } from "../store";
-import { createGlobalContext } from 'afw-components';
-import { AfwModal } from "afw-components";
-import { AfwMessage } from "afw-components";
+
+import { AfwModal, AfwMessage, GlobalContext, IGlobalContext } from "afw-components";
 
 import { ROOT_DEMOS } from '../../../environment';
 
@@ -39,8 +32,8 @@ const Landing: React.FC = ()  => {
 
     // useContext accepts a context object (returned from React.createContext) 
     // and returns the current context value for that context.
-    // const gCtx = useContext(GlobalContext);
-    const gCtx:any = useContext(createGlobalContext());
+    const gCtx: typeof IGlobalContext = useContext(GlobalContext);
+    
 
     // useState returns a stateful value, and a function to update it. 
     // Flag indicating module is initialized and ready to render 
@@ -55,14 +48,15 @@ const Landing: React.FC = ()  => {
     }
 
     useEffect(() => {
-        async function initPage() {
-            // const data = await dispatch(initApp()).unwrap();
-            // gCtx.addI18n(data.i18n);
+        const pageConfig = async function initPage() {
+            const data = await dispatch(initApp()).unwrap();
+            gCtx.addI18n(data.i18n);
             setInit(true);
         }
 
-        initPage();
-    }, [gCtx, dispatch]);
+        pageConfig();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (isInit && (
         <div className='landing-container'>
@@ -102,7 +96,7 @@ const Landing: React.FC = ()  => {
                 </div>
                 
                 <div className="box center-placed">
-                    <h1><b>Demo Page Goes Here</b></h1>
+                    <h1><b>{gCtx.getI18n('app.greeting')}</b></h1>
                 </div>
             </div>
 

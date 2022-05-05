@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ROOT_SIMPLE_MVC_API } from '../../environment';
+import { ROOT_APP_API } from '../../environment';
 
 // request calls are synchronous ...
 // TODO: add asyncRequest that returns the promise
@@ -19,7 +19,7 @@ const restService = {
         responseType?: string
     ): Promise<any> {
         const config: any = {
-            url: ROOT_SIMPLE_MVC_API + url,
+            url: ROOT_APP_API + url,
             method: method,
             params: params,
             data: postData,

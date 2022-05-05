@@ -1,0 +1,33 @@
+1. Link demo to Lib, change lib and pick up in demo
+2. document 1
+3. save to git 
+
+4. create 
+		react 
+			react-api
+			react-ui
+				a. encryption/decryption <=> js/java
+					a1. initialize  with public key
+					a2. encrypt something (eg. password)
+					a3. send via axios, have api decrypt and verify
+				b. websocket
+					b1. at 5 second intervals push system datetime
+				c. cookies
+					c1. recieve cookies from api, 
+					c2. add to separate domain, 
+					c3. redirect to separate domain sending these cookies
+		jpa
+			jpa-api
+			jpa-ui
+			
+		security
+			security-api
+			security-ui
+		
+		from 
+		
+		afw-components
+		app
+			app-api
+			app-ui
+	

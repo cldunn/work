@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 /*
     Creates a Context object. When React renders a component that subscribes to this Context object 
@@ -11,14 +11,13 @@ import React, { memo } from "react";
 
     <MyContext.Provider value={ some_value }>
 */
-export function createGlobalContext() {
-    return React.createContext({
-        i18n: {},
-        addI18n: function (moreI18n: any) {
-            this.i18n = {...this.i18n, ...moreI18n }
-        },
-        getI18n: function (key: string) {
-            return this.i18n[key] || '??' + key + '??';
-        }
-    });
-}
+
+export const GlobalContext = React.createContext({
+    i18n: {},
+    addI18n: function (moreI18n: any) {
+        this.i18n = {...this.i18n, ...moreI18n }
+    },
+    getI18n: function (key: string) {
+        return this.i18n[key as keyof Object] || '??' + key + '??';
+    }
+});

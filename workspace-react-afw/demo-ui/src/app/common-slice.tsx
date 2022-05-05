@@ -6,6 +6,7 @@ interface MessageInterface {
   details: string[]
 }
 
+
 interface CommonSliceState {
   isLoading: boolean,
   status: string

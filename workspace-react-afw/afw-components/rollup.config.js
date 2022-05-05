@@ -51,7 +51,7 @@ export default {
                 {src: 'package.json', dest: 'dist'},
                 {src: 'src/scss/*', dest: 'dist/scss'},
                 {src: 'src/common', dest: 'dist/common'},
-                {src: 'src/components/*/*.types.ts', dest: 'dist/types'}
+                {src: 'src/components/**/*.types.ts', dest: 'dist/types'}
             ]
         })
     ],

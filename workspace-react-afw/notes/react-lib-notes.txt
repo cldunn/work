@@ -1,0 +1,100 @@
+export components
+	workspace-react-afw/afw-components/src>index.ts
+		...
+		export { AfwModal } from './components/response/modal/afw-modal';
+		export { AfwMessage } from './components/response/modal/afw-message/afw-message';
+
+export types
+	workspace-react-afw/afw-components/src/components/global-context.types.ts
+	workspace-react-afw/afw-components/src/components/response/modal/afw-modal.types.ts
+	workspace-react-afw/afw-components/src/components/response/modal/afw-message/afw-message.types.ts
+	...
+	
+workspace-react-afw/afw-components/rollup.config.js
+		plugins: [
+			...
+			copy({
+				targets: [
+					...
+					{src: 'src/components/**/*.types.ts', dest: 'dist/types'}
+				]
+			})
+		]
+		output: [{
+			file: pkg.library,
+			format: 'umd',
+			name: 'afw-components',
+			globals
+		}, {
+		...
+
+workspace-react-afw/afw-components/package.json	
+	"scripts": {
+		"build": "rollup -c",
+		"build:link": "npm run build && cd dist && npm link",
+		"build:pack": "npm run build && cd dist && npm pack",
+
+=> workspace-react-afw/afw-components/dist/node_modules
+=> workspace-react-afw/afw-components/dist/types
+=> workspace-react-afw/afw-components/dist/*
+
+Using library
+	C:/Users/cliff/work/workspace-react-afw/app-ui/types/afw-components.d.ts
+		declare module 'afw-components';
+	
+	C:\Users\cliff\work\workspace-react-afw\demo-ui\src\app\landing\landing-container.tsx
+		import { AfwModal, AfwMessage, GlobalContext, IGlobalContext } from "afw-components";
+		
+		const gCtx: typeof IGlobalContext = useContext(GlobalContext);
+		
+		<AfwModal dialogClassName={'danger'} show={showModal} status={status} doHide={doHide} closeModal={true}>
+
+PACK	
+1. create tgz of lib
+	a. workspace-react-afw/afw-components>npm run build:pack
+		=> C:\Users\cliff\work\workspace-react-afw\afw-components\dist\afw-components-1.0.0.tgz
+	
+	C:\Users\cliff\work\workspace-react-afw\afw-components\package.json
+		"scripts": {
+			"build": "rollup -c",
+			"build:pack": "npm run build && cd dist && npm pack",
+
+2. move it to target project's /lib and install
+	a. workspace-react-afw/app/libs/afw-components-1.0.0.tgz
+
+3. add to node_modules
+	a. npm i ./libs/afw-components-1.0.0.tgz --save-dev
+
+	devDependencies
+		"afw-components": "file:libs/afw-components-1.0.0.tgz",
+
+4. launch app-ui 
+	a. C:\Users\cliff\work\workspace-react-afw\app-ui> npm start
+		
+
+LINK	
+npm link in a package folder will create a symlink in the global folder {prefix}/lib/node_modules/<package> 
+that links to the package where the npm link command was executed
+	
+	C:\Users\cliff\work\workspace-react-afw\afw-components\dist>npm link
+	
+	After update/edit:
+	C:\Users\cliff\work\workspace-react-afw\afw-components>npm run build
+	
+	C:\Users\cliff\work\workspace-react-afw\afw-components\package.json
+		"scripts": {
+			"build": "rollup -c",
+			"build:link": "npm run build && cd dist && npm link",
+
+In some other location, npm link package-name will create a symbolic link from globally-installed package-name 
+to node_modules/ of the current folder.	
+
+	C:\Users\cliff\work\workspace-react-afw\demo-ui>npm link afw-components
+	
+	
+	C:\Users\cliff\work\workspace-react-afw\demo-ui\package.json
+		"scripts": {
+			"link:components": "npm link afw-components"
+ 
+
+        

@@ -1,0 +1,26 @@
+Service Configuration
+	Spring Cloud Config Server
+	Spring Cloud Consul Config
+
+Serivce Registry
+	Spring Cloud Netflix (eureaka)
+	Spring Cloud Consul
+	
+Spring CLoud LoadBalancer (replace Netflix Ribbon)
+
+Spring Cloud Circuit Breaker
+	Resilience 4J  (...retry)
+	Project Reactor (retry)
+	
+Distributed Tracing
+	Spring Cloud Sleuth
+	
+API Gateway
+	Spring Cloud Gateway
+		Config
+		Service Discovery
+		Load Balancer
+		Retry/Cricuit Breaker
+		Rate Limiting
+		Sleuth
+		
