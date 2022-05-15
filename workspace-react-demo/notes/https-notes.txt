@@ -1,0 +1,25 @@
+Create a self signed certificate with java utility: keytool
+
+	-genkeypair
+		The following are the available options for the -genkeypair command:
+
+		{-keystore keystore}: Keystore name
+
+		-keyalg alg: Key algorithm name
+
+		{-storetype type}: Keystore type
+
+		[-storepass arg]: Keystore password; the password for the keystore. This will be the password of the keystore if the store doesn't exist
+
+		{-alias alias}: Alias name of the entry to process; the name for our certificate
+
+		[-keypass arg]: Key password; the password of the certificate. We'll need this password to have access to the private key of our certificate
+
+		{-keysize size}: Key bit size
+
+		{-validity days}: Validity number of days; the time (in days) of the validity of our certificate
+
+	// From jdk 9+, default store type is PKCS12
+	keytool -genkeypair -keystore cldbiz.p12 -keyalg RSA -storetype PKCS12 -storepass cldStorePass -alias cldCert -keypass cldKeyPass -keysize 2048 -validity 3650
+	
+	

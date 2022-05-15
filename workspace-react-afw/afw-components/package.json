@@ -22,17 +22,19 @@
 		"@reduxjs/toolkit": "^1.6.0",
 		"bootstrap": "^5.1.1",
 		"bootstrap-icons": "^1.5.0",
+		"core-js": "^3.22.5",
 		"final-form": "^4.20.4",
 		"react-bootstrap": "^2.0.0-rc.0",
 		"react-bootstrap-icons": "^1.5.0",
 		"react-bootstrap-v5": "^1.4.0",
 		"react-data-grid": "^7.0.0-beta.7",
 		"react-final-form": "^6.5.7",
+		"react-redux": "^7.2.4",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "^4.0.3",
 		"reactstrap": "^8.9.0",
-		"react-redux": "^7.2.4",
-		"redux-logger": "^3.0.6"
+		"redux-logger": "^3.0.6",
+		"regenerator-runtime": "^0.13.9"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-class-properties": "^7.16.7",

@@ -31,3 +31,21 @@
 			app-api
 			app-ui
 	
+	
+notes:
+		keytool - create self signed certificate
+			convention
+			application.properties
+			
+		EncryptionService
+			@Postconstruct initialze publiect/private key
+			encrypt(String):String
+			decrypt(String):String
+			
+		applicationController
+			getPublicKey
+			
+		login-container.tsx
+		
+		login-action.tsx
+			getPublicKey

@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 export { GlobalContext } from './components/global-context';
 export { AfwForm } from './components/form/afw-form-container';
 export { AfwFormInput } from './components/form/afw-form-input-container';
