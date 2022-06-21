@@ -19,9 +19,9 @@ import { AfwModal, AfwMessage, GlobalContext, IGlobalContext } from "afw-compone
 
 import { ROOT_DEMOS } from '../../../environment';
 
-// import SplitPane from "react-split-pane";
 import LoginContainer from "../login/login-container";
 import HomeContainer from "../home/home-container";
+import CookieContainer from "../cookie/cookie-container";
 
 import './landing.scss';
 
@@ -83,6 +83,7 @@ const Landing: React.FC = ()  => {
                     </div>
                 </Form>
             </Navbar>
+            
             <div className="alert-div">
                 {/* 
                     Will be opened via axios-interceptor handling the response by using redux actions 'common/commonOpenAlert',  and closed (using a timer) 
@@ -104,6 +105,7 @@ const Landing: React.FC = ()  => {
                 
                 <Switch>
                     <Route path="/landing/home" component={HomeContainer} />
+                    <Route path="/landing/cookie" component={CookieContainer} />
                     <Route path="/landing" component={LoginContainer} />
                 </Switch>
 

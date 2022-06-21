@@ -63,9 +63,9 @@ PACK
 	a. workspace-react-afw/app/libs/afw-components-1.0.0.tgz
 
 3. add to node_modules
-	a. npm i ./libs/afw-components-1.0.0.tgz --save-dev
+	a. npm i ./libs/afw-components-1.0.0.tgz --save
 
-	devDependencies
+	dependencies
 		"afw-components": "file:libs/afw-components-1.0.0.tgz",
 
 4. launch app-ui 

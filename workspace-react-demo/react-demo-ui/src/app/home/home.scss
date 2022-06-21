@@ -1,0 +1,20 @@
+@import "../../app.scss";
+
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_mixins";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/_alert";
+
+.home-container {
+    height: 50%;
+    .home-row {
+        height: 50%;
+        text-align: center;
+    }
+    .home-time {
+        font-size: xxx-large
+    }
+    .home-btn {
+        min-width: 450px;
+    }
+}

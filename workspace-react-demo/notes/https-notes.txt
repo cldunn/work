@@ -19,7 +19,112 @@ Create a self signed certificate with java utility: keytool
 
 		{-validity days}: Validity number of days; the time (in days) of the validity of our certificate
 
-	// From jdk 9+, default store type is PKCS12
-	keytool -genkeypair -keystore cldbiz.p12 -keyalg RSA -storetype PKCS12 -storepass cldStorePass -alias cldCert -keypass cldKeyPass -keysize 2048 -validity 3650
+	// From jdk 9+, default store type is PKCS12, Cannot have both storepass and keypass else keypass will be ignored
+	keytool -genkeypair -keystore cldbiz.p12 -keyalg RSA -storetype PKCS12 -storepass cldCertPass -alias cldCert -keysize 2048 -validity 3650
 	
 	
+	on server
+		application.properties
+			cert.filepath=C:/Users/cliff/work/workspace-react-demo/react-demo-api/src/main/resources/cldbiz.p12
+			cert.storepass=cldCertPass
+			cert.alias=cldCert
+		
+		create EncryptionService.java 
+			// ...  in order to work with node-forge, need to use PEM format ...
+			private PublicKey publicKey = null;
+			private PrivateKey privateKey = null;
+	
+			private PublicKey initPublicKey(String certFileName, String storePass, String certAlias) throws Exception {
+			private Key initPrivateKey(String certFileName, String storePass, String certAlias) throws Exception {
+			
+			@PostConstruct
+			public void initilizeKeys() {
+			
+			public String decrypt(String encryptedStr) throws Exception {
+			public String encrypt(String plainText) throws Exception {
+			public String getPublicKey() {
+			
+	on Client (login-view.tsx)
+	
+		npm i --save node-forge
+		npm i --save-dev @types/node-forge
+		
+		import forge from 'node-forge';
+		import {Buffer} from 'buffer';
+
+		// formerly atob()
+		const decodeB64 = (str: string):string => Buffer.from(str, 'base64').toString('binary');
+
+		// formerly btoa()
+		const encodeB64 = (str: string):string => Buffer.from(str, 'binary').toString('base64');
+		
+		const data = await dispatch(getPublicKey({
+                    url: '/getPublicKey'
+                })).unwrap();
+				
+		pk = data.publicKey;
+		
+		const pki = forge.pki;
+        const pKey = pki.publicKeyFromPem(pk);
+        const _password = pKey.encrypt(passowrd, 'RSA-OAEP', {
+            md: forge.md.sha256.create(),
+            mgf1: {
+                md: forge.md.sha1.create()
+            }
+        });
+		
+		// assumes decryption expects base64 encoding of encrypted password
+		await dispatch(login({
+                url: '/login',
+                params: {
+                    name: values.name,
+                    password: encodeB64(_password)
+                }
+            })).unwrap();
+
+================================================
+https://www.npmjs.com/package/react-stomp
+
+npm i --save react-stomp
+=> is no @types/react-stomp, 
+=> declare module 'react-stomp'; in ./types/afw-components.d.ts
+
+create WebSocketConfig.java on server
+	public void registerStompEndpoints(StompEndpointRegistry registry) {
+		registry.addEndpoint("/ws", "/wss").setAllowedOriginPatterns("*").withSockJS();
+	}
+
+in Controller ...
+	@Autowired
+	SimpMessagingTemplate simpleMessagingTemplate;
+	
+	...
+	simpleMessagingTemplate.convertAndSend("/topic/messages", dto);
+	
+in UI-Client (home-container.tsx)
+	import SockJsClient from 'react-stomp';
+
+	fx = (data) => {...}
+	sendMessage = (msg) => { this.clientRef.sendMessage('/topic/messages', msg); }
+	
+	<SockJsClient
+		url={'http://localhost:8001/react-demo-api/ws'}
+		topics={['/topic/messages']}
+		onMessage={(data: any) => {fx(data)};}
+		ref={(client: any) => {this.clientRef = client;}}
+	/>
+		
+===================================================
+https://www.npmjs.com/package/js-cookie
+
+(see https://stackoverflow.com/questions/3342140/cross-domain-cookies for CROSS DOMAIN COOKIES answer)
+
+npm i --save js-cookie
+npm i --save-dev @types/js-cookie
+
+
+
+import Cookies from 'js-cookie';
+
+
+

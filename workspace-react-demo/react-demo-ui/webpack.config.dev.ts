@@ -23,6 +23,9 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.html$/, 
+        loader: 'html-loader' 
+      },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
@@ -74,6 +77,9 @@ module.exports = {
       path: `./.env.development`,
       systemvars: true
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({ 
+      'process.env.security_access_key': JSON.stringify(process.env.security_access_key)
+    })
   ]
 };

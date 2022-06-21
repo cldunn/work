@@ -9,11 +9,13 @@ interface FormInterface {
 }
 
 interface ILoginSliceState {
+    time: string;
     publicKey: string,
     form: FormInterface
 }
 
 const initialState:ILoginSliceState = {
+    time: null,
     publicKey: null,
     form: {
         name: null,
@@ -43,21 +45,30 @@ const loginSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
-        loginSetPublicKey(state, action) {
+        setPublicKey(state, action) {
             state.publicKey = action.payload.publicKey;
-          }
+        },
+        setTime(state, action) {
+            state.time = action.payload.time;
+        }
     },
     extraReducers: (builder) => {
         builder
         .addCase(getPublicKey.fulfilled, (state, action) => {
             // action.payload === jsonResp.data
             // can use caseReducers to indirectly update state
-            loginSlice.caseReducers.loginSetPublicKey(state, action);
+            loginSlice.caseReducers.setPublicKey(state, action);
+        })
+        .addCase(login.fulfilled, (state, action) => {
+            // action.payload === jsonResp.data
+            // can use caseReducers to indirectly update state
+            loginSlice.caseReducers.setTime(state, action);
         })
     }
 })
 
 export const selectPublicKey = (state: any): string => state.login.publicKey;
 export const selectForm = (state: any): FormInterface => state.login.form;
+export const selectTime = (state: any): string => state.login.time;
 
 export default loginSlice.reducer

@@ -1,0 +1,14 @@
+@import "../../app.scss";
+
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_mixins";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/_alert";
+
+.cookie-container {
+    height: 50%;
+    .cookie-row {
+        height: 50%;
+        text-align: center;
+    }
+}

@@ -63,8 +63,6 @@ const LoginView = (): JSX.Element => {
             }
         });
 
-        console.log('submit password as: ', encodeB64(_password));
-
         try {
             await dispatch(login({
                 url: '/login',
