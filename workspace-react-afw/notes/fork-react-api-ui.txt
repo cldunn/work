@@ -1,0 +1,20 @@
+into workspace-xyz
+	1. copy app-api as xyz-api
+	2. => change package com.cdlbiz.app to com.cldbiz.xyz
+	3. refactor:
+		com.cldbiz.xyz.Application => com.cldbiz.xyz.XyzApplication
+		com.cldbiz.xyz.config.AppContext => com.cldbiz.xyz.config.XyzContext
+		com.cldbiz.xyz.config.AppExecutionContext => com.cldbiz.xyz.config.XyzExecutionContext
+		com.cldbiz.xyz.config.AppConfiguration => com.cldbiz.xyz.config.XyzConfiguration
+		com.cldbiz.xyz.controller.AppController => com.cldbiz.xyz.controller.XyzController
+
+		application.properties
+			server.servlet.context-path=/app into server.servlet.context-path=/xyz
+		logback-spring.xml
+			<logger name="com.cldbiz.app.controller" ... >...</logger>  into <logger name="com.cldbiz.xyz.controller" >...</logger>
+			
+	4. copy app-ui as xyz-ui (sans node_modules)
+	5. => change dir src/app to src/xyz
+	6. => goto workspace-xyz/xyz-ui and run: npm install
+	7. => index.tsx, App.tsx
+		  => change "... from './app/...'" into "... from './xyz/...'"

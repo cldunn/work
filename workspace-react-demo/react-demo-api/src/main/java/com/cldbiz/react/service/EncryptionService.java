@@ -1,6 +1,8 @@
 package com.cldbiz.react.service;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.KeyStore;
@@ -17,7 +19,10 @@ import javax.crypto.Cipher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.ResourceUtils;
 
 import com.cldbiz.react.exception.EncryptionException;
 
@@ -36,12 +41,15 @@ public class EncryptionService {
 	@Autowired
 	Environment env;
 	
+	@Autowired
+	ResourceLoader resourceLoader;
+	
 	private PublicKey initPublicKey(String certFileName, String storePass, String certAlias) throws Exception {
 		FileInputStream file = null;
 		try {
 			KeyStore store = KeyStore.getInstance(KeyStore.getDefaultType());
-			file = new FileInputStream(certFileName);
-			store.load(file, storePass.toCharArray());
+			Resource resource = resourceLoader.getResource(certFileName);
+			store.load(resource.getInputStream(), storePass.toCharArray());
 			
 			Certificate cert = store.getCertificate(certAlias);
 			PublicKey pubKey = cert.getPublicKey();
@@ -57,8 +65,8 @@ public class EncryptionService {
 		FileInputStream file = null;
 		try {
 			KeyStore store = KeyStore.getInstance(KeyStore.getDefaultType());
-			file = new FileInputStream(certFileName);
-			store.load(file, storePass.toCharArray());
+			Resource resource = resourceLoader.getResource(certFileName);
+			store.load(resource.getInputStream(), storePass.toCharArray());
 			
 			Key key = store.getKey(certAlias, storePass.toCharArray());
 			
@@ -73,10 +81,14 @@ public class EncryptionService {
 	@PostConstruct
 	public void initilizeKeys() {
 		try {
-			String certFileName = env.getProperty("cert.filepath");
-			String storePass = env.getProperty("cert.storepass");
-			String certAlias = env.getProperty("cert.alias");
+			// String certFileName = env.getProperty("cert.filepath");
+			// String storePass = env.getProperty("cert.storepass");
+			// String certAlias = env.getProperty("cert.alias");
 			
+			String certFileName = env.getProperty("server.ssl.key-store");
+			String storePass = env.getProperty("server.ssl.key-store-password");
+			String certAlias = env.getProperty("server.ssl.key-alias");
+
 			publicKey = initPublicKey(certFileName, storePass, certAlias);
 			privateKey = (PrivateKey) initPrivateKey(certFileName, storePass, certAlias);
 		}

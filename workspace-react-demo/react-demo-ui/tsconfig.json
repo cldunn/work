@@ -4,6 +4,7 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "noImplicitAny": true,
+        "module": "commonjs",
         "target": "esnext",
         "sourceMap": true,
         "jsx": "react",

@@ -6,12 +6,14 @@ import logger from 'redux-logger';
 
 import commonReducer from './common-slice';
 import loginReducer from './login/login-slice';
+import cookieReducer from './cookie/cookie-slice';
 
 // abstraction over the standard Redux createStore function that adds good defaults to the store setup
 const store = configureStore({
   reducer: {
     common: commonReducer,
-    login: loginReducer
+    login: loginReducer,
+    cookie: cookieReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })

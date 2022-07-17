@@ -10,3 +10,5 @@ export { required, minLen, regEx, isEmail } from './components/form/afw-form-val
 export { AfwPager } from './components/grid/afw-pager-container';
 export { AfwModal } from './components/response/modal/afw-modal';
 export { AfwMessage } from './components/response/modal/afw-message/afw-message';
+export { AfwTabstrip } from './components/tabstrip/afw-tabstrip-container';
+

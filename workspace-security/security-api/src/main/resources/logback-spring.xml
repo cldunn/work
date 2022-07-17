@@ -2,7 +2,7 @@
 <configuration scan="true">
 
 	<!-- logging variables dervied from application.properties -->
-	<springProperty scope="context" name="loggingFile" source="logging.file" defaultValue="logs/security.log"/>
+	<springProperty scope="context" name="loggingFile" source="logging.file" defaultValue="logs/application.log"/>
 	<springProperty scope="context" name="rootLogLevel" source="root.log.level" defaultValue="ERROR"/>
 	<springProperty scope="context" name="appLogLevel" source="app.log.level" defaultValue="ERROR"/>
 	<springProperty scope="context" name="logFileSize" source="log.file.size" defaultValue="1048576"/>
@@ -49,7 +49,7 @@
 
 	<!-- refine log level per package for each appender -->
 	<!-- additivity="false" prohibits messages being printed twice by ancestor logger (eg. root) -->
-	<logger name="com.cldbiz.simplemvc.controller" level="${appLogLevel}" additivity="false">
+	<logger name="com.cldbiz.security.controller" level="${appLogLevel}" additivity="false">
 		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE"/>
 	</logger>

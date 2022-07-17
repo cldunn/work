@@ -1,0 +1,21 @@
+Broken authentication
+	need to apply authorization to data layer in addition to service/controller
+Session fixation
+	attacker impersonates valid user by reusing previous generate session id
+	eg. foregin form and posts action to server, if session id stored in cookie can inject script and exec in browser
+Cross-site scripting (XSS)
+	inject client-side script into page on server permitting others to run it when page accessed
+	ie. need to sanitize request
+Cross-site request forgery (CSRF)
+	extract url that calls action and run from outside application
+	eg. use tokens to id request or CORS
+Injections
+	inject client side script 
+	eg. XSS injection, SQL injection, XPath injection OS command injection, LDAP injection
+Sensitive data exposure
+	expose sensitive data directly in configuration and/or logs
+	ie. should use vaults/encryption instead
+Lack of method access control
+	must apply authorization at every layer (controller, service. dao)
+Using dependencies with known vunerabilities
+	double check vunerabilities in libraries being used

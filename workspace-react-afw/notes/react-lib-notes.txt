@@ -96,5 +96,12 @@ to node_modules/ of the current folder.
 		"scripts": {
 			"link:components": "npm link afw-components"
  
+tsConfig.json
+	// export types from module into dist/types => other modules can access via typeof (eg. const onDeleteTab = (pane: typeof IPane) => { ... })
+    "declaration": true,
+    "declarationDir": "types",
+	
+	"module": "commonjs",  // faciltate dynamic imports (eg. const component = React.lazy(() => import(`./${fileName}`));)
+        
 
         

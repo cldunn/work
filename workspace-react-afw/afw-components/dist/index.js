@@ -1320,17 +1320,17 @@
 	var getBuiltIn$h = getBuiltIn$n;
 	var inspectSource$1 = inspectSource$4;
 
-	var noop$1 = function () { /* empty */ };
+	var noop$2 = function () { /* empty */ };
 	var empty = [];
 	var construct$1 = getBuiltIn$h('Reflect', 'construct');
 	var constructorRegExp = /^\s*(?:class|function)\b/;
 	var exec$a = uncurryThis$12(constructorRegExp.exec);
-	var INCORRECT_TO_STRING$2 = !constructorRegExp.exec(noop$1);
+	var INCORRECT_TO_STRING$2 = !constructorRegExp.exec(noop$2);
 
 	var isConstructorModern = function isConstructor(argument) {
 	  if (!isCallable$m(argument)) return false;
 	  try {
-	    construct$1(noop$1, empty, argument);
+	    construct$1(noop$2, empty, argument);
 	    return true;
 	  } catch (error) {
 	    return false;
@@ -14613,7 +14613,7 @@
 	  return _extends$1.apply(this, arguments);
 	}
 
-	function _objectWithoutPropertiesLoose$4(source, excluded) {
+	function _objectWithoutPropertiesLoose$7(source, excluded) {
 	  if (source == null) return {};
 	  var target = {};
 	  var sourceKeys = Object.keys(source);
@@ -14631,7 +14631,7 @@
 	function _objectWithoutProperties(source, excluded) {
 	  if (source == null) return {};
 
-	  var target = _objectWithoutPropertiesLoose$4(source, excluded);
+	  var target = _objectWithoutPropertiesLoose$7(source, excluded);
 
 	  var key, i;
 
@@ -14748,7 +14748,7 @@
 	  return _extends.apply(this, arguments);
 	}
 
-	function _objectWithoutPropertiesLoose$3(source, excluded) {
+	function _objectWithoutPropertiesLoose$6(source, excluded) {
 	  if (source == null) return {};
 	  var target = {};
 	  var sourceKeys = Object.keys(source);
@@ -14839,9 +14839,9 @@
 	  return current;
 	};
 
-	function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
+	function _toPropertyKey$1(arg) { var key = _toPrimitive$1(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 
-	function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+	function _toPrimitive$1(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 	var setInRecursor = function setInRecursor(current, index, path, value, destroyArrays) {
 	  if (index >= path.length) {
@@ -14891,7 +14891,7 @@
 	      }
 
 	      current[key];
-	          var _final = _objectWithoutPropertiesLoose$3(current, [key].map(_toPropertyKey));
+	          var _final = _objectWithoutPropertiesLoose$6(current, [key].map(_toPropertyKey$1));
 
 	      return _final;
 	    } // set result in key
@@ -16256,7 +16256,7 @@
 	  var render = props.render,
 	      children = props.children,
 	      component = props.component,
-	      rest = _objectWithoutPropertiesLoose$3(props, _excluded$3$1);
+	      rest = _objectWithoutPropertiesLoose$6(props, _excluded$3$1);
 
 	  if (component) {
 	    return /*#__PURE__*/React__namespace.createElement(component, Object.assign(lazyProps, rest, {
@@ -16406,7 +16406,7 @@
 	      subscription = _ref$subscription === void 0 ? all$1 : _ref$subscription,
 	      validate = _ref.validate,
 	      validateOnBlur = _ref.validateOnBlur,
-	      rest = _objectWithoutPropertiesLoose$3(_ref, _excluded$2$1);
+	      rest = _objectWithoutPropertiesLoose$6(_ref, _excluded$2$1);
 
 	  var config = {
 	    debug: debug,
@@ -16632,7 +16632,7 @@
 	  }, []);
 	}
 
-	var all = fieldSubscriptionItems.reduce(function (result, key) {
+	var all$2 = fieldSubscriptionItems.reduce(function (result, key) {
 	  result[key] = true;
 	  return result;
 	}, {});
@@ -16668,7 +16668,7 @@
 	      _config$parse = _config.parse,
 	      parse = _config$parse === void 0 ? defaultParse : _config$parse,
 	      _config$subscription = _config.subscription,
-	      subscription = _config$subscription === void 0 ? all : _config$subscription,
+	      subscription = _config$subscription === void 0 ? all$2 : _config$subscription,
 	      type = _config.type,
 	      validateFields = _config.validateFields,
 	      _value = _config.value;
@@ -16853,7 +16853,7 @@
 	  return renderProps;
 	}
 
-	var _excluded$6 = ["afterSubmit", "allowNull", "beforeSubmit", "children", "component", "data", "defaultValue", "format", "formatOnBlur", "initialValue", "isEqual", "multiple", "name", "parse", "subscription", "type", "validate", "validateFields", "value"];
+	var _excluded$9 = ["afterSubmit", "allowNull", "beforeSubmit", "children", "component", "data", "defaultValue", "format", "formatOnBlur", "initialValue", "isEqual", "multiple", "name", "parse", "subscription", "type", "validate", "validateFields", "value"];
 	var Field = /*#__PURE__*/React__namespace.forwardRef(function Field(_ref, ref) {
 	  var afterSubmit = _ref.afterSubmit,
 	      allowNull = _ref.allowNull,
@@ -16874,7 +16874,7 @@
 	      validate = _ref.validate,
 	      validateFields = _ref.validateFields,
 	      value = _ref.value,
-	      rest = _objectWithoutPropertiesLoose$3(_ref, _excluded$6);
+	      rest = _objectWithoutPropertiesLoose$6(_ref, _excluded$9);
 
 	  var field = useField(name, {
 	    afterSubmit: afterSubmit,
@@ -17021,6 +17021,61 @@
 
 	var classNames = classnames.exports;
 
+	function defaultKey(key) {
+	  return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
+	}
+
+	function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
+
+	function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+	function useUncontrolledProp(propValue, defaultValue, handler) {
+	  var wasPropRef = React.useRef(propValue !== undefined);
+
+	  var _useState = React.useState(defaultValue),
+	      stateValue = _useState[0],
+	      setState = _useState[1];
+
+	  var isProp = propValue !== undefined;
+	  var wasProp = wasPropRef.current;
+	  wasPropRef.current = isProp;
+	  /**
+	   * If a prop switches from controlled to Uncontrolled
+	   * reset its value to the defaultValue
+	   */
+
+	  if (!isProp && wasProp && stateValue !== defaultValue) {
+	    setState(defaultValue);
+	  }
+
+	  return [isProp ? propValue : stateValue, React.useCallback(function (value) {
+	    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+
+	    if (handler) handler.apply(void 0, [value].concat(args));
+	    setState(value);
+	  }, [handler])];
+	}
+	function useUncontrolled(props, config) {
+	  return Object.keys(config).reduce(function (result, fieldName) {
+	    var _extends2;
+
+	    var _ref = result,
+	        defaultValue = _ref[defaultKey(fieldName)],
+	        propsValue = _ref[fieldName],
+	        rest = _objectWithoutPropertiesLoose$6(_ref, [defaultKey(fieldName), fieldName].map(_toPropertyKey));
+
+	    var handlerName = config[fieldName];
+
+	    var _useUncontrolledProp = useUncontrolledProp(propsValue, defaultValue, props[handlerName]),
+	        value = _useUncontrolledProp[0],
+	        handler = _useUncontrolledProp[1];
+
+	    return _extends({}, rest, (_extends2 = {}, _extends2[fieldName] = value, _extends2[handlerName] = handler, _extends2));
+	  }, props);
+	}
+
 	function _setPrototypeOf(o, p) {
 	  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
 	    o.__proto__ = p;
@@ -17139,7 +17194,7 @@
 	  node.style.cssText += ";" + css;
 	}
 
-	var propTypes$3 = {exports: {}};
+	var propTypes$4 = {exports: {}};
 
 	var reactIs = {exports: {}};
 
@@ -18235,14 +18290,14 @@
 	  // By explicitly using `prop-types` you are opting into new development behavior.
 	  // http://fb.me/prop-types-in-prod
 	  var throwOnDirectAccess = true;
-	  propTypes$3.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
+	  propTypes$4.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
 	} else {
 	  // By explicitly using `prop-types` you are opting into new production behavior.
 	  // http://fb.me/prop-types-in-prod
-	  propTypes$3.exports = factoryWithThrowingShims();
+	  propTypes$4.exports = factoryWithThrowingShims();
 	}
 
-	var PropTypes = propTypes$3.exports;
+	var PropTypes = propTypes$4.exports;
 
 	var config = {
 	  disabled: false
@@ -18651,7 +18706,7 @@
 	        _this$props.onExiting;
 	        _this$props.onExited;
 	        _this$props.nodeRef;
-	        var childProps = _objectWithoutPropertiesLoose$3(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
+	        var childProps = _objectWithoutPropertiesLoose$6(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
 
 	    return (
 	      /*#__PURE__*/
@@ -18854,7 +18909,7 @@
 	  onExited: PropTypes.func
 	} : {}; // Name the function so it is clearer in the documentation
 
-	function noop() {}
+	function noop$1() {}
 
 	Transition.defaultProps = {
 	  in: false,
@@ -18863,12 +18918,12 @@
 	  appear: false,
 	  enter: true,
 	  exit: true,
-	  onEnter: noop,
-	  onEntering: noop,
-	  onEntered: noop,
-	  onExit: noop,
-	  onExiting: noop,
-	  onExited: noop
+	  onEnter: noop$1,
+	  onEntering: noop$1,
+	  onEntered: noop$1,
+	  onExit: noop$1,
+	  onExiting: noop$1,
+	  onExited: noop$1
 	};
 	Transition.UNMOUNTED = UNMOUNTED;
 	Transition.EXITED = EXITED;
@@ -19256,9 +19311,9 @@
 	  return ref.current;
 	}
 
-	const _excluded$5 = ["as", "disabled"];
+	const _excluded$8 = ["as", "disabled"];
 
-	function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+	function _objectWithoutPropertiesLoose$5(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 	function isTrivialHref$1(href) {
 	  return !href || href.trim() === '#';
 	}
@@ -19339,7 +19394,7 @@
 	    as: asProp,
 	    disabled
 	  } = _ref,
-	      props = _objectWithoutPropertiesLoose$2(_ref, _excluded$5);
+	      props = _objectWithoutPropertiesLoose$5(_ref, _excluded$8);
 
 	  const [buttonProps, {
 	    tagName: Component
@@ -19353,9 +19408,9 @@
 	});
 	Button.displayName = 'Button';
 
-	const _excluded$4 = ["onKeyDown"];
+	const _excluded$7 = ["onKeyDown"];
 
-	function _objectWithoutPropertiesLoose$1(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+	function _objectWithoutPropertiesLoose$4(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 	function isTrivialHref(href) {
 	  return !href || href.trim() === '#';
 	}
@@ -19368,7 +19423,7 @@
 	  let {
 	    onKeyDown
 	  } = _ref,
-	      props = _objectWithoutPropertiesLoose$1(_ref, _excluded$4);
+	      props = _objectWithoutPropertiesLoose$4(_ref, _excluded$7);
 
 	  const [buttonProps] = useButtonProps(Object.assign({
 	    tagName: 'a'
@@ -19394,7 +19449,7 @@
 	});
 	Anchor.displayName = 'Anchor';
 
-	const defaultProps$6 = {
+	const defaultProps$8 = {
 	  in: false,
 	  timeout: 300,
 	  mountOnEnter: false,
@@ -19426,11 +19481,11 @@
 	    })
 	  });
 	});
-	Fade.defaultProps = defaultProps$6;
+	Fade.defaultProps = defaultProps$8;
 	Fade.displayName = 'Fade';
 	var Fade$1 = Fade;
 
-	const propTypes$2 = {
+	const propTypes$3 = {
 	  'aria-label': PropTypes.string,
 	  onClick: PropTypes.func,
 
@@ -19441,7 +19496,7 @@
 	   */
 	  variant: PropTypes.oneOf(['white'])
 	};
-	const defaultProps$5 = {
+	const defaultProps$7 = {
 	  'aria-label': 'Close'
 	};
 	const CloseButton = /*#__PURE__*/React__namespace.forwardRef(({
@@ -19455,8 +19510,8 @@
 	  ...props
 	}));
 	CloseButton.displayName = 'CloseButton';
-	CloseButton.propTypes = propTypes$2;
-	CloseButton.defaultProps = defaultProps$5;
+	CloseButton.propTypes = propTypes$3;
+	CloseButton.defaultProps = defaultProps$7;
 	var CloseButton$1 = CloseButton;
 
 	var divWithClassName = (className => /*#__PURE__*/React__namespace.forwardRef((p, ref) => /*#__PURE__*/jsxRuntime.jsx("div", { ...p,
@@ -19496,6 +19551,10 @@
 	  BsComponent.displayName = displayName;
 	  return BsComponent;
 	}
+
+	const context$2 = /*#__PURE__*/React__namespace.createContext(null);
+	context$2.displayName = 'CardHeaderContext';
+	var CardHeaderContext = context$2;
 
 	/**
 	 * Returns a ref that is immediately updated with the new value
@@ -19606,6 +19665,34 @@
 	  return toArray(element.querySelectorAll(selector));
 	}
 
+	/**
+	 * Returns a function that triggers a component update. the hook equivalent to
+	 * `this.forceUpdate()` in a class component. In most cases using a state value directly
+	 * is preferable but may be required in some advanced usages of refs for interop or
+	 * when direct DOM manipulation is required.
+	 *
+	 * ```ts
+	 * const forceUpdate = useForceUpdate();
+	 *
+	 * const updateOnClick = useCallback(() => {
+	 *  forceUpdate()
+	 * }, [forceUpdate])
+	 *
+	 * return <button type="button" onClick={updateOnClick}>Hi there</button>
+	 * ```
+	 */
+
+	function useForceUpdate() {
+	  // The toggling state value is designed to defeat React optimizations for skipping
+	  // updates when they are stricting equal to the last state value
+	  var _useReducer = React.useReducer(function (state) {
+	    return !state;
+	  }, false),
+	      dispatch = _useReducer[1];
+
+	  return dispatch;
+	}
+
 	/* eslint-disable no-bitwise, no-cond-assign */
 
 	/**
@@ -19682,9 +19769,83 @@
 
 	var warning_1 = warning;
 
+	function $parcel$export(e, n, v, s) {
+	  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
+	}
+	var $9d939cbc98267846$exports = {};
+
+	$parcel$export($9d939cbc98267846$exports, "SSRProvider", () => $9d939cbc98267846$export$9f8ac96af4b1b2ae);
+	$parcel$export($9d939cbc98267846$exports, "useSSRSafeId", () => $9d939cbc98267846$export$619500959fc48b26);
+	$parcel$export($9d939cbc98267846$exports, "useIsSSR", () => $9d939cbc98267846$export$535bd6ca7f90a273);
+
+	// Default context value to use in case there is no SSRProvider. This is fine for
+	// client-only apps. In order to support multiple copies of React Aria potentially
+	// being on the page at once, the prefix is set to a random number. SSRProvider
+	// will reset this to zero for consistency between server and client, so in the
+	// SSR case multiple copies of React Aria is not supported.
+	const $9d939cbc98267846$var$defaultContext = {
+	    prefix: String(Math.round(Math.random() * 10000000000)),
+	    current: 0
+	};
+	const $9d939cbc98267846$var$SSRContext = /*#__PURE__*/ React__default["default"].createContext($9d939cbc98267846$var$defaultContext);
+	function $9d939cbc98267846$export$9f8ac96af4b1b2ae(props) {
+	    let cur = React.useContext($9d939cbc98267846$var$SSRContext);
+	    let value = React.useMemo(()=>({
+	            // If this is the first SSRProvider, start with an empty string prefix, otherwise
+	            // append and increment the counter.
+	            prefix: cur === $9d939cbc98267846$var$defaultContext ? '' : `${cur.prefix}-${++cur.current}`,
+	            current: 0
+	        })
+	    , [
+	        cur
+	    ]);
+	    return(/*#__PURE__*/ React__default["default"].createElement($9d939cbc98267846$var$SSRContext.Provider, {
+	        value: value
+	    }, props.children));
+	}
+	let $9d939cbc98267846$var$canUseDOM = Boolean(typeof window !== 'undefined' && window.document && window.document.createElement);
+	function $9d939cbc98267846$export$619500959fc48b26(defaultId) {
+	    let ctx = React.useContext($9d939cbc98267846$var$SSRContext);
+	    // If we are rendering in a non-DOM environment, and there's no SSRProvider,
+	    // provide a warning to hint to the developer to add one.
+	    if (ctx === $9d939cbc98267846$var$defaultContext && !$9d939cbc98267846$var$canUseDOM) console.warn('When server rendering, you must wrap your application in an <SSRProvider> to ensure consistent ids are generated between the client and server.');
+	    return React.useMemo(()=>defaultId || `react-aria${ctx.prefix}-${++ctx.current}`
+	    , [
+	        defaultId
+	    ]);
+	}
+	function $9d939cbc98267846$export$535bd6ca7f90a273() {
+	    let cur = React.useContext($9d939cbc98267846$var$SSRContext);
+	    let isInSSRContext = cur !== $9d939cbc98267846$var$defaultContext;
+	    let [isSSR, setIsSSR] = React.useState(isInSSRContext);
+	    // If on the client, and the component was initially server rendered,
+	    // then schedule a layout effect to update the component after hydration.
+	    if (typeof window !== 'undefined' && isInSSRContext) // This if statement technically breaks the rules of hooks, but is safe
+	    // because the condition never changes after mounting.
+	    // eslint-disable-next-line react-hooks/rules-of-hooks
+	    React.useLayoutEffect(()=>{
+	        setIsSSR(false);
+	    }, []);
+	    return isSSR;
+	}
+
+	const SelectableContext = /*#__PURE__*/React__namespace.createContext(null);
+	const makeEventKey = (eventKey, href = null) => {
+	  if (eventKey != null) return String(eventKey);
+	  return href || null;
+	};
+
+	const NavContext = /*#__PURE__*/React__namespace.createContext(null);
+	NavContext.displayName = 'NavContext';
+	var NavContext$1 = NavContext;
+
 	const ATTRIBUTE_PREFIX = `data-rr-ui-`;
+	const PROPERTY_PREFIX = `rrUi`;
 	function dataAttr(property) {
 	  return `${ATTRIBUTE_PREFIX}${property}`;
+	}
+	function dataProp(property) {
+	  return `${PROPERTY_PREFIX}${property}`;
 	}
 
 	const Context = /*#__PURE__*/React.createContext(canUseDOM ? window : undefined);
@@ -19700,11 +19861,15 @@
 	  return React.useContext(Context);
 	}
 
-	const context = /*#__PURE__*/React__namespace.createContext(null);
-	context.displayName = 'InputGroupContext';
-	var InputGroupContext = context;
+	const context$1 = /*#__PURE__*/React__namespace.createContext(null);
+	context$1.displayName = 'InputGroupContext';
+	var InputGroupContext = context$1;
 
-	const propTypes$1 = {
+	const context = /*#__PURE__*/React__namespace.createContext(null);
+	context.displayName = 'NavbarContext';
+	var NavbarContext = context;
+
+	const propTypes$2 = {
 	  /**
 	   * Specify whether the feedback is for valid or invalid fields
 	   *
@@ -19728,7 +19893,7 @@
 	  className: classNames(className, `${type}-${tooltip ? 'tooltip' : 'feedback'}`)
 	}));
 	Feedback.displayName = 'Feedback';
-	Feedback.propTypes = propTypes$1;
+	Feedback.propTypes = propTypes$2;
 	var Feedback$1 = Feedback;
 
 	const FormContext = /*#__PURE__*/React__namespace.createContext({});
@@ -19910,7 +20075,7 @@
 	FormGroup.displayName = 'FormGroup';
 	var FormGroup$1 = FormGroup;
 
-	const defaultProps$4 = {
+	const defaultProps$6 = {
 	  column: false,
 	  visuallyHidden: false
 	};
@@ -19952,7 +20117,7 @@
 	  );
 	});
 	FormLabel.displayName = 'FormLabel';
-	FormLabel.defaultProps = defaultProps$4;
+	FormLabel.defaultProps = defaultProps$6;
 	var FormLabel$1 = FormLabel;
 
 	const FormRange = /*#__PURE__*/React__namespace.forwardRef(({
@@ -20049,7 +20214,7 @@
 	FloatingLabel.displayName = 'FloatingLabel';
 	var FloatingLabel$1 = FloatingLabel;
 
-	const propTypes = {
+	const propTypes$1 = {
 	  /**
 	   * The Form `ref` will be forwarded to the underlying element,
 	   * which means, unless it's rendered `as` a composite component,
@@ -20078,7 +20243,7 @@
 	  className: classNames(className, validated && 'was-validated')
 	}));
 	Form.displayName = 'Form';
-	Form.propTypes = propTypes;
+	Form.propTypes = propTypes$1;
 	var Form$1 = Object.assign(Form, {
 	  Group: FormGroup$1,
 	  Control: FormControl$1,
@@ -20143,6 +20308,217 @@
 	  Text: InputGroupText,
 	  Radio: InputGroupRadio,
 	  Checkbox: InputGroupCheckbox
+	});
+
+	const TabContext = /*#__PURE__*/React__namespace.createContext(null);
+
+	const _excluded$6 = ["as", "active", "eventKey"];
+
+	function _objectWithoutPropertiesLoose$3(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+	function useNavItem({
+	  key,
+	  onClick,
+	  active,
+	  id,
+	  role,
+	  disabled
+	}) {
+	  const parentOnSelect = React.useContext(SelectableContext);
+	  const navContext = React.useContext(NavContext$1);
+	  const tabContext = React.useContext(TabContext);
+	  let isActive = active;
+	  const props = {
+	    role
+	  };
+
+	  if (navContext) {
+	    if (!role && navContext.role === 'tablist') props.role = 'tab';
+	    const contextControllerId = navContext.getControllerId(key != null ? key : null);
+	    const contextControlledId = navContext.getControlledId(key != null ? key : null); // @ts-ignore
+
+	    props[dataAttr('event-key')] = key;
+	    props.id = contextControllerId || id;
+	    isActive = active == null && key != null ? navContext.activeKey === key : active;
+	    /**
+	     * Simplified scenario for `mountOnEnter`.
+	     *
+	     * While it would make sense to keep 'aria-controls' for tabs that have been mounted at least
+	     * once, it would also complicate the code quite a bit, for very little gain.
+	     * The following implementation is probably good enough.
+	     *
+	     * @see https://github.com/react-restart/ui/pull/40#issuecomment-1009971561
+	     */
+
+	    if (isActive || !(tabContext != null && tabContext.unmountOnExit) && !(tabContext != null && tabContext.mountOnEnter)) props['aria-controls'] = contextControlledId;
+	  }
+
+	  if (props.role === 'tab') {
+	    if (disabled) {
+	      props.tabIndex = -1;
+	      props['aria-disabled'] = true;
+	    }
+
+	    if (isActive) {
+	      props['aria-selected'] = isActive;
+	    } else {
+	      props.tabIndex = -1;
+	    }
+	  }
+
+	  props.onClick = useEventCallback(e => {
+	    if (disabled) return;
+	    onClick == null ? void 0 : onClick(e);
+
+	    if (key == null) {
+	      return;
+	    }
+
+	    if (parentOnSelect && !e.isPropagationStopped()) {
+	      parentOnSelect(key, e);
+	    }
+	  });
+	  return [props, {
+	    isActive
+	  }];
+	}
+	const NavItem$1 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
+	  let {
+	    as: Component = Button,
+	    active,
+	    eventKey
+	  } = _ref,
+	      options = _objectWithoutPropertiesLoose$3(_ref, _excluded$6);
+
+	  const [props, meta] = useNavItem(Object.assign({
+	    key: makeEventKey(eventKey, options.href),
+	    active
+	  }, options)); // @ts-ignore
+
+	  props[dataAttr('active')] = meta.isActive;
+	  return /*#__PURE__*/jsxRuntime.jsx(Component, Object.assign({}, options, props, {
+	    ref: ref
+	  }));
+	});
+	NavItem$1.displayName = 'NavItem';
+
+	const _excluded$5 = ["as", "onSelect", "activeKey", "role", "onKeyDown"];
+
+	function _objectWithoutPropertiesLoose$2(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	const noop = () => {};
+
+	const EVENT_KEY_ATTR = dataAttr('event-key');
+	const Nav$2 = /*#__PURE__*/React__namespace.forwardRef((_ref, ref) => {
+	  let {
+	    // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+	    as: Component = 'div',
+	    onSelect,
+	    activeKey,
+	    role,
+	    onKeyDown
+	  } = _ref,
+	      props = _objectWithoutPropertiesLoose$2(_ref, _excluded$5);
+
+	  // A ref and forceUpdate for refocus, b/c we only want to trigger when needed
+	  // and don't want to reset the set in the effect
+	  const forceUpdate = useForceUpdate();
+	  const needsRefocusRef = React.useRef(false);
+	  const parentOnSelect = React.useContext(SelectableContext);
+	  const tabContext = React.useContext(TabContext);
+	  let getControlledId, getControllerId;
+
+	  if (tabContext) {
+	    role = role || 'tablist';
+	    activeKey = tabContext.activeKey; // TODO: do we need to duplicate these?
+
+	    getControlledId = tabContext.getControlledId;
+	    getControllerId = tabContext.getControllerId;
+	  }
+
+	  const listNode = React.useRef(null);
+
+	  const getNextActiveTab = offset => {
+	    const currentListNode = listNode.current;
+	    if (!currentListNode) return null;
+	    const items = qsa(currentListNode, `[${EVENT_KEY_ATTR}]:not([aria-disabled=true])`);
+	    const activeChild = currentListNode.querySelector('[aria-selected=true]');
+	    if (!activeChild || activeChild !== document.activeElement) return null;
+	    const index = items.indexOf(activeChild);
+	    if (index === -1) return null;
+	    let nextIndex = index + offset;
+	    if (nextIndex >= items.length) nextIndex = 0;
+	    if (nextIndex < 0) nextIndex = items.length - 1;
+	    return items[nextIndex];
+	  };
+
+	  const handleSelect = (key, event) => {
+	    if (key == null) return;
+	    onSelect == null ? void 0 : onSelect(key, event);
+	    parentOnSelect == null ? void 0 : parentOnSelect(key, event);
+	  };
+
+	  const handleKeyDown = event => {
+	    onKeyDown == null ? void 0 : onKeyDown(event);
+
+	    if (!tabContext) {
+	      return;
+	    }
+
+	    let nextActiveChild;
+
+	    switch (event.key) {
+	      case 'ArrowLeft':
+	      case 'ArrowUp':
+	        nextActiveChild = getNextActiveTab(-1);
+	        break;
+
+	      case 'ArrowRight':
+	      case 'ArrowDown':
+	        nextActiveChild = getNextActiveTab(1);
+	        break;
+
+	      default:
+	        return;
+	    }
+
+	    if (!nextActiveChild) return;
+	    event.preventDefault();
+	    handleSelect(nextActiveChild.dataset[dataProp('EventKey')] || null, event);
+	    needsRefocusRef.current = true;
+	    forceUpdate();
+	  };
+
+	  React.useEffect(() => {
+	    if (listNode.current && needsRefocusRef.current) {
+	      const activeChild = listNode.current.querySelector(`[${EVENT_KEY_ATTR}][aria-selected=true]`);
+	      activeChild == null ? void 0 : activeChild.focus();
+	    }
+
+	    needsRefocusRef.current = false;
+	  });
+	  const mergedRef = useMergedRefs(ref, listNode);
+	  return /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+	    value: handleSelect,
+	    children: /*#__PURE__*/jsxRuntime.jsx(NavContext$1.Provider, {
+	      value: {
+	        role,
+	        // used by NavLink to determine it's role
+	        activeKey: makeEventKey(activeKey),
+	        getControlledId: getControlledId || noop,
+	        getControllerId: getControllerId || noop
+	      },
+	      children: /*#__PURE__*/jsxRuntime.jsx(Component, Object.assign({}, props, {
+	        onKeyDown: handleKeyDown,
+	        ref: mergedRef,
+	        role: role
+	      }))
+	    })
+	  });
+	});
+	Nav$2.displayName = 'Nav';
+	var BaseNav = Object.assign(Nav$2, {
+	  Item: NavItem$1
 	});
 
 	var size;
@@ -20348,9 +20724,9 @@
 	  return resolvedRef;
 	}
 
-	const _excluded$3 = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "backdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
+	const _excluded$4 = ["show", "role", "className", "style", "children", "backdrop", "keyboard", "onBackdropClick", "onEscapeKeyDown", "transition", "backdropTransition", "autoFocus", "enforceFocus", "restoreFocus", "restoreFocusOptions", "renderDialog", "renderBackdrop", "manager", "container", "onShow", "onHide", "onExit", "onExited", "onExiting", "onEnter", "onEntering", "onEntered"];
 
-	function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+	function _objectWithoutPropertiesLoose$1(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 	let manager;
 
 	function getManager(window) {
@@ -20410,7 +20786,7 @@
 	    onEntering,
 	    onEntered
 	  } = _ref,
-	      rest = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+	      rest = _objectWithoutPropertiesLoose$1(_ref, _excluded$4);
 
 	  const container = useWaitForDOMRef(containerRef);
 	  const modal = useModalManager(providedManager);
@@ -20729,7 +21105,7 @@
 
 	var ModalFooter = createWithBsPrefix('modal-footer');
 
-	const defaultProps$3 = {
+	const defaultProps$5 = {
 	  closeLabel: 'Close',
 	  closeButton: false
 	};
@@ -20756,10 +21132,10 @@
 	    })]
 	  });
 	});
-	AbstractModalHeader.defaultProps = defaultProps$3;
+	AbstractModalHeader.defaultProps = defaultProps$5;
 	var AbstractModalHeader$1 = AbstractModalHeader;
 
-	const defaultProps$2 = {
+	const defaultProps$4 = {
 	  closeLabel: 'Close',
 	  closeButton: false
 	};
@@ -20776,7 +21152,7 @@
 	  });
 	});
 	ModalHeader.displayName = 'ModalHeader';
-	ModalHeader.defaultProps = defaultProps$2;
+	ModalHeader.defaultProps = defaultProps$4;
 	var ModalHeader$1 = ModalHeader;
 
 	const DivStyledAsH4 = divWithClassName('h4');
@@ -20784,7 +21160,7 @@
 	  Component: DivStyledAsH4
 	});
 
-	const defaultProps$1 = {
+	const defaultProps$3 = {
 	  show: false,
 	  backdrop: true,
 	  keyboard: true,
@@ -21026,7 +21402,7 @@
 	  });
 	});
 	Modal.displayName = 'Modal';
-	Modal.defaultProps = defaultProps$1;
+	Modal.defaultProps = defaultProps$3;
 	var Modal$1 = Object.assign(Modal, {
 	  Body: ModalBody,
 	  Header: ModalHeader$1,
@@ -21035,6 +21411,186 @@
 	  Dialog: ModalDialog$1,
 	  TRANSITION_DURATION: 300,
 	  BACKDROP_TRANSITION_DURATION: 150
+	});
+
+	var all = {exports: {}};
+
+	var createChainableTypeChecker = {exports: {}};
+
+	(function (module, exports) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = createChainableTypeChecker;
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	// Mostly taken from ReactPropTypes.
+
+	function createChainableTypeChecker(validate) {
+	  function checkType(isRequired, props, propName, componentName, location, propFullName) {
+	    var componentNameSafe = componentName || '<<anonymous>>';
+	    var propFullNameSafe = propFullName || propName;
+
+	    if (props[propName] == null) {
+	      if (isRequired) {
+	        return new Error('Required ' + location + ' `' + propFullNameSafe + '` was not specified ' + ('in `' + componentNameSafe + '`.'));
+	      }
+
+	      return null;
+	    }
+
+	    for (var _len = arguments.length, args = Array(_len > 6 ? _len - 6 : 0), _key = 6; _key < _len; _key++) {
+	      args[_key - 6] = arguments[_key];
+	    }
+
+	    return validate.apply(undefined, [props, propName, componentNameSafe, location, propFullNameSafe].concat(args));
+	  }
+
+	  var chainedCheckType = checkType.bind(null, false);
+	  chainedCheckType.isRequired = checkType.bind(null, true);
+
+	  return chainedCheckType;
+	}
+	module.exports = exports['default'];
+	}(createChainableTypeChecker, createChainableTypeChecker.exports));
+
+	(function (module, exports) {
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = all;
+
+	var _createChainableTypeChecker = createChainableTypeChecker.exports;
+
+	var _createChainableTypeChecker2 = _interopRequireDefault(_createChainableTypeChecker);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function all() {
+	  for (var _len = arguments.length, validators = Array(_len), _key = 0; _key < _len; _key++) {
+	    validators[_key] = arguments[_key];
+	  }
+
+	  function allPropTypes() {
+	    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	      args[_key2] = arguments[_key2];
+	    }
+
+	    var error = null;
+
+	    validators.forEach(function (validator) {
+	      if (error != null) {
+	        return;
+	      }
+
+	      var result = validator.apply(undefined, args);
+	      if (result != null) {
+	        error = result;
+	      }
+	    });
+
+	    return error;
+	  }
+
+	  return (0, _createChainableTypeChecker2.default)(allPropTypes);
+	}
+	module.exports = exports['default'];
+	}(all, all.exports));
+
+	var NavItem = createWithBsPrefix('nav-item');
+
+	const defaultProps$2 = {
+	  disabled: false
+	};
+	const NavLink = /*#__PURE__*/React__namespace.forwardRef(({
+	  bsPrefix,
+	  className,
+	  as: Component = Anchor,
+	  active,
+	  eventKey,
+	  ...props
+	}, ref) => {
+	  bsPrefix = useBootstrapPrefix(bsPrefix, 'nav-link');
+	  const [navItemProps, meta] = useNavItem({
+	    key: makeEventKey(eventKey, props.href),
+	    active,
+	    ...props
+	  });
+	  return /*#__PURE__*/jsxRuntime.jsx(Component, { ...props,
+	    ...navItemProps,
+	    ref: ref,
+	    className: classNames(className, bsPrefix, props.disabled && 'disabled', meta.isActive && 'active')
+	  });
+	});
+	NavLink.displayName = 'NavLink';
+	NavLink.defaultProps = defaultProps$2;
+	var NavLink$1 = NavLink;
+
+	const defaultProps$1 = {
+	  justify: false,
+	  fill: false
+	};
+	const Nav = /*#__PURE__*/React__namespace.forwardRef((uncontrolledProps, ref) => {
+	  const {
+	    as = 'div',
+	    bsPrefix: initialBsPrefix,
+	    variant,
+	    fill,
+	    justify,
+	    navbar,
+	    navbarScroll,
+	    className,
+	    activeKey,
+	    ...props
+	  } = useUncontrolled(uncontrolledProps, {
+	    activeKey: 'onSelect'
+	  });
+	  const bsPrefix = useBootstrapPrefix(initialBsPrefix, 'nav');
+	  let navbarBsPrefix;
+	  let cardHeaderBsPrefix;
+	  let isNavbar = false;
+	  const navbarContext = React.useContext(NavbarContext);
+	  const cardHeaderContext = React.useContext(CardHeaderContext);
+
+	  if (navbarContext) {
+	    navbarBsPrefix = navbarContext.bsPrefix;
+	    isNavbar = navbar == null ? true : navbar;
+	  } else if (cardHeaderContext) {
+	    ({
+	      cardHeaderBsPrefix
+	    } = cardHeaderContext);
+	  }
+
+	  return /*#__PURE__*/jsxRuntime.jsx(BaseNav, {
+	    as: as,
+	    ref: ref,
+	    activeKey: activeKey,
+	    className: classNames(className, {
+	      [bsPrefix]: !isNavbar,
+	      [`${navbarBsPrefix}-nav`]: isNavbar,
+	      [`${navbarBsPrefix}-nav-scroll`]: isNavbar && navbarScroll,
+	      [`${cardHeaderBsPrefix}-${variant}`]: !!cardHeaderBsPrefix,
+	      [`${bsPrefix}-${variant}`]: !!variant,
+	      [`${bsPrefix}-fill`]: fill,
+	      [`${bsPrefix}-justified`]: justify
+	    }),
+	    ...props
+	  });
+	});
+	Nav.displayName = 'Nav';
+	Nav.defaultProps = defaultProps$1;
+	var Nav$1 = Object.assign(Nav, {
+	  Item: NavItem,
+	  Link: NavLink$1
 	});
 
 	/* eslint-disable react/no-multi-comp */
@@ -21167,6 +21723,287 @@
 	});
 	Row.displayName = 'Row';
 	var Row$1 = Row;
+
+	function NoopTransition({
+	  children,
+	  in: inProp,
+	  mountOnEnter,
+	  unmountOnExit
+	}) {
+	  const hasEnteredRef = React.useRef(inProp);
+	  React.useEffect(() => {
+	    if (inProp) hasEnteredRef.current = true;
+	  }, [inProp]);
+	  if (inProp) return children; // not in
+	  //
+	  // if (!mountOnEnter && !unmountOnExit) {
+	  //   return children;
+	  // }
+
+	  if (unmountOnExit) {
+	    return null;
+	  }
+
+	  if (!hasEnteredRef.current && mountOnEnter) {
+	    return null;
+	  }
+
+	  return children;
+	}
+
+	const _excluded$3 = ["active", "eventKey", "mountOnEnter", "transition", "unmountOnExit", "role", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited"],
+	      _excluded2 = ["activeKey", "getControlledId", "getControllerId"],
+	      _excluded3 = ["as"];
+
+	function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+	function useTabPanel(_ref) {
+	  let {
+	    active,
+	    eventKey,
+	    mountOnEnter,
+	    transition,
+	    unmountOnExit,
+	    role = 'tabpanel',
+	    onEnter,
+	    onEntering,
+	    onEntered,
+	    onExit,
+	    onExiting,
+	    onExited
+	  } = _ref,
+	      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+
+	  const context = React.useContext(TabContext);
+	  if (!context) return [Object.assign({}, props, {
+	    role
+	  }), {
+	    eventKey,
+	    isActive: active,
+	    mountOnEnter,
+	    transition,
+	    unmountOnExit,
+	    onEnter,
+	    onEntering,
+	    onEntered,
+	    onExit,
+	    onExiting,
+	    onExited
+	  }];
+
+	  const {
+	    activeKey,
+	    getControlledId,
+	    getControllerId
+	  } = context,
+	        rest = _objectWithoutPropertiesLoose(context, _excluded2);
+
+	  const key = makeEventKey(eventKey);
+	  return [Object.assign({}, props, {
+	    role,
+	    id: getControlledId(eventKey),
+	    'aria-labelledby': getControllerId(eventKey)
+	  }), {
+	    eventKey,
+	    isActive: active == null && key != null ? makeEventKey(activeKey) === key : active,
+	    transition: transition || rest.transition,
+	    mountOnEnter: mountOnEnter != null ? mountOnEnter : rest.mountOnEnter,
+	    unmountOnExit: unmountOnExit != null ? unmountOnExit : rest.unmountOnExit,
+	    onEnter,
+	    onEntering,
+	    onEntered,
+	    onExit,
+	    onExiting,
+	    onExited
+	  }];
+	}
+	const TabPanel = /*#__PURE__*/React__namespace.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+	(_ref2, ref) => {
+	  let {
+	    as: Component = 'div'
+	  } = _ref2,
+	      props = _objectWithoutPropertiesLoose(_ref2, _excluded3);
+
+	  const [tabPanelProps, {
+	    isActive,
+	    onEnter,
+	    onEntering,
+	    onEntered,
+	    onExit,
+	    onExiting,
+	    onExited,
+	    mountOnEnter,
+	    unmountOnExit,
+	    transition: Transition = NoopTransition
+	  }] = useTabPanel(props); // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
+	  // conflict with the top level one.
+
+	  return /*#__PURE__*/jsxRuntime.jsx(TabContext.Provider, {
+	    value: null,
+	    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+	      value: null,
+	      children: /*#__PURE__*/jsxRuntime.jsx(Transition, {
+	        in: isActive,
+	        onEnter: onEnter,
+	        onEntering: onEntering,
+	        onEntered: onEntered,
+	        onExit: onExit,
+	        onExiting: onExiting,
+	        onExited: onExited,
+	        mountOnEnter: mountOnEnter,
+	        unmountOnExit: unmountOnExit,
+	        children: /*#__PURE__*/jsxRuntime.jsx(Component, Object.assign({}, tabPanelProps, {
+	          ref: ref,
+	          hidden: !isActive,
+	          "aria-hidden": !isActive
+	        }))
+	      })
+	    })
+	  });
+	});
+	TabPanel.displayName = 'TabPanel';
+
+	const Tabs = props => {
+	  const {
+	    id: userId,
+	    generateChildId: generateCustomChildId,
+	    onSelect: propsOnSelect,
+	    activeKey: propsActiveKey,
+	    defaultActiveKey,
+	    transition,
+	    mountOnEnter,
+	    unmountOnExit,
+	    children
+	  } = props;
+	  const [activeKey, onSelect] = useUncontrolledProp(propsActiveKey, defaultActiveKey, propsOnSelect);
+	  const id = $9d939cbc98267846$export$619500959fc48b26(userId);
+	  const generateChildId = React.useMemo(() => generateCustomChildId || ((key, type) => id ? `${id}-${type}-${key}` : null), [id, generateCustomChildId]);
+	  const tabContext = React.useMemo(() => ({
+	    onSelect,
+	    activeKey,
+	    transition,
+	    mountOnEnter: mountOnEnter || false,
+	    unmountOnExit: unmountOnExit || false,
+	    getControlledId: key => generateChildId(key, 'tabpane'),
+	    getControllerId: key => generateChildId(key, 'tab')
+	  }), [onSelect, activeKey, transition, mountOnEnter, unmountOnExit, generateChildId]);
+	  return /*#__PURE__*/jsxRuntime.jsx(TabContext.Provider, {
+	    value: tabContext,
+	    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+	      value: onSelect || null,
+	      children: children
+	    })
+	  });
+	};
+
+	Tabs.Panel = TabPanel;
+
+	function getTabTransitionComponent(transition) {
+	  if (typeof transition === 'boolean') {
+	    return transition ? Fade$1 : undefined;
+	  }
+
+	  return transition;
+	}
+
+	const TabContainer = ({
+	  transition,
+	  ...props
+	}) => /*#__PURE__*/jsxRuntime.jsx(Tabs, { ...props,
+	  transition: getTabTransitionComponent(transition)
+	});
+
+	TabContainer.displayName = 'TabContainer';
+	var TabContainer$1 = TabContainer;
+
+	var TabContent = createWithBsPrefix('tab-content');
+
+	const TabPane = /*#__PURE__*/React__namespace.forwardRef(({
+	  bsPrefix,
+	  transition,
+	  ...props
+	}, ref) => {
+	  const [{
+	    className,
+	    // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+	    as: Component = 'div',
+	    ...rest
+	  }, {
+	    isActive,
+	    onEnter,
+	    onEntering,
+	    onEntered,
+	    onExit,
+	    onExiting,
+	    onExited,
+	    mountOnEnter,
+	    unmountOnExit,
+	    transition: Transition = Fade$1
+	  }] = useTabPanel({ ...props,
+	    transition: getTabTransitionComponent(transition)
+	  });
+	  const prefix = useBootstrapPrefix(bsPrefix, 'tab-pane'); // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
+	  // conflict with the top level one.
+
+	  return /*#__PURE__*/jsxRuntime.jsx(TabContext.Provider, {
+	    value: null,
+	    children: /*#__PURE__*/jsxRuntime.jsx(SelectableContext.Provider, {
+	      value: null,
+	      children: /*#__PURE__*/jsxRuntime.jsx(Transition, {
+	        in: isActive,
+	        onEnter: onEnter,
+	        onEntering: onEntering,
+	        onEntered: onEntered,
+	        onExit: onExit,
+	        onExiting: onExiting,
+	        onExited: onExited,
+	        mountOnEnter: mountOnEnter,
+	        unmountOnExit: unmountOnExit,
+	        children: /*#__PURE__*/jsxRuntime.jsx(Component, { ...rest,
+	          ref: ref,
+	          className: classNames(className, prefix, isActive && 'active')
+	        })
+	      })
+	    })
+	  });
+	});
+	TabPane.displayName = 'TabPane';
+	var TabPane$1 = TabPane;
+
+	/* eslint-disable react/no-unused-prop-types */
+	const propTypes = {
+	  eventKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+	  /**
+	   * Content for the tab title.
+	   */
+	  title: PropTypes.node.isRequired,
+
+	  /**
+	   * The disabled state of the tab.
+	   */
+	  disabled: PropTypes.bool,
+
+	  /**
+	   * Class to pass to the underlying nav link.
+	   */
+	  tabClassName: PropTypes.string,
+
+	  /**
+	   * Object containing attributes to pass to underlying nav link.
+	   */
+	  tabAttrs: PropTypes.object
+	};
+
+	const Tab = () => {
+	  throw new Error('ReactBootstrap: The `Tab` component is not meant to be rendered! ' + "It's an abstract component that is only valid as a direct Child of the `Tabs` Component. " + 'For custom tabs components use TabPane and TabsContainer directly'); // Needed otherwise docs error out.
+	};
+
+	Tab.propTypes = propTypes;
+	var Tab$1 = Object.assign(Tab, {
+	  Container: TabContainer$1,
+	  Content: TabContent,
+	  Pane: TabPane$1
+	});
 
 	var _excluded$2 = ["name", "type", "label", "lblWidth", "placeholder", "value", "validators"];
 	var AfwFormInput = function AfwFormInput(props) {
@@ -21642,6 +22479,127 @@
 	  })))));
 	};
 
+	var DefaultContext = {
+	  color: undefined,
+	  size: undefined,
+	  className: undefined,
+	  style: undefined,
+	  attr: undefined
+	};
+	var IconContext = React__default["default"].createContext && React__default["default"].createContext(DefaultContext);
+
+	var __assign = undefined && undefined.__assign || function () {
+	  __assign = Object.assign || function (t) {
+	    for (var s, i = 1, n = arguments.length; i < n; i++) {
+	      s = arguments[i];
+
+	      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+	    }
+
+	    return t;
+	  };
+
+	  return __assign.apply(this, arguments);
+	};
+
+	var __rest = undefined && undefined.__rest || function (s, e) {
+	  var t = {};
+
+	  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+
+	  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+	    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+	  }
+	  return t;
+	};
+
+	function Tree2Element(tree) {
+	  return tree && tree.map(function (node, i) {
+	    return React__default["default"].createElement(node.tag, __assign({
+	      key: i
+	    }, node.attr), Tree2Element(node.child));
+	  });
+	}
+
+	function GenIcon(data) {
+	  return function (props) {
+	    return React__default["default"].createElement(IconBase, __assign({
+	      attr: __assign({}, data.attr)
+	    }, props), Tree2Element(data.child));
+	  };
+	}
+	function IconBase(props) {
+	  var elem = function (conf) {
+	    var attr = props.attr,
+	        size = props.size,
+	        title = props.title,
+	        svgProps = __rest(props, ["attr", "size", "title"]);
+
+	    var computedSize = size || conf.size || "1em";
+	    var className;
+	    if (conf.className) className = conf.className;
+	    if (props.className) className = (className ? className + ' ' : '') + props.className;
+	    return React__default["default"].createElement("svg", __assign({
+	      stroke: "currentColor",
+	      fill: "currentColor",
+	      strokeWidth: "0"
+	    }, conf.attr, attr, svgProps, {
+	      className: className,
+	      style: __assign(__assign({
+	        color: props.color || conf.color
+	      }, conf.style), props.style),
+	      height: computedSize,
+	      width: computedSize,
+	      xmlns: "http://www.w3.org/2000/svg"
+	    }), title && React__default["default"].createElement("title", null, title), props.children);
+	  };
+
+	  return IconContext !== undefined ? React__default["default"].createElement(IconContext.Consumer, null, function (conf) {
+	    return elem(conf);
+	  }) : elem(DefaultContext);
+	}
+
+	// THIS FILE IS AUTO GENERATED
+	function BsX (props) {
+	  return GenIcon({"tag":"svg","attr":{"fill":"currentColor","viewBox":"0 0 16 16"},"child":[{"tag":"path","attr":{"d":"M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"}}]})(props);
+	}
+
+	var AfwTabstrip = function AfwTabstrip(props) {
+	  var panes = props.panes,
+	      defaultActiveKey = props.defaultActiveKey,
+	      activeKey = props.activeKey,
+	      onSelect = props.onSelect,
+	      onDeleteTab = props.onDeleteTab;
+	  panes && panes[0] && panes[0].key || '0';
+	  return /*#__PURE__*/React__default["default"].createElement(Tab$1.Container, {
+	    defaultActiveKey: defaultActiveKey,
+	    activeKey: activeKey,
+	    onSelect: onSelect
+	  }, /*#__PURE__*/React__default["default"].createElement(Nav$1, null, panes && panes.length && panes.map(function (pane, index) {
+	    return /*#__PURE__*/React__default["default"].createElement(Nav$1.Item, {
+	      key: "tab-nav-item-".concat(pane.key || index)
+	    }, /*#__PURE__*/React__default["default"].createElement(Nav$1.Link, {
+	      eventKey: pane.key,
+	      disabled: pane.isDisabled
+	    }, /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, pane.icon ? pane.icon : pane.title, !!pane.isDeleteEnabled && /*#__PURE__*/React__default["default"].createElement("span", {
+	      onClick: function onClick() {
+	        onDeleteTab && onDeleteTab(pane);
+	      }
+	    }, /*#__PURE__*/React__default["default"].createElement(BsX, {
+	      style: {
+	        width: '1.5em',
+	        height: '1.5em',
+	        color: 'black'
+	      }
+	    })))));
+	  })), /*#__PURE__*/React__default["default"].createElement(Tab$1.Content, null, panes && panes.length && panes.map(function (pane, index) {
+	    return /*#__PURE__*/React__default["default"].createElement(Tab$1.Pane, {
+	      key: "tab-nav-item-".concat(pane.key || index),
+	      eventKey: pane.key
+	    }, pane.content);
+	  })));
+	};
+
 	exports.AfwForm = AfwForm;
 	exports.AfwFormCurrency = AfwFormCurrency;
 	exports.AfwFormInput = AfwFormInput;
@@ -21649,6 +22607,7 @@
 	exports.AfwMessage = AfwMessage;
 	exports.AfwModal = AfwModal;
 	exports.AfwPager = AfwPager;
+	exports.AfwTabstrip = AfwTabstrip;
 	exports.GlobalContext = GlobalContext;
 	exports.isEmail = isEmail;
 	exports.minLen = minLen;

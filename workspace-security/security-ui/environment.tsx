@@ -1,7 +1,7 @@
 const ROOT_DEMOS = process.env.ROOT_DEMOS;
-const ROOT_SIMPLE_MVC_API = process.env.ROOT_REACT_COMPONENTS_API;
+const ROOT_APP_API = process.env.ROOT_APP_API;
 
 export {
 	ROOT_DEMOS,
-	ROOT_SIMPLE_MVC_API
+	ROOT_APP_API
 };

@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect }  from "react";
 
+import { useSelector  } from 'react-redux';
 
-import { Container, Col, Row } from "react-bootstrap";
+import { AfwTabstrip } from "afw-components";
+import { GlobalContext, IGlobalContext, IPane } from "afw-components";
 
-import { GlobalContext, IGlobalContext } from "afw-components";
 import { useAppDispatch } from "../store";
-
-import { pageConfig } from './cookie-slice';
+import { pageConfig, selectActiveKey, selectPanes,  selectTab, deleteTab } from './cookie-slice';
 
 import Cookies from 'js-cookie';
 
@@ -18,6 +18,9 @@ const CookieContainer = (): JSX.Element => {
     // dispatch function from the Redux store derived from store with thunk access
     const dispatch = useAppDispatch();
     const gCtx: typeof IGlobalContext = useContext(GlobalContext);
+
+    const activeKey = useSelector(selectActiveKey);
+    const panes = useSelector(selectPanes);
 
     // useState returns a stateful value, and a function to update it. 
     // Flag indicating module is initialized and ready to render 
@@ -56,10 +59,21 @@ const CookieContainer = (): JSX.Element => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const onSelect = (key: string) => {
+        console.log('onSelect: ', key);
+        dispatch(selectTab(key));
+    }
+
+    const onDeleteTab = (pane: typeof IPane) => {
+        console.log('onDeleteTab: ', pane);
+        dispatch(deleteTab(pane.key));
+    }
+
     return (isInit && (
         <div className="full">
             <iframe src="https://platform.twitter.com/widgets/tweet_button.html"></iframe>
             <iframe src="http://localhost:3002/hello.html"></iframe>
+            <AfwTabstrip panes={panes} activeKey={activeKey} defaultActiveKey={'home'} onSelect={onSelect} onDeleteTab={onDeleteTab} />
         </div>
     ))
 }

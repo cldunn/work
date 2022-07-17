@@ -22,7 +22,6 @@ Create a self signed certificate with java utility: keytool
 	// From jdk 9+, default store type is PKCS12, Cannot have both storepass and keypass else keypass will be ignored
 	keytool -genkeypair -keystore cldbiz.p12 -keyalg RSA -storetype PKCS12 -storepass cldCertPass -alias cldCert -keysize 2048 -validity 3650
 	
-	
 	on server
 		application.properties
 			cert.filepath=C:/Users/cliff/work/workspace-react-demo/react-demo-api/src/main/resources/cldbiz.p12
