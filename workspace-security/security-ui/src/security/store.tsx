@@ -5,11 +5,15 @@ import logger from 'redux-logger';
 
 
 import commonReducer from './common-slice'
+import loginReducer from './login/login-slice';
+import homeReducer from './home/home-slice';
 
 // abstraction over the standard Redux createStore function that adds good defaults to the store setup
 const store = configureStore({
   reducer: {
-    common: commonReducer
+    common: commonReducer,
+    login: loginReducer,
+    home: homeReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 })

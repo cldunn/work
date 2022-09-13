@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: common api components
+  description: components used by all apis
+  version: v1
+paths:
+  /mock: {}
+components:
+  schemas:
+    I18n:
+      type: object
+      additionalProperties:
+        type: string
+    LvbMap:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          $ref: 'LabelValueBean'
+    Message:
+      type: object
+      properties:
+        content:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+        validationMsgs:
+          type: object
+          additionalProperties:
+            type: string
+        

@@ -23,11 +23,11 @@ const EditableForm: React.FC = ()  => {
     const form = useSelector(selectForm);
 
     const genderLvbs = [{
-        lbl: 'Male',
-        val: 'M'
+        label: 'Male',
+        value: 'M'
     }, {
-        lbl: 'Female',
-        val: 'F'
+        label: 'Female',
+        value: 'F'
     }];
 
     /*

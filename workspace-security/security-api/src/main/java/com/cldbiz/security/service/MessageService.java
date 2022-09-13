@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.stereotype.Service;
 
-import com.cldbiz.security.config.SecurityExecutionContext;
+import com.cldbiz.security.config.ExecutionContext;
 import com.cldbiz.security.util.MessageSource;
 
 @Service
@@ -18,7 +18,7 @@ public class MessageService {
 	MessageSource messageSource;
 	
 	public String getMessage(String key) {
-		Locale locale = SecurityExecutionContext.getLocale();
+		Locale locale = ExecutionContext.getLocale();
 		try {
 			return messageSource.getMessage(key, null, locale);
 		}
@@ -28,7 +28,7 @@ public class MessageService {
 	}
 
 	public String getMessage(String key, String... args) {
-		Locale locale = SecurityExecutionContext.getLocale();
+		Locale locale = ExecutionContext.getLocale();
 		try {
 			return messageSource.getMessage(key, args, locale);
 		}
@@ -40,7 +40,7 @@ public class MessageService {
 	public Map<String, String> getMessages(String... prefixes) {
 		Map<String, String> messages = new HashMap<String, String>();
 
-		Locale locale = SecurityExecutionContext.getLocale();
+		Locale locale = ExecutionContext.getLocale();
 		Arrays.asList(prefixes).forEach((prefix) -> {
 			messages.putAll(messageSource.getPrefixedMessages(prefix, locale));
 		});

@@ -61,6 +61,15 @@
     }
   }
 
+  .btns-div {
+    width: 100%;
+    text-align: center;
+    & .btn-size {
+      width: 30% !important;
+      margin: 0px 5px;
+    }
+  }
+
   ul.no-bullets {
     list-style-type: none;
     margin: 0;

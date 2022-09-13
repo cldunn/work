@@ -7,7 +7,7 @@ import './afw-form-input.scss';
 
 export const AfwFormInput: React.FC<any> = (props: any)  => {
     const { name, type, label, lblWidth, placeholder, value, validators, ...rest } = props;
-
+    
     const lblSize = lblWidth ? lblWidth - 0 : -1;
     const fldSize = lblWidth ? 12 - lblWidth : 12;
     const processValidation = (validators: any) => (val: any) => {
@@ -21,9 +21,15 @@ export const AfwFormInput: React.FC<any> = (props: any)  => {
     return (
         <Field name={name} validate={processValidation(validators)}>
             {({ input, meta }) => {
+                input = {
+                    ...input,
+                    onChange: props.onChange ? props.onChange : input.onChange,
+                    onFocus: props.onFocus ? props.onFocus : input.onFocus,
+                    onBlur: props.onBlur ? props.onBlur : input.onBlur
+                }
                 return (
                     <div>
-                        {console.log(input, meta)}
+                        {console.log('>>', input, meta)}
                         <Form.Group as={Row} className="afw-form-input" controlId="formGroupEmail">
                             <Form.Label column sm={lblSize}>{label}</Form.Label>
                             <Col sm={fldSize}>

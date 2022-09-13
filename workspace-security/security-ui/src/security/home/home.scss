@@ -1,0 +1,19 @@
+@import "../../app.scss";
+
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_mixins";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/_alert";
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.btn-width {
+    width: 100%;
+    margin-bottom: 20px;
+}

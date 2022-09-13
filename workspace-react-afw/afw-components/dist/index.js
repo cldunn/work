@@ -22035,7 +22035,12 @@
 	  }, function (_ref) {
 	    var input = _ref.input,
 	        meta = _ref.meta;
-	    return /*#__PURE__*/React__default["default"].createElement("div", null, console.log(input, meta), /*#__PURE__*/React__default["default"].createElement(Form$1.Group, {
+	    input = _objectSpread2(_objectSpread2({}, input), {}, {
+	      onChange: props.onChange ? props.onChange : input.onChange,
+	      onFocus: props.onFocus ? props.onFocus : input.onFocus,
+	      onBlur: props.onBlur ? props.onBlur : input.onBlur
+	    });
+	    return /*#__PURE__*/React__default["default"].createElement("div", null, console.log('>>', input, meta), /*#__PURE__*/React__default["default"].createElement(Form$1.Group, {
 	      as: Row$1,
 	      className: "afw-form-input",
 	      controlId: "formGroupEmail"
@@ -22097,6 +22102,11 @@
 	  }, function (_ref) {
 	    var input = _ref.input,
 	        meta = _ref.meta;
+	    input = _objectSpread2(_objectSpread2({}, input), {}, {
+	      onChange: props.onChange ? props.onChange : input.onChange,
+	      onFocus: props.onFocus ? props.onFocus : input.onFocus,
+	      onBlur: props.onBlur ? props.onBlur : input.onBlur
+	    });
 	    return /*#__PURE__*/React__default["default"].createElement("div", null, console.log(input, meta), /*#__PURE__*/React__default["default"].createElement(Form$1.Group, {
 	      as: Row$1,
 	      className: "afw-form-select",
@@ -22121,9 +22131,9 @@
 	      }
 	    }), options.map(function (lvb) {
 	      return /*#__PURE__*/React__default["default"].createElement("option", {
-	        key: lvb.val,
-	        value: lvb.val
-	      }, lvb.lbl);
+	        key: lvb.value,
+	        value: lvb.value
+	      }, lvb.label);
 	    })), /*#__PURE__*/React__default["default"].createElement(FormControl$1.Feedback, {
 	      className: "errSpace",
 	      type: meta.touched && meta.error ? 'invalid' : 'valid'
@@ -22456,7 +22466,7 @@
 	    closeButton: true
 	  }, /*#__PURE__*/React__default["default"].createElement("i", {
 	    className: iconClassName
-	  }), "\xA0", /*#__PURE__*/React__default["default"].createElement("h5", null, status === 'danger' ? 'Error' : 'Info')), /*#__PURE__*/React__default["default"].createElement(Modal$1.Body, null, children));
+	  }), "\xA0", /*#__PURE__*/React__default["default"].createElement("h4", null, status === 'danger' ? 'Error' : 'Info')), /*#__PURE__*/React__default["default"].createElement(Modal$1.Body, null, children));
 	};
 
 	var AfwMessage = function AfwMessage(props) {

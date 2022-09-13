@@ -9,8 +9,13 @@ const createInterceptors = (dispatch: Dispatch): void => {
         (req) => {
             // Do something before request is sent
             dispatch(commonIsLoading(true));
-            console.log('interceptors.request.use success request: ', req);
+            
+            const up64 = sessionStorage.getItem("Authorization");
+            if (up64) {
+                req.headers.Authorization = 'Basic ' + up64;
+            }
 
+            console.log('interceptors.request.use success request: ', req);
             return req;
         },
         (err) => {
@@ -34,18 +39,18 @@ const createInterceptors = (dispatch: Dispatch): void => {
                 const jsonResp = res.data;
                 
                 if (jsonResp.message) {
-                    if (jsonResp.message.details.length === 0) {
-                        dispatch({ type: 'landing/landingOpenAlert', payload: {
+                    if (jsonResp.message.details && jsonResp.message.details.length === 0) {
+                        dispatch({ type: 'common/commonOpenAlert', payload: {
                             status: 'success',
                             alertMessage : jsonResp.message.content
                         }});
 
                         alertId = setTimeout(() => {
-                            dispatch({type: 'landing/landingCloseAlert'});
+                            dispatch({type: 'common/commonCloseAlert'});
                         }, 5000);
                     }
                     else {
-                        dispatch({ type: 'landing/landingOpenModal', payload: {
+                        dispatch({ type: 'common/commonOpenModal', payload: {
                             status: 'success',
                             modalMessage: jsonResp.message
                         }});
@@ -69,7 +74,7 @@ const createInterceptors = (dispatch: Dispatch): void => {
                 console.log('interceptors.response.use failure err: ',  err.config, err.isAxiosError, err.request, err.response, err.message);
 
                 const jsonResp = err.response.data;
-                dispatch({ type: 'landingOpenModal', payload: {
+                dispatch({ type: 'common/commonOpenModal', payload: {
                     status: 'danger',
                     modalMessage: jsonResp.message
                 }});

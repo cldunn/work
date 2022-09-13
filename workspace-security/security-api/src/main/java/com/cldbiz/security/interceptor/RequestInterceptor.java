@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.cldbiz.security.config.SecurityExecutionContext;
+import com.cldbiz.security.config.ExecutionContext;
 
 /* 
  * Intercept all API endpoints and set up thread locale vars, similar functionality to filters
@@ -16,7 +16,7 @@ public class RequestInterceptor implements HandlerInterceptor{
 
 	 public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-		 SecurityExecutionContext.setLocale(request.getLocale());
+		 ExecutionContext.setLocale(request.getLocale());
         
 		 return true;
     }

@@ -13,7 +13,6 @@ export const AfwMessage: React.FC = (props: any) => {
                         <div>{msg.content}</div>
                     </div>
                 </div>
-                
             )}
             {showModal && msg.details.length > 0 && (
                 <div className="container">

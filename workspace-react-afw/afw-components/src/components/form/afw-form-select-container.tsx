@@ -21,6 +21,12 @@ export const AfwFormSelect: React.FC<any> = (props: any)  => {
     return (
         <Field name={name} initialValue={value} validate={processValidation(validators)}>
             {({ input, meta }) => {
+                input = {
+                    ...input,
+                    onChange: props.onChange ? props.onChange : input.onChange,
+                    onFocus: props.onFocus ? props.onFocus : input.onFocus,
+                    onBlur: props.onBlur ? props.onBlur : input.onBlur
+                }
                 return (
                     <div>
                         {console.log(input, meta)}
@@ -37,7 +43,7 @@ export const AfwFormSelect: React.FC<any> = (props: any)  => {
                                         onFocus={input.onFocus}
                                         className="p-2"
                                         style={{borderColor: meta.touched && meta.error ? 'red' : ''}} >
-                                            {options.map((lvb: any) => <option key={lvb.val} value={lvb.val}>{lvb.lbl}</option>)}
+                                            {options.map((lvb: any) => <option key={lvb.value} value={lvb.value}>{lvb.label}</option>)}
                                     </Form.Select>
                                     <FormControl.Feedback className='errSpace' type={meta.touched && meta.error ? 'invalid' : 'valid'}>
                                         {meta.touched ? <span>{meta.error || <div>&nbsp;</div>}</span> : <span>{<div>&nbsp;</div>}</span>}

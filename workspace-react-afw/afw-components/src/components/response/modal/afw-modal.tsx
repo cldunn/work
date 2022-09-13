@@ -31,7 +31,7 @@ export const AfwModal = (props: AfwModalProps): any => {
             {closeModal && (
                 <Modal.Header className={headerClassName} onHide={doHide} closeButton>
                     <i className={iconClassName}></i>&nbsp;
-                    <h5>{status === 'danger' ? 'Error' : 'Info'}</h5>
+                    <h4>{status === 'danger' ? 'Error' : 'Info'}</h4>
                 </Modal.Header>
             )}
             <Modal.Body>

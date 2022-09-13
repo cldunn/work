@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	
+	<groupId>com.cldbiz</groupId>
+	<artifactId>swagger-plugins</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<name>swagger-plugins</name>
+	<description>security api swagger plugins</description>
+	
+	<build>
+		<plugins>
+			<!-- Code Gen for HomeApi.yaml -->
+			<plugin>
+				<groupId>io.swagger.codegen.v3</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>${swagger-codegen-maven-plugin-version}</version>
+				<executions>
+					<execution>
+						<id>HomePage</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>
+								${project.basedir}/src/main/resources/yaml/HomeApi.yaml
+							</inputSpec>
+							<language>spring</language>
+							<apiPackage>com.cldbiz.security.v1.home</apiPackage>
+							<modelPackage>com.cldbiz.security.v1.home.model</modelPackage>
+							<configOptions>
+								<srcFolder>src</srcFolder>
+								<useBeanValidation>true</useBeanValidation>
+								<returnResponse>true</returnResponse>
+								<useOas2>false</useOas2>
+								<interfaceOnly>true</interfaceOnly>
+								<java8>true</java8>
+							</configOptions>
+							<importMappings>
+								<importMapping>I18n=com.cldbiz.security.io.swagger.model.I18n</importMapping>
+								<importMapping>LvbMap=com.cldbiz.security.io.swagger.model.LvbMap</importMapping>
+								<importMapping>Message=com.cldbiz.security.io.swagger.model.Message</importMapping>
+								<importMapping>LabelValueBean=com.cldbiz.security.util.LabelValueBean</importMapping>
+							</importMappings>
+							 <library>spring-boot</library>
+						</configuration>	
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>	

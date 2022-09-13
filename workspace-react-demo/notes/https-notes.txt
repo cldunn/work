@@ -22,6 +22,23 @@ Create a self signed certificate with java utility: keytool
 	// From jdk 9+, default store type is PKCS12, Cannot have both storepass and keypass else keypass will be ignored
 	keytool -genkeypair -keystore cldbiz.p12 -keyalg RSA -storetype PKCS12 -storepass cldCertPass -alias cldCert -keysize 2048 -validity 3650
 	
+	/*****************************
+	Run the keytool -export -alias ALIAS -keystore server.keystore -rfc -file public.cert 
+	command: keytool -export -alias teiid -keystore server.keystore -rfc -file public.cert.
+	Enter the keystore password when prompted: Enter keystore password: <password>
+	
+	export the .crt:
+		keytool -export -alias mydomain -file mydomain.der -keystore cldbiz.p12
+
+	export the key:
+		keytool -importkeystore -srckeystore mycert.jks -destkeystore keystore.p12 -deststoretype PKCS12
+
+	@JemiSalo How to get whole chain of my self signed certificate? I solve id by doing like that: 
+		const httpsAgent = new https.Agent({ ca: fs.readFileSync(certPath) }); 
+		axios.get(url, { httpsAgent })
+ 
+    *****************************/
+	
 	on server
 		application.properties
 			cert.filepath=C:/Users/cliff/work/workspace-react-demo/react-demo-api/src/main/resources/cldbiz.p12

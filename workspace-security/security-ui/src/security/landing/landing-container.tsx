@@ -1,11 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
-
-import { useSelector } from 'react-redux'
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { Switch, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 // selector functions and a thunk
 import { selectIsLoading, selectShowAlert, selectAlertMessage, selectShowModal, selectStatus, selectModalMessage, initApp } from '../common-slice';
 
 import { Navbar, Form, OverlayTrigger, Tooltip, Spinner, Alert } from 'react-bootstrap';
+import { Container, Col, Row, Button } from "react-bootstrap";
 import { Tv } from "react-bootstrap-icons";
 
 import { useAppDispatch } from "../store";
@@ -15,6 +16,8 @@ import { AfwModal, AfwMessage, GlobalContext, IGlobalContext } from "afw-compone
 import { ROOT_DEMOS } from '../../../environment';
 
 // import SplitPane from "react-split-pane";
+import LoginContainer from "../login/login-container";
+import HomeContainer from "../home/home-container";
 
 import './landing.scss';
 
@@ -34,7 +37,6 @@ const Landing: React.FC = ()  => {
     // and returns the current context value for that context.
     const gCtx: typeof IGlobalContext = useContext(GlobalContext);
     
-
     // useState returns a stateful value, and a function to update it. 
     // Flag indicating module is initialized and ready to render 
     const [isInit, setInit] = useState(false);
@@ -95,9 +97,10 @@ const Landing: React.FC = ()  => {
                     {<Spinner animation="border"></Spinner>}
                 </div>
                 
-                <div className="box center-placed">
-                    <h1><b>{gCtx.getI18n('app.greeting')}</b></h1>
-                </div>
+                <Switch>
+                    <Route exact path="/landing/home" component={HomeContainer} />
+                    <Route exact path="/landing" component={LoginContainer} />
+                </Switch>
             </div>
 
             {/* 

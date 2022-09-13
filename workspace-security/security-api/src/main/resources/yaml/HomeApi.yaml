@@ -1,0 +1,169 @@
+openapi: 3.0.1
+info:
+  title: security-api
+  description: practice api in security-api
+  version: 1.0.0
+servers:
+  - url: http://localhost:8008/security/v1
+    description: SwaggerHub Mocking API
+tags:
+  - name: home
+    description: home page api
+paths:
+  /home/pageConfig:
+    get:
+      tags:
+      - home
+      summary: initialize home page
+      operationId: pageConfig
+      responses:
+        200:
+          description: home page configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/homePageConfigResponse'
+        500:
+          description: internal server error
+          content: {}
+      x-codegen-request-body-name: body
+  /home/getPerson/{personId}:
+    get:
+      tags:
+      - home
+      summary: get person entity
+      operationId: getPerson
+      parameters:
+        - $ref: '#/components/parameters/personId'
+      responses:
+        200:
+          description: person entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/personResponse'
+        500:
+          description: internal server error
+          content: {}
+      x-codegen-request-body-name: body
+  /home/getPersons:
+    get:
+      tags:
+      - home
+      summary: get person entity
+      operationId: getPersons
+      parameters:
+        - $ref: '#/components/parameters/fname'
+        - $ref: '#/components/parameters/lname'
+      responses:
+        200:
+          description: person entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/personsResponse'
+        500:
+          description: internal server error
+          content: {}
+      x-codegen-request-body-name: body
+  /home/updPerson:
+    post:
+      tags:
+      - home
+      summary: update person entity
+      operationId: updPerson
+      requestBody:
+        description: person entity
+        content:
+          application/json:
+            schema:
+               $ref: '#/components/schemas/person'
+      responses:
+        200:
+          description: person entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/personResponse'
+        500:
+          description: internal server error
+          content: {}
+      x-codegen-request-body-name: body
+security:
+  - BasicAuth: []
+components:
+  schemas:
+    homePageConfigResponse:
+      type: object
+      properties:
+        message:
+          $ref: 'Message'
+        data:
+          type: object
+          properties:
+            i18n:
+              $ref: 'I18n'
+            lvbMap:
+              $ref: 'LvbMap'
+    personResponse:
+      type: object
+      properties:
+        message:
+          $ref: 'Message'
+        data:
+          type: object
+          properties:
+            person:
+              $ref: '#/components/schemas/person'
+    personsResponse:
+      type: object
+      properties:
+        message:
+          $ref: 'Message'
+        data:
+          type: object
+          properties:
+            persons:
+              type: array
+              items:
+                $ref: '#/components/schemas/person'
+    person:
+      type: object
+      properties:
+        fname:
+          type: string
+        lname:
+          type: string
+        gender:
+          type: string
+  parameters:
+    personId:
+      name: personId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: person identifier
+      example: C-1234
+    fname:
+      name: fname
+      in: query
+      schema:
+        type: string
+      description: first name
+      example: cliff
+    lname:
+      name: lname
+      in: query
+      schema:
+        type: string
+      description: last name
+      example: dunn
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      
+  
+        
+      

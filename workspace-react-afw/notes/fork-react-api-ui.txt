@@ -18,3 +18,6 @@ into workspace-xyz
 	6. => goto workspace-xyz/xyz-ui and run: npm install
 	7. => index.tsx, App.tsx
 		  => change "... from './app/...'" into "... from './xyz/...'"
+	8. in env.development and env.production
+		=> ROOT_APP_API=http://localhost:8001/xyz/v1
+		(also ROOT_DEMOS=http://localhost:3000/ for "demo central")
