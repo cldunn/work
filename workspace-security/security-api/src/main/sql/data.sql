@@ -29,11 +29,16 @@
 	values ('smdunn', '{scrypt}$e0801$p4me5z5xshJArJUvA3QTuN4DLX5HCrWdl3PFuNPEgZcxbq8wFwt1psa3WGlWH05zoXrIgS1bC6mav40fkM2Upg==$iEHuRx59NC1P4kyfEp0F0YW5cnZUNO7jUcpRLeby02o=', 
 	        1, 1, 1, 1, 'sysGen', getDate(), null, null, 0)
 
-	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) values (5, 9)
-	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) values (5, 10)
-	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) values (5, 11)
-	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) values (5, 12)
-	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) values (6, 9)
+	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) 
+	values ((select id from user_security where user_name = 'cldunn'), 9)
+	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) 
+	values ((select id from user_security where user_name = 'cldunn'), 10)
+	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) 
+	values ((select id from user_security where user_name = 'cldunn'), 11)
+	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) 
+	values ((select id from user_security where user_name = 'cldunn'), 12)
+	insert into dbo.USER_AUTHORITIES (SECURE_USER_ID, GRANTED_AUTHORITY_ID) 
+	values ((select id from user_security where user_name = 'smdunn'), 9)
 
 	insert into dbo.APP_CODE (APP_GROUP, VALUE, LABEL, CREATED_BY, CREATED_DATE, MAINTAINED_BY, MAINTAINED_DATE, VERSION)
 	 values('GENDER', 'M', 'Male', 'sysGen', getDate(), null, null, 0)

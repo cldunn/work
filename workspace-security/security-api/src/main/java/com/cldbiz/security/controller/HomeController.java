@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +42,7 @@ public class HomeController extends BaseController implements HomeApi {
 	MessageService messageService;
 	
 	@Override
+	@PreAuthorize("hasAnyAuthority('view')")
 	public ResponseEntity<HomePageConfigResponse> pageConfig() {
 		HomePageConfigResponseData homePageConfigResponseData = new HomePageConfigResponseData();
 		
@@ -60,6 +62,7 @@ public class HomeController extends BaseController implements HomeApi {
 	}
 	
 	@Override
+	@PreAuthorize("hasAnyAuthority('view')")
 	public ResponseEntity<PersonResponse> getPerson(String personId) {
 		Person person = new Person();
 		if ("1".equals(personId)) {
@@ -86,6 +89,7 @@ public class HomeController extends BaseController implements HomeApi {
 	}
 
 	@Override
+	@PreAuthorize("hasAnyAuthority('view')")
 	public ResponseEntity<PersonsResponse> getPersons(String fname, String lname) {
 		Person person = new Person();
 		if ("Cliff".equalsIgnoreCase(fname)) {
@@ -112,6 +116,7 @@ public class HomeController extends BaseController implements HomeApi {
 	}
 	
 	@Override
+	@PreAuthorize("hasAnyAuthority('update')")
 	public ResponseEntity<PersonResponse> updPerson(Person person) {
 		PersonResponseData personResponseData = new PersonResponseData();
 		personResponseData.setPerson(person);

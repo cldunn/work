@@ -1,0 +1,160 @@
+Redis is an in memory db of key-value pairs for unix (ubuntu) 
+	https://redis.io/download/
+		REDIS <=> redis-7.0.5.tar.gz 
+		REDIS STACK (includes modern data models such as document, graph, time series) <=> redis-stack-server-6.2.4-v3.focal.x86_64.tar.gz
+		
+	install and configure Redis on Ubuntu 20.04
+		https://www.arubacloud.com/tutorial/how-to-install-and-configure-redis-on-ubuntu-20-04.aspx#:~:text=Redis
+
+A windows version also exists
+	https://kasunprageethdissanayake.medium.com/installing-redis-x64-3-2-100-on-windows-and-running-redis-server-94db3a98ae3d
+	=> Redis-x64-3.2.100.msi
+	
+	launch redis as a windows service
+		from the Redis root directory run: redis-server — service-install
+=========================
+Spring Redis
+	configuration
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		
+		@Configuration
+		public class RedisConfig {
+			@Bean(destroyMethod = "shutdown")
+			ClientResources clientResources() {...}
+			
+			@Bean
+			public ClientOptions clientOptions(){...}
+			
+			@Bean
+			LettucePoolingClientConfiguration lettucePoolConfig(ClientOptions options, ClientResources dcr){...}  // instead of Jedis
+	
+			@Bean
+			public RedisStandaloneConfiguration redisStandaloneConfiguration() {...}
+			
+			@Bean
+			public RedisConnectionFactory connectionFactory(
+				RedisStandaloneConfiguration redisStandaloneConfiguration,
+	            LettucePoolingClientConfiguration lettucePoolConfig) {...}
+				
+			@Bean
+			@Primary
+			@ConditionalOnMissingBean(name = "redisTemplate")
+			public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {...}
+				// use JdkSerializationRedisSerializer, avoids having to define json type conversion (eg. ObjectMapper objMapper = JsonMapper.builder().addModule(new JavaTimeModule())  // for ZonedDateTime)
+				// note: in order to use devtools need to: new JdkSerializationRedisSerializer(Thread.currentThread().getContextClassLoader())
+	operations
+		ValueOperations
+			get(key), set(key, value), set(key,  value, timeOut, unit)
+		ListOperations
+		SetOperations
+		HashOperations
+			get(redisKey, key), entries(redisKey), put(redisKey, key, data), putAll(redisKey, map), keys(redisKey), values(redisKey)
+		StreamOperations
+		GeoOperations
+		HyperLogLogOperations
+=========================
+Command line redis:
+	from the Redis root directory run: redis-cli
+		keys * // show all the keys in reids db
+		get <key>
+		del <key>
+		clear
+	
+Redis data structures
+	https://redis.io/docs/data-types/
+	
+	// <key> is often constructed such as: <table>:<id>
+	
+	String
+		Critical:
+			set <key> <value>  
+			get <key>
+		
+		Popular:
+			SET stores a string value, max len of 512 MB
+			SETNX stores a string value only if the key doesn't already exist. Useful for implementing locks.
+			GET retrieves a string value.
+			MGET retrieves multiple string values in a single operation.
+			INCRBY atomically increments (and decrements when passing a negative number) counters stored at a given key.
+			INCRBYFLOAT Another command exists for floating point counters: 
+		All: 
+			https://redis.io/commands/?group=string
+	
+	Lists
+		Redis lists are linked lists of string values
+		
+		Critical:
+			lpush <key> <value> ...
+			rpush <key> <value> ...
+			rpop <key>
+			lpop <key>
+			llen <key>
+			
+		Popular:
+			LPUSH adds a new element to the head of a list; RPUSH adds to the tail.
+			LPOP removes and returns an element from the head of a list; 
+			RPOPdoes the same but from the tails of a list.
+			LLEN returns the length of a list.
+			LMOVE atomically moves elements from one list to another.
+			LTRIM reduces a list to the specified range of elements.
+
+		All: https://redis.io/commands/?group=list
+		
+	Sets
+		A Redis set is an unordered collection of unique strings (members). 
+		
+		Critical:
+			sadd <key> <value>
+			sismember <key> <value>  // 1 | 0
+			
+		Popular:
+			SADD adds a new member to a set.
+			SREM removes the specified member from the set.
+			SISMEMBER tests a string for set membership.
+			SINTER returns the set of members that two or more sets have in common (i.e., the intersection).
+			SCARD returns the size (a.k.a. cardinality) of a set
+
+		All: https://redis.io/commands/?group=set
+	
+	Hashes
+		Redis hashes are record types structured as collections of field-value pairs.
+
+		Critical:
+			hset <key> <name> <value> ...
+			hget <key> <name>
+			hgetall <key>  // returns <name> <value> ...
+			
+		Popular:
+			HSET sets the value of one or more fields on a hash.
+			HGET returns the value at a given field.
+			HMGET returns the values at one or more given fields.
+			HINCRBY increments the value at a given field by the integer provided.
+
+		All: https://redis.io/commands/?group=hash
+		
+	Sorted Sets
+	Streams
+	Geospatial
+	HyperLogLog
+	Bitmaps
+	Bitfields
+	
+Redis Stack
+		Extends Redis with modern data models and processing engines
+		
+		Search - Redis module that enables querying, secondary indexing, and full-text search for Redis. 
+				 These features enable multi-field queries, aggregation, exact phrase matching, numeric filtering, 
+				 and geo filtering for text queries
+				 
+				 https://redis.io/docs/stack/search/
+				 
+		JSON -   The RedisJSON module provides JSON support for Redis. RedisJSON lets you store, update, and retrieve 
+		         JSON values in a Redis database, similar to any other Redis data type. RedisJSON also works seamlessly 
+				 with RediSearch to let you index and query JSON documents.	
+
+				 https://redis.io/docs/stack/json/
+				 
+	

@@ -44,6 +44,12 @@ Spring encryptors (encrypt / decrypt)
 		String encVal = bEnc.encrypt(valueToEncrypt.getBytes())
 		Strign valueToEncrypt2 = bEnc.decrypt(encVal)
 		
+Method Level Authorization
+	Annotate configuration file with:
+	@EnableGlobalMethodSecurity(prePostEnabled = true)
+	
+	On controller method annotate with:
+	@PreAuthorize("hasAnyAuthority('view')")  // also hasAuthority(...), hasRole(...) sets a prefix for the the content - the default one is ROLE_
 ==============================================
 // manually created thread will never automatically inherit SecurityContextHolder, use:
 DelegatingSecurityContextRunnable		
@@ -65,3 +71,6 @@ public String bye() {
 		e.shutdown();
 	}
 }
+
+===================================================================================
+C:\Program Files\Redis\redis-server.exe" --service-run "C:\Program Files\Redis\redis.windows-service.conf"
