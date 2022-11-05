@@ -1,7 +1,10 @@
 package com.cldbiz.security.config;
 
+import org.owasp.validator.html.AntiSamy;
+import org.owasp.validator.html.Policy;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -33,6 +36,16 @@ public class WebMvcConfiguration implements WebMvcConfigurer  {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**").allowedOrigins("*").allowedHeaders("*").allowedMethods("*");
+	}
+
+	@Bean
+	public AntiSamy antiSamy(final ApplicationContext ctx) {
+		try {
+			final Policy policy = Policy.getInstance(ctx.getResource("classpath:antisamy.xml").getFile());
+			return new AntiSamy(policy);
+		} catch (final Exception e) {
+			throw new IllegalStateException(e.getMessage(), e);
+		}
 	}
 
 	/* 

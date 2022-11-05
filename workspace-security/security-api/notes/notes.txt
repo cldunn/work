@@ -74,3 +74,6 @@ public String bye() {
 
 ===================================================================================
 C:\Program Files\Redis\redis-server.exe" --service-run "C:\Program Files\Redis\redis.windows-service.conf"
+===================================================================================
+
+when creating HttpServletRequestWrapper, when overriding getHeaders(), read enumeration for header, "process" each element and add to local list, then create new enumeration from list and return

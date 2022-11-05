@@ -16,7 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.cldbiz.security.filter.XssFilter;
 import com.cldbiz.security.spring.UserSecurityService;
 
 @Configuration
@@ -36,6 +38,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
         .antMatchers("/v1/getPublicKey").permitAll()
         .anyRequest().authenticated();
         // .and().requiresChannel().antMatchers("/v1/**").requiresSecure();
+        
+        http.addFilterBefore(new XssFilter(), UsernamePasswordAuthenticationFilter.class);
 	
     }
 	
