@@ -1,0 +1,1 @@
+..\..\bin\windows\kafka-run-class.bat kafka.tools.GetOffsetShell --broker-list localhost:9092  --topic %1  

@@ -1,2 +1,0 @@
-MY_HOME=WHATEVER
-echo "$MY_HOME"s
