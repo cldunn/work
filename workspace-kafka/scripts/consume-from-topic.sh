@@ -1,0 +1,1 @@
+../../tools/kafka_2.13-3.4.0/bin/kafka-console-consumer.sh --topic $1 --bootstrap-server localhost:9092

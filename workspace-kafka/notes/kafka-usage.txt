@@ -1,0 +1,98 @@
+TERMS
+	BROKER
+	TOPIC
+	PARTITION
+	PRODUCER
+	CONSUMER
+	CONSUMER GROUP
+	REPLICAS
+
+QUEUE VERSUS BROADCAST
+	For each partition in a topic	
+		Only one consumer in a consumer group can pull the message. But all consumer groups get the messages.
+
+	If you want each message processed by only one consumer, assign all consumers to one group. (QUEUE), 
+	
+		=> one consumer per partition = optimal parralellism for the topic
+
+	If you want all your consumers to get the messages, assign each consumer to a different group. (BROADCAST)
+
+Producer
+	1. define a topic, requires name, # of partitions, # of replicas (less than or equal to # of brokers)
+		TopicBuilder.name(myTopicName).partitions(3).replicas(1).build();
+		
+	2. define ProducerFactory
+		@Bean public ProducerFactory<K, V> xyzProducerFactory(...)
+		
+			// use ProducerConfig, JsonSerializer, ... keys values to 
+			// configure map of properties (BOOTSTRAP_SERVERS_CONFIG, KEY_SERIALIZER_CLASS_CONFIG, VALUE_SERIALIZER_CLASS_CONFIG, TYPE_MAPPINGS, ...)
+			return new DefaultKafkaProducerFactory<>(configProps);
+		
+		By default the DefaultKraftProducerFactory  will
+			1. pick partitioned by hashing message key
+			2. pick partition using Sticky Partitioner (Kafka ≥ 2.4)
+				a. “stick” to a partition until the batch is full or linger.ms has elapsed
+				b. After sending the batch, change the partition that is "sticky"
+			3. batch_size_config of 0 switches partitions after each request resulting in round robin
+		 *  
+		 *  sticky partition is more efficient than round robin, batch_size_config default is 16384
+		
+	3. define KafkaTemplate<K, V> using ProducerFactory<K, V>
+		@Bean public KafkaTemplate<K, V> xyzKafkaTemplate() {
+			return new KafkaTemplate<>(xyzProducerFactory(...));
+			
+	4. send message
+		// async version of try/catch
+		CompletableFuture<SendResult<K, V>> future = xyzKafkaTemplate.send(myTopicName, new V(...));
+		future.exceptionally(ex -> {
+			LOGGER.error(ex.getMessage());
+			throw new ApplicationException(ex.getMessage()).setStatusCode(HttpStatus.BAD_GATEWAY);
+		});
+			
+Consumer
+	1. enable listeners
+		@EnableKafka
+		@Configuration
+		public class KafkaConsumerConfig {
+
+	2. define ConsumerFactory
+		@Bean public ConsumerFactory<K, V> xyzConsumerFactory(...)
+			// use ConsumerConfig, JsonSerializer, ... keys values to 
+			// configure map of properties (BOOTSTRAP_SERVERS_CONFIG, GROUP_ID_CONFIG, KEY_SERIALIZER_CLASS_CONFIG, VALUE_SERIALIZER_CLASS_CONFIG, TYPE_MAPPINGS, ...)
+			return new DefaultKafkaConsumerFactory<>(configProps);
+			
+			// ALT KEY_SERIALIZER_CLASS_CONFIG, VALUE_SERIALIZER_CLASS_CONFIG for specific message types
+			// return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(Greeting.class));
+	
+	3. define ConcurrentKafkaListenerContainerFactory<K, V> for specific @KafkaListener, else uses default ConsumerFactory
+		@Bean public ConcurrentKafkaListenerContainerFactory<K, V> xyzKafkaListenerContainerFactory
+			ConcurrentKafkaListenerContainerFactory<K, V> factory = new ConcurrentKafkaListenerContainerFactory<>();
+			factory.setConsumerFactory(xyzConsumerFactory(...));
+			// factory.setRecordFilterStrategy(...);
+			
+			return factory;
+
+		Kafka places type information in header of message when using default consumer factory
+		
+	4. define RecordMessageConverter implementation for JsonDeserializer.class used in DefaultConsumerFacotry
+		@Bean public RecordMessageConverter multiTypeConverter() {
+			StringJsonMessageConverter converter = new StringJsonMessageConverter();
+            DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper(); // define mappings.put(v1, V1.class); ...
+			...
+			
+	5. recieve message(s)
+		@KafkaListener(topicPartitions = @TopicPartition(topic = ..., partitions = ...), groupId = ..., containerFactory = ...)
+		public void listenToV(V v, @Header(KafkaHeaders.RECEIVED_PARTITION) int partition) {
+			...
+			
+		@Component
+		@KafkaListener(id = ..., topics = ...)
+		public class MultiTypeKafkaListener {
+        
+			@KafkaHandler
+			public void handleV1(V1 v1) {...}
+			
+			...
+			
+			@KafkaHandler(isDefault = true)
+			public void unknown(Object object) {...)

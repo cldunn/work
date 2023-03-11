@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<!-- logging variables dervied from application.properties -->
+	<springProperty scope="context" name="loggingFile" source="logging.file" defaultValue="logs/kafka-producer.log"/>
+	<springProperty scope="context" name="rootLogLevel" source="root.log.level" defaultValue="ERROR"/>
+	<springProperty scope="context" name="appLogLevel" source="app.log.level" defaultValue="ERROR"/>
+	<springProperty scope="context" name="logFileSize" source="log.file.size" defaultValue="1048576"/>
+
+	<!-- CONSOLE appender -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- output format -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<Pattern>%-30(%d{yyyy-MM-dd HH:mm:ss} %-5level) --- [%thread] %logger{35} : %msg%n</Pattern>
+		</encoder>
+	</appender>
+	
+	<!-- FILE appender -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- output format -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%-30(%d{yyyy-MM-dd HH:mm:ss} %-5level) --- [%thread] %logger{35} : %msg%n</Pattern>
+		</encoder>
+		
+		<!-- relative output file pathname -->
+		<file>${loggingFile}</file>
+		
+		<!-- file count rollover policy -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${loggingFile}.%i</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		
+		<!-- size based rollover policy -->
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>${logFileSize}</maxFileSize>
+		</triggeringPolicy>
+		
+		<!-- filter goes here -->
+	</appender>
+	
+	<!-- define root log level for each appender -->
+	<root level="${rootLogLevel}">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILE"/>
+	</root>
+
+	<!-- refine log level per package for each appender -->
+	<!-- additivity="false" prohibits messages being printed twice by ancestor logger (eg. root) -->
+	<logger name="com.cldbiz.kafkaproducer.controller" level="${appLogLevel}" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILE"/>
+	</logger>
+</configuration>

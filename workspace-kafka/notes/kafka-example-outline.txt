@@ -1,0 +1,60 @@
+simpleTopic
+	one message to one consumer (sequence matters)
+		one partition to one consumer in one consumer group
+	
+partitionedQueueTopic
+	messages consumed as queue by multiple consumers
+		requries x + 2 partition and x + 2 consumers in the same consumer group
+	
+broadcastTopic
+	messages consumed as broadcast messages to multiple consumers
+		use partition(s) to y consumer where each consumer is in a different consumer group
+	
+entityTopic
+	send entity as message
+
+filteredEntityTopic
+	send entity as message but filter by entity attribute value
+
+mutiTypeTopic
+	send different entities	as message
+
+Producer
+	1. define a topic
+		
+	2. define ProducerFactory
+		@Bean public ProducerFactory<K, V> xyzProducerFactory(...)
+		
+	3. define KafkaTemplate<K, V> using ProducerFactory<K, V>
+		@Bean public KafkaTemplate<K, V> xyzKafkaTemplate() {...}
+		
+	4. send message
+		// async version of try/catch
+		CompletableFuture<SendResult<K, V>> future = xyzKafkaTemplate.send(myTopicName, new V(...));
+		future.exceptionally(ex -> {...});
+			
+Consumer
+	1. enable listeners
+		@EnableKafka
+		@Configuration
+		public class KafkaConsumerConfig {
+
+	2. define ConsumerFactory
+		@Bean public ConsumerFactory<K, V> xyzConsumerFactory(...)
+	
+	3. define ConcurrentKafkaListenerContainerFactory<K, V> for specific @KafkaListener, else uses default ConsumerFactory
+		@Bean public ConcurrentKafkaListenerContainerFactory<K, V> xyzKafkaListenerContainerFactory {...}
+
+	   define RecordMessageConverter implementation for JsonDeserializer.class used in DefaultConsumerFacotry
+		@Bean public RecordMessageConverter multiTypeConverter() {
+			
+	4. define listeners
+		@KafkaListener(topicPartitions = @TopicPartition(topic = ..., partitions = ...), groupId = ..., containerFactory = ...)
+		public void listenToV(V v, @Header(KafkaHeaders.RECEIVED_PARTITION) int partition) {...}
+			
+		@Component
+		@KafkaListener(id = ..., topics = ...)
+		public class MultiTypeKafkaListener {
+ 			@KafkaHandler
+			public void handleV1(V1 v1) {...}
+			

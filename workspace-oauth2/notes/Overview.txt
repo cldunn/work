@@ -1,0 +1,140 @@
+CORE COMPONENTS / DEFAULT CONFIGURATION
+	RegisteredClientRepository/Registered Client
+		=> client registration information, provides CRUD for domain object of registered client
+	OAuth2AuthorizationService/OAuth2Authorization
+		=> end result of an authorization, OAuth2Authorization persisted into the OAuth2AuthorizationService after authorization
+	OAuth2AuthorizationConsentService/OAuth2AuthorizationConsent 
+		=> for authorization approval phase, saves consent ???
+	JWKSource<SecurityContext>(Numbus API)
+		=> provider of keys for signing token
+	ProviderSettings
+		=> sets global settings for provider (customize endpoints, set token expiration time interval, ...)
+	OAuth2AuthorizationServerConfiguration/OAuth2AuthorizationServerConfigurer
+		=> provide default configuration of authorization server
+
+RegisteredClientRepository/Registered Client
+	RegistedClient
+		private String id;
+		private String clientId;
+		private Instant clientIdIssuedAt;
+		private String clientSecret;
+		private Instant clientSecretExpiresAt;
+		private String clientName;
+		private Set<ClientAuthenticationMethod> clientAuthenticationMethods;
+		private Set<AuthorizationGrantType> authorizationGrantTypes;
+		private Set<String> redirectUris;
+		private Set<String> scopes;
+		private ClientSettings clientSettings;
+		private TokenSettings tokenSettings;
+	
+		Eg.
+			clientSettings.isRequiredProofKey(boolean requiredProofKey) // indicated if PKCE is requried, possible alt to client secret is public
+			tokenSettings.authorizationCodeTimeToLive(Duration authorizationCodeTimeToLive)
+			tokenSettings.reuseRefreshTokens(boolean reuseRefreshTokens)
+		
+	RegisteredClientRepository
+		findByClientId(String clientId)
+		findById(String id)
+		save(RegisteredClient registeredClient)
+		
+	CREATE TABLE oauth2_registered_client (
+		id varchar(100) NOT NULL,
+		client_id varchar(100) NOT NULL,
+		client_id_issued_at timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
+		client_secret varchar(200) DEFAULT NULL,
+		client_secret_expires_at timestamp DEFAULT NULL,
+		client_name varchar(200) NOT NULL,
+		client_authentication_methods varchar(1000) NOT NULL,
+		authorization_grant_types varchar(1000) NOT NULL,
+		redirect_uris varchar(1000) DEFAULT NULL,
+		scopes varchar(1000) NOT NULL,
+		client_settings varchar(2000) NOT NULL,
+		token_settings varchar(2000) NOT NULL,
+		PRIMARY KEY (id)
+	);
+
+	* Alternative: Could create your own Redis Store
+	
+OAuth2AuthorizationService/OAuth2Authorization
+	OAuth2Authorization
+		private String id;
+		private String registeredClientId;
+		private String principalName;
+		private AuthorizationGrantType authorizationGrantType;
+		private Set<String> authorizedScopes;
+		private Map<Class<? extends OAuth2Token>, Token<?>> tokens;
+		private Map<String, Object> attributes;
+		
+	OAuth2AuthorizationService
+		findById(String id): OAuth2Authorization
+		findByToken(Strign token, OAuthTokenType tokenType)): OAuth2Authorization
+		remove(OAuth2Authorization authorization)
+		save(OAuth2Authorization authorization)
+		
+	CREATE TABLE oauth2_authorization (
+		id varchar(100) NOT NULL,
+		registered_client_id varchar(100) NOT NULL,
+		principal_name varchar(200) NOT NULL,
+		authorization_grant_type varchar(100) NOT NULL,
+		authorized_scopes varchar(1000) DEFAULT NULL,
+		attributes blob DEFAULT NULL,
+		state varchar(500) DEFAULT NULL,
+		authorization_code_value blob DEFAULT NULL,
+		authorization_code_issued_at timestamp DEFAULT NULL,
+		authorization_code_expires_at timestamp DEFAULT NULL,
+		authorization_code_metadata blob DEFAULT NULL,
+		access_token_value blob DEFAULT NULL,
+		access_token_issued_at timestamp DEFAULT NULL,
+		access_token_expires_at timestamp DEFAULT NULL,
+		access_token_metadata blob DEFAULT NULL,
+		access_token_type varchar(100) DEFAULT NULL,
+		access_token_scopes varchar(1000) DEFAULT NULL,
+		oidc_id_token_value blob DEFAULT NULL,
+		oidc_id_token_issued_at timestamp DEFAULT NULL,
+		oidc_id_token_expires_at timestamp DEFAULT NULL,
+		oidc_id_token_metadata blob DEFAULT NULL,
+		refresh_token_value blob DEFAULT NULL,
+		refresh_token_issued_at timestamp DEFAULT NULL,
+		refresh_token_expires_at timestamp DEFAULT NULL,
+		refresh_token_metadata blob DEFAULT NULL,
+		PRIMARY KEY (id)
+	);
+	
+JWKSource<SecurityContext>(Nimbus API)  // Numbus provider of keys for signing/verification key, nned to supply
+	@Bean
+	public JWKSource<SecurityContext> jwkSource() throws NoSuchAlgorithmException {
+		RSAKey rsaKey = generateRsa();
+		JWKSet jwkSet = new JWKSet(rsaKey);
+		return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
+	}
+			
+@Bean
+public ProviderSettings providerSettings() {
+	return ProviderSettings.builder()     // override endpoint defaults
+		.issuer("http://127.0.0.1:8080")  // eg. enable provider configuration endpoint
+		.build();
+}
+
+@Bean
+public TokenSettings tokenSettings() {
+	return TokenSettings.builder().accessTokenTimeToLive(Duration.ofMinutes(30L)).build();
+}
+			
+@Bean
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
+	/*
+	 * Authorization Endpoint               /oauth2/authorize
+	 * Token Endpoint                       /oauth2/token
+	 * Token Revocation                     /oath2/revoke
+	 * Token Introspection                  /oauth2/intorspect
+	 * JWK Set Enpoint                      /oauth2/jwks
+	 *
+	 * Because ProviderSettings.issuer(...) => client/resource server can fetch provider info to self configure
+	 * Authorization Server Metadata        /.well-known/oauth-authorization-server
+	 * OIDC Server Configuration            /.well-known/openid-configuration
+	*/
+	
+	applyDefaultSecurity(http);
+	return http.build();
+}

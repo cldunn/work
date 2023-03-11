@@ -1,0 +1,106 @@
+Full Stack OAuth 2 - With Spring Security / React / Angular - Part 2
+create react app: 21:00 - 29:00 minutes
+oath2 client w/ react: @ 41:00 - ? minutes
+
+App.js
+	...
+	<BrowserRouter>
+		<Routes>
+			<Route path="/home" element={<Home />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/redirect" element={<Redirect />} />
+			<Route path="/authorized" element={<Redirect link={ home } />} />
+		</Routes>
+	</BrowserRouter>
+	* react-router 6 uses useNavigate, not useHistory
+	
+Login.js
+	// challenge/verifier may need to go into useEffect
+	sessionStorage.setItem('codeVerifier', generateCodeVerifier());  // gens verifier and put in sessionStorage
+    sessionStorage.setItem('codeChallenge', generateCodeChallenge());  // gen challenge based upon verifier in sessionStorage
+	return ( <><Link to={'/redirect'}>Login</Link></> );
+	
+PKCE.js
+	import * as crypto from 'crypto-js';
+	import sha256 from 'crypto-js/sha256';
+	import Base64 from 'crypto-js/enc-base64';
+
+	const base64Url = (str) => {
+		return str.toString(Base64).replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+	}
+
+	const generateCodeVerifier = () => {
+		return base64Url(crypto.enc.Base64.stringify(crypto.lib.WordArray.random(32)));
+	}
+
+	const generateCodeChallenge = () => {
+		const codeVerifier = sessionStorage.getItem('codeVerifier');
+		return base64Url(sha256(codeVerifier));
+	}
+	
+Redirect.js	
+	useEffect(() => {
+        if(!searchParams?.get('code')){
+            const codeChallenge = sessionStorage.getItem('codeChallenge');
+            const link = `http://localhost:8080/oauth2/authorize?response_type=code&client_id=client&scope=openid&redirect_uri=http://127.0.0.1:3000/authorized&code_challenge=${codeChallenge}&code_challenge_method=S256`;
+            window.location.href = link;
+        }
+    }, []);
+	
+    useEffect(() => {
+        if(searchParams?.get('code')){
+            
+			const client = 'client';
+            const secret = 'secret';
+            const headers = new Headers();
+            headers.append('Content-type', 'application/json');
+            headers.append('Authorization', `Basic ${Buffer.from(`${client}:${secret}`).toString('base64')}`);
+
+            const code = searchParams?.get('code');
+            const verifier = sessionStorage.getItem('codeVerifier');
+			
+            // const initialUrl = 'http://localhost:8080/oauth2/token?client_id=client&redirect_uri=http://127.0.0.1:3000/authorized&grant_type=authorization_code';
+            // const url = `${initialUrl}&code=${code}&code_verifier=${verifier}`;
+			
+			const url = `http://localhost:8080/oauth2/token?client_id=client&redirect_uri=http://127.0.0.1:3000/authorized&grant_type=authorization_code&code=${code}&code_verifier=${verifier}`
+
+			// replace with slice "data"
+            fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                headers
+            }).then(async (response) => {
+                const token = await response.json();
+                if(token?.id_token) {
+                    sessionStorage.setItem('id_token', token.id_token);
+                    navigate('/home');
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
+    }, []);
+	
+Home.js	
+
+	const [demoStr, setDemoStr] = useState('default');
+    useEffect(() => {
+        const headers = new Headers();
+        
+		const token = sessionStorage.getItem('id_token');
+        headers.set('Authorization', `Bearer ${token}`);
+        headers.set('Content-type', 'plain/text');
+        
+		// replace with slice "data"
+		fetch('http://127.0.0.1:9000/demo', {
+            method: 'GET',
+            mode: 'cors',
+            headers
+        }).then(async (demoData) => {
+            const demo = await demoData.text();
+            setDemoStr(demo);
+        })
+
+    }, []);
+    
+	return <><div><p>{demoStr}</p></div></>;

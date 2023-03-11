@@ -1,0 +1,72 @@
+Customizing Authorization Configuration
+// Write your own configuration class with @Bean of custom SecurityFilterChain 
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
+	public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
+
+		OAuth2AuthorizationServerConfigurer authorizationServerConfigurer =
+				new OAuth2AuthorizationServerConfigurer();
+		RequestMatcher endpointsMatcher = authorizationServerConfigurer
+				.getEndpointsMatcher();
+		
+		// customization goes here, ie change endpoints
+		authorizationServerConfigurer.authorizationEndpoint(authorizationEndpoint -> 
+			authorizationEndpoint.authenticationProvider(authorizationEnpointAuthenticationProvider())
+			authorizationEndpoint.authoriztionResponseHandler(...)  // set the authorization response handler, eg. login form
+		);
+			
+			
+		http
+			.securityMatcher(endpointsMatcher)
+			.authorizeHttpRequests(authorize ->
+				authorize.anyRequest().authenticated()
+			)
+			.csrf(csrf -> csrf.ignoringRequestMatchers(endpointsMatcher))
+			.apply(authorizationServerConfigurer);
+	}
+	
+	private AuthenticationProvider authorizationEnpointAuthenticationProvider() {
+		...
+		// customizeauthenticationresolver with your own createDefaultAuthenticationValidatorResolver function
+		authorizationCodeRequestAuthenticationProvider.setAuthenticationValidatorResolver(
+			createDefaultAuthenticationValidatorResolver()
+		)
+		
+		return authorizationCodeRequestAuthenticationProvider;
+	}
+	
+	private static Function<String, OAuth2AuthentiationValidator> createDefaultAuthenticationValidatorResolver() {
+		...
+		authenticationValidators.put(OAuth2ParameterNames.REDIRECT_URI, new RedirectUriOAuth2AuthenticationValidator())
+		...
+	}
+	
+class RedirectUriOAuth2AuthenticationValidator implements OAuth2AUthenticationValidator {
+	// custom code goes here
+	@Override
+	public void validate(OAuth2AuthenticationContext authenticationContext) {
+		OAuth2AuthorizationCodeRequestAuthenticationToken authentication = authenticationContext.getAuthentication();
+		RegisteredClient registeredClient = Objects.requireNonNull(authentication.get(RegisteredClient.class);
+		
+		...
+			// bad, permits hijacking redirect uri
+			boolean noneMatch = registeredClient.getRedirectUris().stream().map(uri -> uri.replace("*", ".*")) 
+			
+			// redirect uri must match exactly
+			boolean noneMatch = registeredClient.getRedirectUris().stream().noneMatch(redirectUri:equals)
+			
+			if (noneMatch) {
+				OAuthError error = ...}
+		))
+	}
+}	
+
+also use unique redirect uri for each client (don't share)
+
+CUSTOMIZATION CLIENT AUTHENTICATION
+	Mutual-TLS Client Authentication - client bound access token via claims
+		client sends certificate to auth and resrc servers, 
+			auth server uses it to create thumb print and adds to token claims
+			resrc server uses it to create thumb print and compares it to one in claims
+			
+		same idea using certificate from resource server - only process if claims has my resrc thumb print

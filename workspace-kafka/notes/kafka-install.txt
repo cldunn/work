@@ -1,0 +1,106 @@
+KAFKA (kafka_2.13-3.4.0.tgz)
+
+set up JAVA in ubuntu
+	sudo apt install openjdk-17-jdk
+	export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+	export PATH=$PATH:$JAVA_HOME/bin
+
+
+download Kafka
+	=> https://www.apache.org/dyn/closer.cgi?path=/kafka/3.4.0/kafka_2.13-3.4.0.tgz
+	
+open download with winrar and install into tools
+rename directory from kafka_2.13-3.4.0 to just kafka 
+	although ./bin/windows use relative path (../..), the original name will interfere with full path used in cmd files (eg. ./scripts/windows)
+
+create kafka/scripts directory to create customized sh scripts to utilize ./bin scripts 	
+	** will run kraft version of kafka server (zookeeper + kafka is being deprecated)
+	from kafka/scripts directory
+		prepare kraft (from WSL (git bash or ubuntu)), THIS IS A ONE TIME OPERATION
+			"sh generate-uuid.sh" // generates a uuid
+				../bin/kafka-storage.sh random-uuid
+			"sh format-logs-dir.sh <uuid>"
+				../bin/kafka-storage.sh format -t $1 -c ../config/kraft/server.properties
+				
+		launch kafka
+			"sh launch-kr-kafka.sh"
+				../bin/kafka-server-start.sh ../config/kraft/server.properties
+		
+		enable outside programs to connect to Kafka running on WSL2	(see NOTE below), THIS IS A ONE TIME OPERATION
+			"sh enable-java-connections.sh"
+				sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+				sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+				
+		create topic (note: cannot have more replication factors than you have brokers)
+			"sh create-topic.sh <topicName>"
+				../bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic $1 --create --partitions 3 --replication-factor 1
+		
+		list topics
+			"sh list-topics.sh"
+				../bin/kafka-topics.sh --bootstrap-server localhost:9092 --list --exclude-internal
+				 
+		describe topic
+			"sh describe-topic.sh <topicName>"
+				../bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic $1
+				
+		delete topic 
+			"sh delete-topic.sh <topicName>"
+				../bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic $1
+
+		count messages in topic
+			"sh count-msg-topic.sh <topicName>"
+				../bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092  --topic $1 | awk -F  ":" '{sum += $3} END {print "Result: "sum}'
+				
+		send message to topic
+			"sh produce-to-topic.sh <topicName>
+				../bin/kafka-console-producer.sh --topic $1 --bootstrap-server localhost:9092
+				
+		recieve message from topic
+			"sh consume-from-topic.sh <topicName>"
+				../bin/kafka-console-consumer.sh --topic $1 --bootstrap-server localhost:9092
+				
+** Note: if using NotePad++ to create sh files to be run in wsl/unix enivornment,  you'll need to set EOL to Unix (LF) via menu choice: Edit -> EOL Conversion -> Unix (LF)
+
+run kafka as a windows service
+	create kafa/scripts/windows/launch-kr-kafka.cmd 
+		bash ../../bin/kafka-server-start.sh ../../config/kraft/server.properties
+		
+	use nssm to install launch-kr-kafka.cmd as a service
+		nssm install Kafka
+			From Application Tab: select Path in put as "kafa/scripts/windows/launch-kr-kafka.cmd"
+			From Log On Tab: enter Account/Password/Confirm as cliff/number1!es/number1!es 
+
+kafka/scripts/windows
+	can create *.cmd files that do similar things as shell scripts in /kafka/scripts/windows that use /kafka/bin/windows bat files
+		=> such files could be run from the windows command prompt instead of Wsl2/Ubuntu
+		=> such files have been created but deprecated and moved to kafka/scripts/windows/deprecated
+		=> special note: do not ever try build a cmd that deletes a topic from windows environment as it crashes the kafka server
+		
+	EXCEPTION: kafka/scripts/windows/launch-kr-kafka.cmd runs a bash command and allows kafka to be run as a windows service
+		bash ../../bin/kafka-server-start.sh ../../config/kraft/server.properties
+	
+NOTE:
+	WSL2 currently has a networking issue that prevents outside programs to connect to Kafka running on WSL2 (Ubuntu)
+	To fix this, we recommend disabling IPv6 on WSL2. Run the following from Ubuntu. Your password (number1!es) will be prompted on the first command:
+		sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+		sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+
+NSSM - the Non-Sucking Service Manager (downlaod from https://nssm.cc/download)  
+enables programatically install cmd/programs as services, including cmd files executing WSL bash program that run unix shell scripts
+
+Service installation
+	nssm install <servicename>
+	=> will recieve popup with tabs
+	Application tab
+		choose cmd/program from file system via Path input
+	Log on (for windows cmd/programs leave it as local system account, if running cmd to execute WSL bash to run unix shell script, must run from root as super user)
+		choose: Enter Account/password/Confirm as cliff/number1!es/number1!es (eg. ubuntu/wsl/unix super user)
+
+	By default the service's startup directory will be set to the directory containing the program. The startup directory can be overridden after the service has been installed.
+	=> nssm set <servicename> AppDirectory <path>
+
+Service removal
+	nssm remove <servicename>
+
+Kafka UI - Offset Explorer 2.0 (installed)

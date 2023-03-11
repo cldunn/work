@@ -1,0 +1,113 @@
+GRANT TYPE: authorization_code
+	user wants something from client
+	[client redirects to authorization server with PKCE challenger, authserver handles login (eg. http.formLogin()), alt; its own react login page with pub key]
+	=> client redirect url use oath code and PKCE challaenger
+	[client get pubKey from oauth server, returns username/enc(pwd) with PKCE challenger]
+	auth server returns authorization_code to client after successful login
+	client reutrns access_code to oauth server with authorization_code and PKCE verifier
+	auth server return access_token (with open connect => id token)
+	client can use access token to access resource server (ie. backend)
+
+AUTHORIZATION SERVER
+	// allow react app access, required on auth2 server and resource server	
+	@Component
+	public class CORSCustomizer {...}
+		
+	@Component
+	public class CustomAuthenticationProvider implements AuthenticationProvider {...}
+	
+	// USER AUTHENTICATION
+	@Configuration
+	WebSecurityConfig() {
+		@Autowired
+		private CustomAuthenticationProvider authProvider;
+		
+		@Bean 
+		public SecurityFilterChain securityUserFilterChain(HttpSecruity http) {...}  // Replace WebSecurityConfigAdapter
+		@Bean
+		public UserDetailsService userDetailsService() {...}
+		@Bean
+		public PasswordEncoder passwordEncoder()
+		@Bean
+		public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+			authenticationManagerBuilder.authenticationProvider(authProvider);
+	}
+	
+	// CLIENT AUTHENTICATION		
+	@Configuration
+	AuthorizationServerConfig() {
+		@Bean 
+		@Order(Ordered.HIGHEST_PRECEDENCE)
+		public SecurityFilterChain securityAuthFilterChain(HttpSecruity http) {
+			corsCustomizer.corsCustomizer(http);
+			
+		@Bean
+		public RegisteredClientRepository registeredClientRepository(JdbcTemplate jdbcTemplate) {...}
+			
+		@Bean
+		public TokenSettings tokenSettings() {...}
+		
+		@Bean
+		public ProviderSettings providerSettings() {...}
+		
+		@Bean
+		public JWKSource<SecurityContext> jwkSource() throws NoSuchAlgorithmException {...}
+		
+		@Bean
+		public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {...}
+	}
+	
+REACT CLIENT
+	App.js
+	<BrowserRouter>
+		<Routes>
+			<Route path="/redirect" element={<Redirect />} />
+	Login.js
+		// challenge/verifier may need to go into useEffect
+		sessionStorage.setItem('codeVerifier', generateCodeVerifier());
+		sessionStorage.setItem('codeChallenge', generateCodeChallenge());
+		navigate('/redirect');
+	Redirect.js	
+		useEffect(() => {
+			if(!searchParams?.get('code')){
+				window.location.href = `http://localhost:8080/oauth2/authorize?response_type=code&client_id=client&scope=openid&redirect_uri=http://127.0.0.1:3000/authorized&code_challenge=${codeChallenge}&code_challenge_method=S256`;
+		
+		useEffect(() => {
+			if(searchParams?.get('code')){
+				headers.append('Content-type', 'application/json');
+				headers.append('Authorization', `Basic ${Buffer.from(`${client}:${secret}`).toString('base64')}`);
+
+				const url = `http://localhost:8080/oauth2/token?client_id=client&redirect_uri=http://127.0.0.1:3000/authorized&grant_type=authorization_code&code=${code}&code_verifier=${verifier}`
+				fetch(url, {
+					method: 'POST',
+					mode: 'cors',
+					headers
+				}).then(async (response) => {
+					const token = await response.json();
+					if(token?.id_token) {
+						sessionStorage.setItem('id_token', token.id_token);
+						navigate('/home');
+					}
+	Home.js
+		useEffect(() => {
+			const headers = new Headers();
+			headers.set('Authorization', `Bearer ${sessionStorage.getItem('id_token')}`);
+			headers.set('Content-type', 'plain/text');
+			
+			// replace with slice "data"
+			fetch('http://127.0.0.1:9000/demo', {
+				method: 'GET',
+				mode: 'cors',
+				headers
+			}).then(async (demoData) => {...}
+
+RESOURCE SEVER
+	@RestController
+	public class DemoController {
+		@GetMapping("/demo")
+		public String demo() { return "Demo"; }
+
+	@Configuration
+	public class SecurityConfig {
+		@Bean
+		public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {...}

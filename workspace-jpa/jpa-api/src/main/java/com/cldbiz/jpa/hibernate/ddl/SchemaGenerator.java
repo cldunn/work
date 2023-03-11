@@ -28,25 +28,14 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-// import com.cldbiz.boot.config.BootConfig;
-// import com.cldbiz.boot.config.BootEnvironment;
-
 @Component
 public class SchemaGenerator {
 	
 	private static Properties props = new Properties();
 	
-	// private String dialect = env.getProperty("hibernate.dialect");
-
-    private String[] entityPackages;
+	private String[] entityPackages;
     private String entity;
  
-    /*
-    public SchemaGenerator dialect(String dialect) {
-        this.dialect = dialect;
-        return this;
-    }
- 	*/
     public SchemaGenerator entities(String... entityPackages) {
         this.entityPackages = entityPackages;
         return this;

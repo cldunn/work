@@ -1,0 +1,337 @@
+https://github.com/lspil/full_stack_oauth2
+
+workspace-oauth2 (grant type: authorization code)
+	user            // browser
+	client 			// UI react app; 
+	authorization
+		spring-boot-starter-web
+		spring-boot-starter-security
+		spring-security-oauth2-authorization-server
+		
+		spring-boot-starter-data-jpa    // clients, users, roles
+		...
+		
+		lombok
+		
+		
+		// USER AUTHENTICATION: authorizaation server authenticates the users - config spring security for users
+		@Configuration
+		WebSecurityConfig
+			@Autowired
+			private CustomAuthenticationProvider authProvider;
+	
+			@Bean 
+			public SecurityFilterChain securityUserFilterChain(HttpSecruity http) {...}  // Replace WebSecurityConfigAdapter
+			@Bean
+			public UserDetailsService userDetailsService() {...}
+			@Bean
+			public PasswordEncoder passwordEncoder()
+			@Bean
+			public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+				AuthenticationManagerBuilder authenticationManagerBuilder = 
+					http.getSharedObject(AuthenticationManagerBuilder.class);
+				authenticationManagerBuilder.authenticationProvider(authProvider);
+				return authenticationManagerBuilder.build();
+			}
+		}
+			
+		@Component
+		public class CustomAuthenticationProvider implements AuthenticationProvider {
+			@Override
+			public Authentication authenticate(Authentication authentication) 
+			throws AuthenticationException {
+ 
+				String name = authentication.getName();
+				String password = authentication.getCredentials().toString();
+				...
+			}
+			
+			@Override
+			public boolean supports(Class<?> authentication) {
+				return authentication.equals(UsernamePasswordAuthenticationToken.class);
+			}
+		
+		// allow react app access, required on auth2 server and resource server	
+		@Component
+		public class CORSCustomizer {
+			public void corsCustomizer(HttpSecurity http) throws Exception {  
+				http.cors(c -> {
+				  CorsConfigurationSource source = s -> {
+					CorsConfiguration cc = new CorsConfiguration();
+					cc.setAllowCredentials(true);
+					cc.setAllowedOrigins(List.of("http://127.0.0.1:3000"));
+					cc.setAllowedHeaders(List.of("*"));
+					cc.setAllowedMethods(List.of("*"));
+					return cc;
+				  };
+
+				  c.configurationSource(source);
+				});
+	
+		
+		// CLIENT AUTHENTICATION		
+		@Configuration
+		AuthorizationServerConfig
+			@Autowired
+			private final CORSCustomizer corsCustomizer;
+		
+			@Bean 
+			@Order(Ordered.HIGHEST_PRECEDENCE)
+			public SecurityFilterChain securityAuthFilterChain(HttpSecruity http) {  // Replace WebSecurityConfigAdapter
+				OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+				corsCustomizer.corsCustomizer(http);
+				return http.formLogin().and().build();
+			}
+			
+			/***********************************************************************
+			/* Authorization server uses RegisteredClient/RegisteredClientRepository, 
+			/* => contract defining client like UserDetails/UserDetailsService	
+			/***********************************************************************
+			@Bean
+			public RegisteredClientRepository registeredClientRepository(JdbcTemplate jdbcTemplate) {
+				/* BREAK DOWN OF CLIENT
+				RegisteredClient registeredClient = RegisteredClient
+					.withId(UUID.randomUUID().toString()) // random id for DB
+					.clientId("client")                   // principal of client
+					.clientSecret("secret")               // credentials of client
+					.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)  // define type of authentication expected
+					.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)           // grant type accepted
+					.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)                // grant type accepted
+					.redirectUri("http://127.0.0.1:3000/authorized") // uri to redirect to client after successful login
+					.scope(OidcScopes.OPENID)                        // tells oauth server to use set of rules for this protocal
+					.clientSettings(ClientSettings.builder()         // set client features
+						.requireAuthorizationConsent(true)           // if authorization consent is required when the client requests access
+						.build())                      
+					.tokenSettings(TokenSettings.builder()                        // set token features
+						.accessTokenTimeToLive(Duration.ofMinutess(10)).build())  // ie. life span of access token
+						.refreshTokenTimeToLive(Duration.ofMinutes(30)).build())  // ie. life span of refresh token
+						.build();
+				*/
+				JdbcRegisteredClientRepository registeredClientRepository = new JdbcRegisteredClientRepository(jdbcTemplate);
+				return registeredClientRepository;  // save(RegisteredClient rc), findById(String id), findByClientId(String clientId)returns Client
+			}
+			
+			/* DOMAIN 
+			RegisteredClient
+				private String id;
+				private String clientId;
+				private Instant clientIdIssuedAt;
+				private String clientSecret;
+				private Instant clientSecretExpiresAt;
+				private String clientName;
+				private Set<ClientAuthenticationMethod> clientAuthenticationMethods;  // CLIENT_SECRET_BASIC, CLIENT_SECRET_JWT, CLIENT_SECRET_POST, NONE, PRIVATE_KEY_JWT
+				private Set<AuthorizationGrantType> authorizationGrantTypes;  // AUTHORIZATION_CODE, CLIENT_CREDENTIALS, JWT_BEARER, PASSWORD
+				private Set<String> redirectUris;
+				private Set<String> scopes;  	//OidcScopes.OPENID
+				private ClientSettings clientSettings;
+					ClientSettings
+						getJwkSetUrl(): Returns the URL for the Client's JSON Web Key Set
+						getTokenEndpointAuthenticationSigningAlgorithm(): JWS algorithm used for signing the JWT, authenticate Client at Token Endpoint for private_key_jwt/client_secret_jwt authentication methods.
+						isRequireAuthorizationConsent(): true if authorization consent is required when the client requests access.
+						isRequireProofKey():  true if the client is required to provide challenger / verifier (PKCE) for Authorization Code Grant flow.
+						withSettings(Map<String,Object> settings): Constructs a new ClientSettings.Builder with the provided settings.
+						builder(): Constructs a new ClientSettings.Builder with the default settings.
+							jwkSetUrl(String jwkSetUrl)
+							requireAuthorizationConsent(boolean requireAuthorizationConsent)
+							requireProofKey(boolean requireProofKey)
+							tokenEndpointAuthenticationSigningAlgorithm(JwsAlgorithm authenticationSigningAlgorithm)
+				private TokenSettings tokenSettings;
+					TokenSettings
+						getAuthorizationCodeTimeToLive(): Duration 
+						getAccessTokenTimeToLive(): Duration 
+						getAccessTokenFormat(): OAuth2TokenFormat 
+						isReuseRefreshTokens(): boolean 
+						getRefreshTokenTimeToLive(): Duration
+						getIdTokenSignatureAlgorithm(): SignatureAlgorithm
+						builder: Builder 
+							authorizationCodeTimeToLive(Duration.ofMinutes(5))
+							accessTokenTimeToLive(Duration.ofMinutes(5))
+							accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED)
+							reuseRefreshTokens(true)
+							refreshTokenTimeToLive(Duration.ofMinutes(60))
+							idTokenSignatureAlgorithm(SignatureAlgorithm.RS256);
+			*/
+			
+			@Bean
+			public TokenSettings tokenSettings() {
+				return TokenSettings.builder().accessTokenTimeToLive(Duration.ofMinutes(30L)).build();
+			}
+			
+			/*****************************************************************************
+			/* ProviderSettings - gives detials about endpoints for the authorization server
+			/* - endpoints
+			/* - issuer
+			/*****************************************************************************
+			@Bean
+			public ProviderSettings providerSettings() {
+				/*
+					getIssuer()
+					getAuthorizationEndpoint()
+					getTokenEndpoint
+					getJwkSetEndpoint
+					getTokenRevocationEndpoint
+				*/
+				return ProviderSettings.builder()     // override endpoint defaults
+					// customize the authorization endpoint
+					.issuer("http://127.0.0.1:8080")  // eg. enable provider configuration endpoint
+					.build();
+			}
+ 
+			/****************************************************************************
+			/* bean for asymetric key pair(s) for signing of the token, 
+			/* authorization server uses private key to sign tokesn, 
+			/* resource server uses public key to validate token ???
+			/*
+			/* Json Web Token is the token (JWT)
+			/* Composed of 3 Base64 encodings separated by dots
+			/*		Header:
+			/*		Body:
+			/*		Signature: - hash generated based on header and body
+			/*
+			/* Need to define asymetric key pair(s) for spring to use for encryption/decryption	
+			/*		JWKSource -R SA key pair(s)
+			/****************************************************************************
+			@Bean
+			public JWKSource<SecurityContext> jwkSource() throws NoSuchAlgorithmException {
+				RSAKey rsaKey = generateRsa();
+				JWKSet jwkSet = new JWKSet(rsaKey);
+				return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
+			}
+ 
+			private static RSAKey generateRsa() throws NoSuchAlgorithmException {
+				KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+				keyPairGenerator.initialize(2048);
+
+				KeyPair keyPair = keyPairGenerator.generateKeyPair();
+				RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+				RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+ 				return new RSAKey.Builder(publicKey).privateKey(privateKey).keyID(UUID.randomUUID().toString()).build();
+			}
+ 
+			@Bean
+			public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
+				return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
+			}
+ 
+ 
+ 
+		https://github.com/spring-projects/spring-authorization-server/tree/main/oauth2-authorization-server/src/main/resources/org/springframework/security/oauth2/server/authorization
+			client/oauth2-registered-client-schema.sql
+			oauth2-authorization-consent-schema.sql
+			oauth2-authorization-schema.sql
+				
+		CREATE TABLE oauth2_authorization (
+			id varchar(100) NOT NULL,
+			registered_client_id varchar(100) NOT NULL,
+			principal_name varchar(200) NOT NULL,
+			authorization_grant_type varchar(100) NOT NULL,
+			attributes blob DEFAULT NULL,
+			state varchar(500) DEFAULT NULL,
+			authorization_code_value blob DEFAULT NULL,
+			authorization_code_issued_at timestamp DEFAULT NULL,
+			authorization_code_expires_at timestamp DEFAULT NULL,
+			authorization_code_metadata blob DEFAULT NULL,
+			access_token_value blob DEFAULT NULL,
+			access_token_issued_at timestamp DEFAULT NULL,
+			access_token_expires_at timestamp DEFAULT NULL,
+			access_token_metadata blob DEFAULT NULL,
+			access_token_type varchar(100) DEFAULT NULL,
+			access_token_scopes varchar(1000) DEFAULT NULL,
+			oidc_id_token_value blob DEFAULT NULL,
+			oidc_id_token_issued_at timestamp DEFAULT NULL,
+			oidc_id_token_expires_at timestamp DEFAULT NULL,
+			oidc_id_token_metadata blob DEFAULT NULL,
+			refresh_token_value blob DEFAULT NULL,
+			refresh_token_issued_at timestamp DEFAULT NULL,
+			refresh_token_expires_at timestamp DEFAULT NULL,
+			refresh_token_metadata blob DEFAULT NULL,
+			PRIMARY KEY (id)
+		);		
+		
+		/well-known/openid-configuration  // uri to get spring oauth2 openid endpoints via postman
+
+	RESOURCE SERVER         // oauth2-api
+	takes "kid" from jwt and get public key from 
+	@RestController
+	public class DemoController {
+		@GetMapping("/demo")
+		public String demo() { return "Demo"; }
+	}
+	
+	@Configuration
+	public class SecurityConfig {
+		@Bean
+		public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		
+			// fix react-ui/resource-server CORS
+			http.cors(c -> {
+			  CorsConfigurationSource source = s -> {
+				CorsConfiguration cc = new CorsConfiguration();
+				cc.setAllowCredentials(true);
+				cc.setAllowedOrigins(List.of("http://127.0.0.1:3000"));
+				cc.setAllowedHeaders(List.of("*"));
+				cc.setAllowedMethods(List.of("*"));
+				return cc;
+			  };
+
+			  c.configurationSource(source);
+			});
+			
+			// get keys form oauth endpoint and authorized requests
+			return http.oauth2ResourceServer(j -> j.jwt().jwkSetUri("http://127.0.0.1:8080/oauth2/jwks")).authorizeRequests().anyRequest().authenticated().and().build();
+
+END: 1:10 Full Stack OAuth 2 - With Spring Security / React / Angular - Part 1  // skip angular part
+			
+	REACT UI
+		npx create-react-app oauth2-react
+	
+		npm i --save-dev react-router react-router-dom
+		
+		App.js
+			import {BrowserRouter, Routes, Route } from 'react-router-dom';
+			import Login from './components/Login';
+			
+			funtnction App() {
+				return (
+					<div className="App">
+						<BrowserRouter>
+							<Routes>
+								<Route path="/login" element={<Login />} />
+								<Route path="/home" element={<Home />} />
+								<Route path="/redirect" element={<Redirect />} />
+				..	
+				
+		Login.ts
+			const Login = () => {
+				return <Link to={"/redirect"}>Login</Link>
+			}
+			
+			export default Login;
+		Home.ts
+			const Home = () => {
+				
+			}
+			
+			export default Home;
+		Redirect.ts
+			const codeChallenge='QYPAZ5NU8yvtlQ9erXrUYR-T5AGCjCF47vN-KsaI2A8';
+			const authorizeLink = 'http://localhost:8080/oauth2/authorize?response_type=code&client_id=client&scope=openid&' +
+								  'redirect_uri=http://127.0.0.1:3000/authorized&code_challenge={codeChallenge}&code_challenge_method=S256';
+							
+			const code = 'MJ5WmUiOAnVFHi9BS6PS5dqHvO56fHkQVqR8gUg-yOmpgohvsFmH4xU6lFcwwDN0nkAcYdldOROnhAhf0cDROu-PgSup94fx28geM4p08TSEZ_c9c9vkL_yy34WBfnyY''
+			const codeVerifier='qPsH306-ZDDaOE8DFzVn05TkN3ZZoVmI_6x4LsVglQI';
+			const tokenLink = 'http://localhost:8080/oauth2/token?client_id=client&redirect_uri=http://127.0.0.1:3000/authorized&grant_type=authorization_code&code=${code}&code_verifier=${codeVerifier}';
+
+			const Redirect = () => {
+				
+			}
+			
+			export default Redirect;
+			
+jwt.io - website to transalate jwt body into json			
+	 extract "kid" form jwt header and get pubKey from auth server JWKSource
+	 
+	 http://localhost:8080/well-know/openid-configuration via postman
+		=> get keyset endpoint  // jwks_uri from json body
+		=> request the keyset endpoint via postman, body should have same "kid" form json header
+		

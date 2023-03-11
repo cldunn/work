@@ -19,7 +19,7 @@
 	<description>Security project for Spring Boot</description>
 	
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<jackson.version>2.13.1</jackson.version>
 		<springfox.version>3.0.0</springfox.version>
 		<swagger-codegen-maven-plugin.version>3.0.21</swagger-codegen-maven-plugin.version>
